@@ -18,12 +18,14 @@ function loadConfig() {
     }
     $id('power-save').checked = config.powerSave
     $id('vk-enabled').checked = config.vkEnabled
+    $id('trigger-swap').checked = config.triggerSwap
 }
 loadConfig()
 
 function uiSaveConfig() {
     config.powerSave = !!($id('power-save').checked)
     config.vkEnabled = !!($id('vk-enabled').checked)
+    config.triggerSwap = !!($id('trigger-swap').checked)
     window.localStorage['config'] = JSON.stringify(config)
 }
 
@@ -177,6 +179,10 @@ function emuRunFrame() {
 
     if (config.powerSave) {
         Module._runFrame(0, keyMask, touched, touchX, touchY)
+    }
+    if (config.triggerSwap) {
+        vkMap['l'].style = makeVKStyle(offTop, 2, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
+        vkMap['r'].style = makeVKStyle(offTop, 2, vkw * 0.85, vkh * 0.85, fontSize * 0.85,)
     }
     Module._runFrame(1, keyMask, touched, touchX, touchY)
 
