@@ -361,11 +361,9 @@ function uiAdjustVKLayout() {
     $id('vk-menu').style.bottom = '0';
     $id('vk-menu').style.left = '50%';
     $id('vk-menu').style.transformOrigin = 'bottom center';
-    $id('vk-menu').style.marginLeft = '-' + (vkw / 4) + 'px';
-    $id('vk-menu').style.marginBottom = '-' + (vkh / 2) + 'px';
+    $id('vk-menu').style.marginLeft = '-' + (vkw * 0.375) + 'px';
+    $id('vk-menu').style.marginBottom = '-' + (vkh * 0.75) + 'px';
     $id('vk-menu').style.marginTop = 'auto';
-
-
 
 
     offTop += baseSize * 0.62
