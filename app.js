@@ -376,7 +376,7 @@ function uiAdjustVKLayout() {
     vkw = baseSize * 1.0
     vkh = baseSize * 1.0
     offLeft = 0
-    $id('vk-stick').style = makeVKStyle(offTop + abxyHeight / 2 - vkh / 2, offLeft + abxyHeight / 2 - vkw / 2, vkw, vkh, fontSize)
+    $id('vk-stick').style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.85 / 2, offLeft + abxyHeight / 2 - vkw * 0.85 / 2, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
     vkStickPos = [offTop + abxyHeight / 2, offLeft + abxyHeight / 2, vkw, vkh, fontSize]
 
     vkw = baseSize * 0.4
