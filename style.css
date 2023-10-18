@@ -68,7 +68,7 @@ a:visited {
 .vk-rectangle {
 	text-align: center;
 	vertical-align: middle;
-	border-radius: 32.5% !important;
+	border-radius: 4% !important;
 	display: inline-block;
 }
 .vk-round {
