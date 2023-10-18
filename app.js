@@ -353,25 +353,31 @@ function uiAdjustVKLayout() {
     vkw = baseSize * 1.5
     vkh = baseSize * 0.6
     fontSize = baseSize * 0.5
-    vkMap['l'].style = makeVKStyle(offTop, 0, vkw, vkh, fontSize)
-    vkMap['r'].style = makeVKStyle(offTop, window.innerWidth - vkw, vkw, vkh, fontSize)
-    $id('vk-menu').style = makeVKStyle(offTop, window.innerWidth / 2 - vkw / 2, vkw, vkh, fontSize)
+    vkMap['l'].style = makeVKStyle(offTop, 0, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
+    vkMap['r'].style = makeVKStyle(offTop, window.innerWidth - vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0.85,)
+    $id('vk-menu').style = makeVKStyle(offTop, window.innerWidth / 2 - vkw / 2, vkw, vkh, fontSize);
+    $id('vk-menu').style.position = 'fixed';
+    $id('vk-menu').style.transform = 'scale(0.65)';
+    $id('vk-menu').style.top = '0';
+    $id('vk-menu').style.left = '50%';
+    $id('vk-menu').style.transform += ' translateX(-75%)';
 
 
     offTop += baseSize * 0.62
     vkw = baseSize
     vkh = baseSize
     offLeft = window.innerWidth - abxyWidth
-    vkMap['a'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh / 2, offLeft + abxyWidth - vkw, vkw, vkh, fontSize)
-    vkMap['b'].style = makeVKStyle(offTop + abxyHeight - vkh, offLeft + abxyWidth / 2 - vkw / 2, vkw, vkh, fontSize)
-    vkMap['x'].style = makeVKStyle(offTop, offLeft + abxyWidth / 2 - vkw / 2, vkw, vkh, fontSize)
-    vkMap['y'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh / 2, offLeft, vkw, vkh, fontSize)
+    vkMap['a'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth - vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
+    vkMap['b'].style = makeVKStyle(offTop + abxyHeight - vkh * 0.85, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
+    vkMap['x'].style = makeVKStyle(offTop, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
+    vkMap['y'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
 
+    
     vkw = baseSize * 1.0
     vkh = baseSize * 1.0
     offLeft = 0
-    $id('vk-stick').style = makeVKStyle(offTop + abxyHeight / 2 - vkh / 2, offLeft + abxyHeight / 2 - vkw / 2, vkw, vkh, fontSize)
-    vkStickPos = [offTop + abxyHeight / 2, offLeft + abxyHeight / 2, vkw, vkh, fontSize]
+    $id('vk-stick').style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.85 / 2, offLeft + abxyHeight / 2 - vkw * 0.85 / 2, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
+    vkStickPos = [offTop + abxyHeight / 2, offLeft + abxyHeight / 2, vkw * 0.85, vkh * 0.85, fontSize * 0.85]
 
     vkw = baseSize * 0.4
     vkh = baseSize * 0.4
