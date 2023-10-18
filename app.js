@@ -367,6 +367,7 @@ function uiAdjustVKLayout() {
 
 
 
+
     offTop += baseSize * 0.62
     vkw = baseSize
     vkh = baseSize
