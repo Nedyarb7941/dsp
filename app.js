@@ -360,7 +360,7 @@ function uiAdjustVKLayout() {
     $id('vk-menu').style.transform = 'scale(0.65)';
     $id('vk-menu').style.top = '0';
     $id('vk-menu').style.left = '50%';
-    $id('vk-menu').style.transform += 'translateX(-50%)';
+    $id('vk-menu').style.transform += 'translateX(-42.5%)';
 
 
     offTop += baseSize * 0.62
