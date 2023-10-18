@@ -772,8 +772,7 @@ function whatsNew() {
     alert(`
 1. Improve auto-save, export/import save.
 2. Add gamepad guide.
-3. Add link to gba player.
-4. Cheat support. (Early Access)
+3. Added Menu button for gamepads (longpress left trigger).
 `)
 }
 
