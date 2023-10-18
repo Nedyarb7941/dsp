@@ -174,7 +174,6 @@ function emuRunFrame() {
         keyMask |= 1 << 14
     }
 
-
     if (config.powerSave) {
         Module._runFrame(0, keyMask, touched, touchX, touchY)
     }
