@@ -387,25 +387,30 @@ function uiAdjustVKLayout() {
 }
 
 function uiUpdateLayout() {
-    isLandscape = window.innerWidth > window.innerHeight
-    var maxWidth = window.innerWidth
-    var maxHeight = window.innerHeight / 2
-    var w = maxWidth
-    var h = w / 256 * 192
-    if (h > maxHeight) {
-        h = maxHeight
-        w = h / 192 * 256
-    }
-    var left = 0
-    left += (window.innerWidth - w) / 2;
-    var top = 0
+  isLandscape = window.innerWidth > window.innerHeight;
+  var maxWidth = window.innerWidth;
+  var maxHeight = window.innerHeight / 2;
+  var w, h, left, top;
 
-    fbSize = [[w, h], [w, h]]
-    for (var i = 0; i < 2; i++) {
-        screenCanvas[i].style = 'left:' + left + 'px;top:' + top + "px;width:" + w + "px;height:" + h + "px;"
-        top += h
-    }
-    uiAdjustVKLayout()
+  if (screenLayout === 'lbr') {
+    w = maxWidth;
+    h = maxHeight;
+    left = 0;
+    top = 0;
+  } else {
+    w = 256;
+    h = 192;
+    left = (window.innerWidth - w) / 2;
+    top = 0;
+  }
+
+  fbSize = [[w, h], [w, h]];
+  for (var i = 0; i < 2; i++) {
+    screenCanvas[i].style = 'left:' + left + 'px;top:' + top + 'px;width:' + w + 'px;height:' + h + 'px;';
+    top += h;
+  }
+
+  uiAdjustVKLayout();
 }
 
 
