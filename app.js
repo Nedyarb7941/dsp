@@ -401,7 +401,7 @@ function uiUpdateLayout() {
     w = 256;
     h = 192;
     left = (window.innerWidth - w) / 2;
-    top = 0;
+    top = (maxHeight - h) / 2;
   }
 
   fbSize = [[w, h], [w, h]];
