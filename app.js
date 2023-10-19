@@ -382,7 +382,7 @@ function uiAdjustVKLayout() {
     vkw = baseSize * 0.4
     vkh = baseSize * 0.4
     fontSize = baseSize * 0.4
-    vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 1.5 - vkw * 0.05 - vkw * 0.05, vkw, vkh, fontSize)
+    vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 1.5 - vkw * 0.05 - vkw * 0.025, vkw, vkh, fontSize)
     vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 1.5 - vkw * 0.05 - vkw * 0.05, vkw, vkh, fontSize)
 }
 
