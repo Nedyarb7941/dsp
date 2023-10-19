@@ -742,16 +742,23 @@ window.addEventListener("gamepadconnected", function (e) {
     $id('a-gamepad').innerText = 'Gamepad connected'
 
     var menuOpen = false;
+    var lastTriggerTime = 0;
+    var triggerCooldown = 500; // Half a second in milliseconds
 
     function checkGamepadState() {
-        var gamepad = navigator.getGamepads()[currentConnectedGamepad];
-        if (gamepad) {
-            if (!menuOpen && (gamepad.buttons[6].pressed || gamepad.buttons[7].pressed || (gamepad.buttons[2].pressed && gamepad.buttons[4].pressed && gamepad.buttons[5].pressed))) {
-                uiSwitchTo('menu');
-                menuOpen = true;
-            } else if (menuOpen && (gamepad.buttons[6].pressed || gamepad.buttons[7].pressed || (gamepad.buttons[2].pressed && gamepad.buttons[4].pressed && gamepad.buttons[5].pressed))) {
-                uiMenuBack();
-                menuOpen = false;
+        var currentTime = Date.now();
+        if (currentTime - lastTriggerTime >= triggerCooldown) {
+            var gamepad = navigator.getGamepads()[currentConnectedGamepad];
+            if (gamepad) {
+                if (!menuOpen && (gamepad.buttons[6].pressed || gamepad.buttons[7].pressed || (gamepad.buttons[2].pressed && gamepad.buttons[4].pressed && gamepad.buttons[5].pressed))) {
+                    uiSwitchTo('menu');
+                    menuOpen = true;
+                    lastTriggerTime = currentTime;
+                } else if (menuOpen && (gamepad.buttons[6].pressed || gamepad.buttons[7].pressed || (gamepad.buttons[2].pressed && gamepad.buttons[4].pressed && gamepad.buttons[5].pressed))) {
+                    uiMenuBack();
+                    menuOpen = false;
+                    lastTriggerTime = currentTime;
+                }
             }
         }
         requestAnimationFrame(checkGamepadState);
