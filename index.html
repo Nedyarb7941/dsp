@@ -148,39 +148,42 @@
                     requestAnimationFrame(gamepadLoop);
                </script>
 	       <script>
-		// Add a global variable to store the selected screen layout
-                var screenLayout = 'tb';
+		document.addEventListener('DOMContentLoaded', function() {
+	       
+		  // Add a global variable to store the selected screen layout
+                  var screenLayout = 'tb';
 
-                // Add an event listener to handle the screen layout selection
-                document.getElementById('screen-layout').addEventListener('change', function() {
-                  screenLayout = this.value;
-                  updateScreenLayout();
-                });
+                  // Add an event listener to handle the screen layout selection
+                  document.getElementById('screen-layout').addEventListener('change', function() {
+                    screenLayout = this.value;
+                    updateScreenLayout();
+                  });
 
-                // Define a function to update the screen layout based on the selected option
-                function updateScreenLayout() {
-                  var topCanvas = document.getElementById('top');
-                  var bottomCanvas = document.getElementById('bottom');
+                  // Define a function to update the screen layout based on the selected option
+                  function updateScreenLayout() {
+                    var topCanvas = document.getElementById('top');
+                    var bottomCanvas = document.getElementById('bottom');
 
-                  if (screenLayout === 'lbr') {
-                    topCanvas.style.width = '100%';
-                    topCanvas.style.height = '100%';
-                    bottomCanvas.style.position = 'absolute';
-                    bottomCanvas.style.top = '0';
-                    bottomCanvas.style.left = '0';
-                    bottomCanvas.style.width = '50%';
-                    bottomCanvas.style.height = '50%';
-                  } else {
-                    topCanvas.style.width = '256px';
-                    topCanvas.style.height = '192px';
-                    bottomCanvas.style.position = 'static';
-                    bottomCanvas.style.width = '256px';
-                    bottomCanvas.style.height = '192px';
+                    if (screenLayout === 'lbr') {
+                      topCanvas.style.width = '100%';
+                      topCanvas.style.height = '100%';
+                      bottomCanvas.style.position = 'absolute';
+                      bottomCanvas.style.top = '0';
+                      bottomCanvas.style.left = '0';
+                      bottomCanvas.style.width = '50%';
+                      bottomCanvas.style.height = '50%';
+                    } else {
+                      topCanvas.style.width = '256px';
+                      topCanvas.style.height = '192px';
+                      bottomCanvas.style.position = 'static';
+                      bottomCanvas.style.width = '256px';
+                      bottomCanvas.style.height = '192px';
+                    }
                   }
-                }
 
-                // Call the updateScreenLayout function initially to set the default layout
-                updateScreenLayout();
+                  // Call the updateScreenLayout function initially to set the default layout
+                  updateScreenLayout();
+		});
 	       </script>
 	</body>
 </html>
