@@ -358,9 +358,9 @@ function uiAdjustVKLayout() {
     $id('vk-menu').style = makeVKStyle(offTop, window.innerWidth / 2 - vkw / 2, vkw, vkh, fontSize);
     $id('vk-menu').style.position = 'fixed';
     $id('vk-menu').style.transform = 'scale(0.7)';
-    $id('vk-menu').style.top = '-100';
+    $id('vk-menu').style.top = '0';
     $id('vk-menu').style.left = '50%';
-    $id('vk-menu').style.transform += ' translateX(-70%)';
+    $id('vk-menu').style.transform += ' translateY(-100%)';
 
 
     offTop += baseSize * 0.62
@@ -382,7 +382,7 @@ function uiAdjustVKLayout() {
     vkw = baseSize * 0.4
     vkh = baseSize * 0.4
     fontSize = baseSize * 0.4
-    vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 1.5 - vkw * 0.05, vkw, vkh, fontSize)
+    vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 1.5 - vkw * 0.1, vkw, vkh, fontSize)
     vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 1.5 - vkw * 0.05 - vkw * 0.05, vkw, vkh, fontSize)
 }
 
