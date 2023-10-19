@@ -740,6 +740,18 @@ window.addEventListener("gamepadconnected", function (e) {
     showMsg('Gamepad connected.')
     currentConnectedGamepad = e.gamepad.index
     $id('a-gamepad').innerText = 'Gamepad connected'
+
+    function checkGamepadState() {
+        var gamepad = navigator.getGamepads()[currentConnectedGamepad];
+        if (gamepad) {
+            if (gamepad.buttons[6].pressed) { // Replace 6 with the correct button index for "7"
+                uiSwitchTo('menu');
+            }
+        }
+        requestAnimationFrame(checkGamepadState);
+    }
+
+    checkGamepadState();
 });
 
 function processGamepadInput() {
