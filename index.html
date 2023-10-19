@@ -106,8 +106,7 @@
 		<script src="Nostlan_ds_player.js"></script>
 		<script>
                  var gamepadIndex = 0; // Change this value if you have multiple gamepads connected
-                 var isLeftTriggerPressed = false;
-		 var isRightTriggerPressed = false;
+                 var isTriggerPressed = false;
                  var isWaiting = false;
 
                  window.addEventListener("gamepadconnected", function(e) {
@@ -117,10 +116,9 @@
                  function gamepadLoop() {
                   var gamepad = navigator.getGamepads()[gamepadIndex];
                   if (gamepad) {
-                    var leftTriggerState = gamepad.buttons[6].pressed; // Change the index to match the left trigger button on your gamepad
-                    var rightTriggerState = gamepad.buttons[7].pressed;
-		    if (leftTriggerState && !isLeftTriggerPressed && !isWaiting) {
-                      isLeftTriggerPressed = true;
+                    var currentState = gamepad.buttons[6].pressed; // Change the index to match the left trigger button on your gamepad
+                    if (currentState && !isTriggerPressed && !isWaiting) {
+                      isTriggerPressed = true;
                       setTimeout(function() {
                        if (gamepad.buttons[6].pressed) {
                          if (document.getElementById("menu").style.display === "block") {
@@ -129,26 +127,7 @@
 				 uiSwitchTo("menu");
 			 }
                         }
-                        isLeftTriggerPressed = false;
-                        isWaiting = true;
-                        setTimeout(function() {
-                         isWaiting = false;
-                        }, 500); // Wait for an additional 0.5 seconds before updating again
-                       }, 500); // Wait for 0.5 seconds before checking if the trigger is still pressed
-                      }
-                     }
-                    }
-                    if (rightTriggerState && !isRightTriggerPressed && !isWaiting) {
-                      isRightTriggerPressed = true;
-                      setTimeout(function() {
-                       if (gamepad.buttons[7].pressed) {
-                         if (document.getElementById("menu").style.display === "block") {
-				 uiMenuBack();
-			 } else {
-				 uiSwitchTo("menu");
-			 }
-                        }
-                        isRightTriggerPressed = false;
+                        isTriggerPressed = false;
                         isWaiting = true;
                         setTimeout(function() {
                          isWaiting = false;
