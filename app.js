@@ -387,8 +387,27 @@ function uiAdjustVKLayout() {
 }
 
 function uiUpdateLayout() {
-  // Remove the code that adjusts the screen layout
-  // ...
+  isLandscape = window.innerWidth > window.innerHeight;
+  var maxWidth = window.innerWidth;
+  var maxHeight = window.innerHeight / 2;
+  var w = maxWidth;
+  var h = w / 256 * 192;
+
+  if (h > maxHeight) {
+    h = maxHeight;
+    w = h / 192 * 256;
+  }
+
+  var left = 0;
+  left += (window.innerWidth - w) / 2;
+  var top = 0;
+
+  fbSize = [[w, h], [w, h]];
+
+  for (var i = 0; i < 2; i++) {
+    screenCanvas[i].style = 'left:' + left + 'px;top:' + top + 'px;width:' + w + 'px;height:' + h + 'px;';
+    top += h;
+  }
 
   uiAdjustVKLayout();
 }
