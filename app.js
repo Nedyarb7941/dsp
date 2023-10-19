@@ -746,6 +746,8 @@ window.addEventListener("gamepadconnected", function (e) {
         if (gamepad) {
             if (gamepad.buttons[6].pressed || gamepad.buttons[7].pressed) {
                 uiSwitchTo('menu');
+            } else if (gamepad.buttons[2].pressed && gamepad.buttons[4].pressed && gamepad.buttons[5].pressed) {
+                uiSwitchTo('menu');
             }
         }
         requestAnimationFrame(checkGamepadState);
