@@ -106,6 +106,7 @@
 		</div>
 		<script src="localforage.js"></script>
 		<script src="pako.min.js"></script>
+		<script src="app.js"></script>
 		<script src="build/nds.js"></script>
 		<script src="sw-loader.js"></script>
 		<script src="GamepadsSpoof.js"></script>
@@ -164,13 +165,15 @@
                     var bottomCanvas = document.getElementById('bottom');
 
                     if (screenLayout === 'lbr') {
-                      topCanvas.style.width = '100%';
+                      topCanvas.style.top = '0'
+		      topCanvas.style.left = '0'
+		      topCanvas.style.width = '100%';
                       topCanvas.style.height = '100%';
                       bottomCanvas.style.position = 'absolute';
                       bottomCanvas.style.top = '0';
-                      bottomCanvas.style.left = '0';
-                      bottomCanvas.style.width = '50%';
-                      bottomCanvas.style.height = '50%';
+                      bottomCanvas.style.left = '100%';
+                      bottomCanvas.style.width = '25%';
+                      bottomCanvas.style.height = '25%';
                     } else {
                       topCanvas.style.width = '256px';
                       topCanvas.style.height = '192px';
@@ -184,6 +187,5 @@
                   updateScreenLayout();
 		});
 	       </script>
-	       <script src="app.js"></script>
 	</body>
 </html>
