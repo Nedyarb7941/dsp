@@ -801,10 +801,8 @@ function processGamepadInput() {
 
 function whatsNew() {
     alert(`
-1. Improve auto-save, export/import save.
-2. Add gamepad guide.
-3. Add link to gba player.
-4. Cheat support. (Early Access)
+1. Improved vk (virtual keyboard) placement and size.
+2. Added gamepad menu button (left trigger, right trigger, left shoulder + right shoulder + left face button [x or y, depending on controller])
 `)
 }
 
