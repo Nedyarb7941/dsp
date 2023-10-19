@@ -387,38 +387,8 @@ function uiAdjustVKLayout() {
 }
 
 function uiUpdateLayout() {
-  isLandscape = window.innerWidth > window.innerHeight;
-  var maxWidth = window.innerWidth;
-  var maxHeight = window.innerHeight / 2;
-  var w, h, left, top;
-
-  if (screenLayout === 'lbr') {
-    w = maxWidth;
-    h = w / 256 * 192;
-    if (h > maxHeight) {
-      h = maxHeight;
-      w = h / 192 * 256;
-    }
-    left = 0;
-    top = 0;
-  } else {
-    w = maxWidth;
-    h = w / 256 * 192;
-    if (h > maxHeight) {
-      h = maxHeight;
-      w = h / 192 * 256;
-    }
-    left = (window.innerWidth - w) / 2;
-    top = (window.innerHeight - h) / 2;
-  }
-
-  fbSize = [[w, h], [w, h]];
-  for (var i = 0; i < 2; i++) {
-    screenCanvas[i].style = 'left:' + left + 'px;top:' + top + 'px;width:' + w + 'px;height:' + h + 'px;';
-  }
-
-  var vkLayer = document.getElementById('vk-layer');
-  vkLayer.style = 'left: 0; top: 0; width: 100%; height: 100%;';
+  // Remove the code that adjusts the screen layout
+  // ...
 
   uiAdjustVKLayout();
 }
