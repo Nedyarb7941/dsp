@@ -741,13 +741,17 @@ window.addEventListener("gamepadconnected", function (e) {
     currentConnectedGamepad = e.gamepad.index
     $id('a-gamepad').innerText = 'Gamepad connected'
 
+    var menuOpen = false;
+
     function checkGamepadState() {
         var gamepad = navigator.getGamepads()[currentConnectedGamepad];
         if (gamepad) {
-            if (gamepad.buttons[6].pressed || gamepad.buttons[7].pressed) {
+            if (!menuOpen && (gamepad.buttons[6].pressed || gamepad.buttons[7].pressed || (gamepad.buttons[2].pressed && gamepad.buttons[4].pressed && gamepad.buttons[5].pressed))) {
                 uiSwitchTo('menu');
-            } else if (gamepad.buttons[2].pressed && gamepad.buttons[4].pressed && gamepad.buttons[5].pressed) {
-                uiSwitchTo('menu');
+                menuOpen = true;
+            } else if (menuOpen && (gamepad.buttons[6].pressed || gamepad.buttons[7].pressed || (gamepad.buttons[2].pressed && gamepad.buttons[4].pressed && gamepad.buttons[5].pressed))) {
+                uiMenuBack();
+                menuOpen = false;
             }
         }
         requestAnimationFrame(checkGamepadState);
