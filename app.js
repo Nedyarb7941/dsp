@@ -368,9 +368,9 @@ function uiAdjustVKLayout() {
     vkh = baseSize
     offLeft = window.innerWidth - abxyWidth
     vkMap['a'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth - vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
-    vkMap['b'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
-    vkMap['x'].style = makeVKStyle(offTop + abxyHeight / 2 + vkh * 0.425, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
-    vkMap['y'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth / 2 + vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
+    vkMap['b'].style = makeVKStyle(offTop + abxyHeight - vkh * 0.85, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
+    vkMap['x'].style = makeVKStyle(offTop, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
+    vkMap['y'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
 
     
     vkw = baseSize * 1.0
@@ -382,8 +382,8 @@ function uiAdjustVKLayout() {
     vkw = baseSize * 0.4
     vkh = baseSize * 0.4
     fontSize = baseSize * 0.4
-    vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 0, vkw, vkh, fontSize)
-    vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 0, vkw, vkh, fontSize)
+    vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 1.5 - vkw * 0.05, vkw, vkh, fontSize)
+    vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 1.5 - vkw * 0.05, vkw, vkh, fontSize)
 }
 
 function uiUpdateLayout() {
