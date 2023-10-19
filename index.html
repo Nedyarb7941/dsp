@@ -118,7 +118,7 @@
                   var gamepad = navigator.getGamepads()[gamepadIndex];
                   if (gamepad) {
                     var leftTriggerState = gamepad.buttons[6].pressed; // Change the index to match the left trigger button on your gamepad
-                    var leftTriggerState = gamepad.buttons[7].pressed;
+                    var rightTriggerState = gamepad.buttons[7].pressed;
 		    if (leftTriggerState && !isLeftTriggerPressed && !isWaiting) {
                       isLeftTriggerPressed = true;
                       setTimeout(function() {
