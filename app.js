@@ -413,7 +413,6 @@ function uiUpdateLayout() {
   uiAdjustVKLayout();
 }
 
-
 function uiSwitchTo(mode) {
     if (mode == uiCurrentMode) {
         return
