@@ -85,6 +85,13 @@
 			<input type="checkbox" id="vk-enabled" />
 			<label for="vk-enabled">Virtual keyboard</label><br />
 			<hr />
+			<hr />
+                        <label for="screen-layout">Screen Layout:</label>
+                        <select id="screen-layout">
+                        <option value="tb">T:B (Top:Bottom)</option>
+                        <option value="lbr">LB:R (LeftBig:Right)</option>
+                        </select>
+                        <hr />
 			<div id="menu-savegame" hidden>
 				<input type="file" id="restore-file" onchange="uiSaveRestore()" hidden />
 				Save Data: <button onclick="uiSaveBackup()">↓ Export</button>|<button onclick="$id('restore-file').click()">
@@ -122,10 +129,10 @@
                       setTimeout(function() {
                        if (gamepad.buttons[6].pressed) {
                          if (document.getElementById("menu").style.display === "block") {
-				 uiMenuBack();
+		 		 uiMenuBack();
 			 } else {
 				 uiSwitchTo("menu");
-			 }
+		 	 }
                         }
                         isTriggerPressed = false;
                         isWaiting = true;
@@ -139,6 +146,41 @@
                     }
 
                     requestAnimationFrame(gamepadLoop);
-                   </script>
+               </script>
+	       <script>
+		// Add a global variable to store the selected screen layout
+                var screenLayout = 'tb';
+
+                // Add an event listener to handle the screen layout selection
+                document.getElementById('screen-layout').addEventListener('change', function() {
+                  screenLayout = this.value;
+                  updateScreenLayout();
+                });
+
+                // Define a function to update the screen layout based on the selected option
+                function updateScreenLayout() {
+                  var topCanvas = document.getElementById('top');
+                  var bottomCanvas = document.getElementById('bottom');
+
+                  if (screenLayout === 'lbr') {
+                    topCanvas.style.width = '100%';
+                    topCanvas.style.height = '100%';
+                    bottomCanvas.style.position = 'absolute';
+                    bottomCanvas.style.top = '0';
+                    bottomCanvas.style.left = '0';
+                    bottomCanvas.style.width = '50%';
+                    bottomCanvas.style.height = '50%';
+                  } else {
+                    topCanvas.style.width = '256px';
+                    topCanvas.style.height = '192px';
+                    bottomCanvas.style.position = 'static';
+                    bottomCanvas.style.width = '256px';
+                    bottomCanvas.style.height = '192px';
+                  }
+                }
+
+                // Call the updateScreenLayout function initially to set the default layout
+                updateScreenLayout();
+	       </script>
 	</body>
 </html>
