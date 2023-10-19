@@ -1,191 +1,188 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<meta
-			name="viewport"
-			content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height"
-		/>
-		<link rel="manifest" href="manifest.json" />
-		<link rel="apple-touch-icon" href="icon.png" />
-		<link rel="preload" href="audio-worklet.js" as="script" />
-		<link href="dark.css" rel="stylesheet" />
-		<link rel="stylesheet" href="style.css" />
-		<title>DS Player</title>
-	</head>
 
-	<body>
-		<div id="welcome" class="menu">
-			<h1>DS Player</h1>
-			<div id="loading">Loading...</div>
-			<div id="loadrom" hidden>
-				<input id="rom" type="file" hidden />
-				<button style="width: calc(100% - 2em); margin: 1em" id="btn-choose-file">Choose File (or drag/drop)...</button
-				><br />
-			</div>
-			<p style="color: #888">
-				This software should not be used to play games you have not legally obtained.<br />
-				This site is in no way associated with any of the vendors of the original game software and hardware.
-				<br />
-			</p>
+<head>
+	<meta charset="utf-8" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="viewport"
+		content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+	<link rel="manifest" href="manifest.json" />
+	<link rel="apple-touch-icon" href="icon.png" />
+	<link rel="preload" href="audio-worklet.js" as="script" />
+	<link href="dark.css" rel="stylesheet" />
+	<link rel="stylesheet" href="style.css" />
+	<title>DS Player</title>
+</head>
+
+<body>
+	<div id="welcome" class="menu">
+		<h1>DS Player</h1>
+		<div id="loading">Loading...</div>
+		<div id="loadrom" hidden>
+			<input id="rom" type="file" hidden />
+			<button style="width: calc(100% - 2em); margin: 1em" id="btn-choose-file">Choose File (or
+				drag/drop)...</button><br />
+		</div>
+		<p style="color: #888">
+			This software should not be used to play games you have not legally obtained.<br />
+			This site is in no way associated with any of the vendors of the original game software and hardware.
+			<br />
+		</p>
+		<hr />
+		<p>
+			Ver. 20231019 - Oct. 19, 5:12 PM (EST) <a onclick="whatsNew()" href="#">What's New</a>&nbsp;|&nbsp;<a
+				href="#" onclick="uiSwitchTo('menu')">⚙ Settings...</a>
+		</p>
+		<p id="p-sns">
+			<a href="/vba">GBA Player</a>
+		</p>
+		<p>
+			<a href="https://www.patreon.com/posts/63984675">Help</a>&nbsp;|&nbsp;<a href="#" id="a-gamepad">Gamepad
+				Disconnected</a>
+		</p>
+		<div id="pro" style="background-color: #333"></div>
+		<div id="ios-hint" hidden>
+			Due to iOS Safari limitations, you have to add this page to your <b>Home Screen</b> in order to save your
+			game
+			progress.
+			<p style="text-align: center">⬇⬇</p>
+		</div>
+		<div id="mac-warning" hidden>
+			WARNING:<br />
+			It looks like you are using macOS.<br />
+			Due to macOS Safari <a href="https://webkit.org/tracking-prevention/">limitations</a>, ALL of you save data
+			will
+			be LOST after 7 days of inactivity.<br />
+			For this reason, it is highly recommended to use a different browser. (For example:
+			<a href="https://www.google.com/chrome/">Chrome</a>)
+		</div>
+	</div>
+	<div id="vk-layer" hidden>
+		<div class="vk-rectangle vk" data-k="menu" id="vk-menu">M</div>
+		<div class="vk-rectangle vk" data-k="l">L</div>
+		<div class="vk-rectangle vk" data-k="r">R</div>
+		<div class="vk-round vk" data-k="a">A</div>
+		<div class="vk-round vk" data-k="b">B</div>
+		<div class="vk-round vk" data-k="x">X</div>
+		<div class="vk-round vk" data-k="y">Y</div>
+		<div class="vk-rect vk" data-k="select">-</div>
+		<div class="vk-rect vk" data-k="start">+</div>
+		<div class="vk-round vk" data-k="stick" id="vk-stick"></div>
+	</div>
+	<div style="z-index: 2; position: absolute; bottom: 20px" id="fps"></div>
+	<div id="msg-layer" hidden>
+		<p id="msg-text"></p>
+	</div>
+	<div id="menu" hidden>
+		<button onclick="uiMenuBack()">❮ Back</button>
+		<hr />
+		<input type="checkbox" id="power-save" />
+		<label for="power-save">Power-save mode</label><br />
+		<input type="checkbox" id="vk-enabled" />
+		<label for="vk-enabled">Virtual keyboard</label><br />
+		<label for="screen-layout">Screen Layout:</label>
+		<select id="screen-layout">
+			<option value="tb">T:B (Top:Bottom)</option>
+			<option value="lbr">LB:R (LeftBig:Right)</option>
+		</select>
+		<hr />
+		<div id="menu-savegame" hidden>
+			<input type="file" id="restore-file" onchange="uiSaveRestore()" hidden />
+			Save Data: <button onclick="uiSaveBackup()">↓ Export</button>|<button onclick="$id('restore-file').click()">
+				↑ Import
+			</button>
 			<hr />
-			<p>
-				Ver. 20231019 - Oct. 19, 5:12 PM (EST) <a onclick="whatsNew()" href="#">What's New</a>&nbsp;|&nbsp;<a
-					href="#"
-					onclick="uiSwitchTo('menu')"
-					>⚙ Settings...</a
-				>
-			</p>
-			<p id="p-sns">
-				<a href="/vba">GBA Player</a>
-			</p>
-			<p>
-				<a href="https://www.patreon.com/posts/63984675">Help</a>&nbsp;|&nbsp;<a href="#" id="a-gamepad"
-					>Gamepad Disconnected</a
-				>
-			</p>
-			<div id="pro" style="background-color: #333"></div>
-			<div id="ios-hint" hidden>
-				Due to iOS Safari limitations, you have to add this page to your <b>Home Screen</b> in order to save your game
-				progress.
-				<p style="text-align: center">⬇⬇</p>
-			</div>
-			<div id="mac-warning" hidden>
-				WARNING:<br />
-				It looks like you are using macOS.<br />
-				Due to macOS Safari <a href="https://webkit.org/tracking-prevention/">limitations</a>, ALL of you save data will
-				be LOST after 7 days of inactivity.<br />
-				For this reason, it is highly recommended to use a different browser. (For example:
-				<a href="https://www.google.com/chrome/">Chrome</a>)
-			</div>
 		</div>
-		<div id="vk-layer" hidden>
-			<div class="vk-rectangle vk" data-k="menu" id="vk-menu">M</div>
-			<div class="vk-rectangle vk" data-k="l">L</div>
-			<div class="vk-rectangle vk" data-k="r">R</div>
-			<div class="vk-round vk" data-k="a">A</div>
-			<div class="vk-round vk" data-k="b">B</div>
-			<div class="vk-round vk" data-k="x">X</div>
-			<div class="vk-round vk" data-k="y">Y</div>
-			<div class="vk-rect vk" data-k="select">-</div>
-			<div class="vk-rect vk" data-k="start">+</div>
-			<div class="vk-round vk" data-k="stick" id="vk-stick"></div>
-		</div>
-		<div style="z-index: 2; position: absolute; bottom: 20px" id="fps"></div>
-		<div id="msg-layer" hidden>
-			<p id="msg-text"></p>
-		</div>
-		<div id="menu" hidden>
-			<button onclick="uiMenuBack()">❮ Back</button>
-			<hr />
-			<input type="checkbox" id="power-save" />
-			<label for="power-save">Power-save mode</label><br />
-			<input type="checkbox" id="vk-enabled" />
-			<label for="vk-enabled">Virtual keyboard</label><br />
-			<hr />
-			<hr />
-                        <label for="screen-layout">Screen Layout:</label>
-                        <select id="screen-layout">
-                        <option value="tb">T:B (Top:Bottom)</option>
-                        <option value="lbr">LB:R (LeftBig:Right)</option>
-                        </select>
-                        <hr />
-			<div id="menu-savegame" hidden>
-				<input type="file" id="restore-file" onchange="uiSaveRestore()" hidden />
-				Save Data: <button onclick="uiSaveBackup()">↓ Export</button>|<button onclick="$id('restore-file').click()">
-					↑ Import
-				</button>
-				<hr />
-			</div>
-		</div>
-		<div id="player" hidden>
-			<canvas id="top" width="256" height="192"></canvas>
-			<canvas id="bottom" width="256" height="192"></canvas>
-		</div>
-		<script src="localforage.js"></script>
-		<script src="pako.min.js"></script>
-		<script src="app.js"></script>
-		<script src="build/nds.js"></script>
-		<script src="sw-loader.js"></script>
-		<script src="GamepadsSpoof.js"></script>
-		<script src="Nostlan_ds_player.js"></script>
-		<script>
-                 var gamepadIndex = 0; // Change this value if you have multiple gamepads connected
-                 var isTriggerPressed = false;
-                 var isWaiting = false;
+	</div>
+	<div id="player" hidden>
+		<canvas id="top" width="256" height="192"></canvas>
+		<canvas id="bottom" width="256" height="192"></canvas>
+	</div>
+	<script src="localforage.js"></script>
+	<script src="pako.min.js"></script>
+	<script src="app.js"></script>
+	<script src="build/nds.js"></script>
+	<script src="sw-loader.js"></script>
+	<script src="GamepadsSpoof.js"></script>
+	<script src="Nostlan_ds_player.js"></script>
+	<script>
+		var gamepadIndex = 0; // Change this value if you have multiple gamepads connected
+		var isTriggerPressed = false;
+		var isWaiting = false;
 
-                 window.addEventListener("gamepadconnected", function(e) {
-                  console.log("Gamepad connected!");
-                 });
-
-                 function gamepadLoop() {
-                  var gamepad = navigator.getGamepads()[gamepadIndex];
-                  if (gamepad) {
-                    var currentState = gamepad.buttons[6].pressed; // Change the index to match the left trigger button on your gamepad
-                    if (currentState && !isTriggerPressed && !isWaiting) {
-                      isTriggerPressed = true;
-                      setTimeout(function() {
-                       if (gamepad.buttons[6].pressed) {
-                         if (document.getElementById("menu").style.display === "block") {
-		 		 uiMenuBack();
-			 } else {
-				 uiSwitchTo("menu");
-		 	 }
-                        }
-                        isTriggerPressed = false;
-                        isWaiting = true;
-                        setTimeout(function() {
-                         isWaiting = false;
-                        }, 500); // Wait for an additional 0.5 seconds before updating again
-                       }, 500); // Wait for 0.5 seconds before checking if the trigger is still pressed
-                      }
-                     }
-                     requestAnimationFrame(gamepadLoop);
-                    }
-
-                    requestAnimationFrame(gamepadLoop);
-               </script>
-	       <script>
-		document.addEventListener('DOMContentLoaded', function() {
-	       
-		  // Add a global variable to store the selected screen layout
-                  var screenLayout = 'tb';
-
-                  // Add an event listener to handle the screen layout selection
-                  document.getElementById('screen-layout').addEventListener('change', function() {
-                    screenLayout = this.value;
-                    updateScreenLayout();
-                  });
-
-                  // Define a function to update the screen layout based on the selected option
-                  function updateScreenLayout() {
-                    var topCanvas = document.getElementById('top');
-                    var bottomCanvas = document.getElementById('bottom');
-
-                    if (screenLayout === 'lbr') {
-                      topCanvas.style.top = '0'
-		      topCanvas.style.left = '0'
-		      topCanvas.style.width = '75%';
-                      topCanvas.style.height = '75%';
-                      bottomCanvas.style.position = 'absolute';
-                      bottomCanvas.style.top = '0';
-                      bottomCanvas.style.left = '75%';
-                      bottomCanvas.style.width = '25%';
-                      bottomCanvas.style.height = '25%';
-                    } else {
-                      topCanvas.style.width = '256px';
-                      topCanvas.style.height = '192px';
-                      bottomCanvas.style.position = 'static';
-                      bottomCanvas.style.width = '256px';
-                      bottomCanvas.style.height = '192px';
-                    }
-                  }
-
-                  // Call the updateScreenLayout function initially to set the default layout
-                  updateScreenLayout();
+		window.addEventListener("gamepadconnected", function (e) {
+			console.log("Gamepad connected!");
 		});
-	       </script>
-	</body>
+
+		function gamepadLoop() {
+			var gamepad = navigator.getGamepads()[gamepadIndex];
+			if (gamepad) {
+				var currentState = gamepad.buttons[6].pressed; // Change the index to match the left trigger button on your gamepad
+				if (currentState && !isTriggerPressed && !isWaiting) {
+					isTriggerPressed = true;
+					setTimeout(function () {
+						if (gamepad.buttons[6].pressed) {
+							if (document.getElementById("menu").style.display === "block") {
+								uiMenuBack();
+							} else {
+								uiSwitchTo("menu");
+							}
+						}
+						isTriggerPressed = false;
+						isWaiting = true;
+						setTimeout(function () {
+							isWaiting = false;
+						}, 500); // Wait for an additional 0.5 seconds before updating again
+					}, 500); // Wait for 0.5 seconds before checking if the trigger is still pressed
+				}
+			}
+			requestAnimationFrame(gamepadLoop);
+		}
+
+		requestAnimationFrame(gamepadLoop);
+	</script>
+	<script>
+		// Add a global variable to store the selected screen layout
+		var screenLayout = 'tb';
+		document.addEventListener('DOMContentLoaded', function () {
+
+
+
+			// Add an event listener to handle the screen layout selection
+			document.getElementById('screen-layout').addEventListener('change', function () {
+				screenLayout = this.value;
+				updateScreenLayout();
+			});
+
+			// Define a function to update the screen layout based on the selected option
+			function updateScreenLayout() {
+				var topCanvas = document.getElementById('top');
+				var bottomCanvas = document.getElementById('bottom');
+
+				if (screenLayout === 'lbr') {
+					topCanvas.style.top = '0'
+					topCanvas.style.left = '0'
+					topCanvas.style.width = '75%';
+					topCanvas.style.height = '85%';
+					bottomCanvas.style.position = 'absolute';
+					bottomCanvas.style.top = '0';
+					bottomCanvas.style.left = '75%';
+					bottomCanvas.style.width = '25%';
+					bottomCanvas.style.height = '35%';
+				} else {
+					topCanvas.style.width = '256px';
+					topCanvas.style.height = '192px';
+					bottomCanvas.style.position = 'static';
+					bottomCanvas.style.width = '256px';
+					bottomCanvas.style.height = '192px';
+				}
+			}
+
+			// Call the updateScreenLayout function initially to set the default layout
+			updateScreenLayout();
+		});
+	</script>
+</body>
+
 </html>

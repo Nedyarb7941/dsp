@@ -372,7 +372,7 @@ function uiAdjustVKLayout() {
     vkMap['x'].style = makeVKStyle(offTop, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
     vkMap['y'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
 
-    
+
     vkw = baseSize * 1.0
     vkh = baseSize * 1.0
     offLeft = 0
@@ -387,29 +387,33 @@ function uiAdjustVKLayout() {
 }
 
 function uiUpdateLayout() {
-  isLandscape = window.innerWidth > window.innerHeight;
-  var maxWidth = window.innerWidth;
-  var maxHeight = window.innerHeight / 2;
-  var w = maxWidth;
-  var h = w / 256 * 192;
+    
+        isLandscape = window.innerWidth > window.innerHeight;
+        var maxWidth = window.innerWidth;
+        var maxHeight = window.innerHeight / 2;
+        var w = maxWidth;
+        var h = w / 256 * 192;
 
-  if (h > maxHeight) {
-    h = maxHeight;
-    w = h / 192 * 256;
-  }
+        if (h > maxHeight) {
+            h = maxHeight;
+            w = h / 192 * 256;
+        }
 
-  var left = 0;
-  left += (window.innerWidth - w) / 2;
-  var top = 0;
+        var left = 0;
+        left += (window.innerWidth - w) / 2;
+        var top = 0;
 
-  fbSize = [[w, h], [w, h]];
+        fbSize = [[w, h], [w, h]];
+        if (screenLayout === 'lbr') {
 
-  for (var i = 0; i < 2; i++) {
-    screenCanvas[i].style = 'left:' + left + 'px;top:' + top + 'px;width:' + w + 'px;height:' + h + 'px;';
-    top += h;
-  }
-
-  uiAdjustVKLayout();
+        } else {
+        for (var i = 0; i < 2; i++) {
+            screenCanvas[i].style = 'left:' + left + 'px;top:' + top + 'px;width:' + w + 'px;height:' + h + 'px;';
+            top += h;
+        }
+    }
+        
+        uiAdjustVKLayout();
 }
 
 
@@ -837,7 +841,7 @@ function enableMicrophone() {
                 var buf = e.inputBuffer.getChannelData(0) // 48000Hz mono float
                 // Convert to 16000Hz 7bit mono PCM
                 var dstPtr = 0;
-                for (var i = 0; i <= 2045; i+=3) {
+                for (var i = 0; i <= 2045; i += 3) {
                     var val = Math.floor(((buf[i] + buf[i + 1] + buf[i + 2]) / 3 + 1) * 64)
                     if (val > 127) {
                         val = 127
@@ -856,6 +860,6 @@ function enableMicrophone() {
                 }
             }
             scriptNode.connect(audioCtx.destination);
-           
+
         });
 }
