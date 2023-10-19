@@ -744,7 +744,7 @@ window.addEventListener("gamepadconnected", function (e) {
     function checkGamepadState() {
         var gamepad = navigator.getGamepads()[currentConnectedGamepad];
         if (gamepad) {
-            if (gamepad.buttons[6].pressed) { // Replace 6 with the correct button index for "7"
+            if (gamepad.buttons[6].pressed || gamepad.buttons[7].pressed) {
                 uiSwitchTo('menu');
             }
         }
