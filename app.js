@@ -406,6 +406,8 @@ function uiUpdateLayout() {
         fbSize = [[w, h], [w, h]];
         if (screenLayout === 'lbr') {
 
+        } else if (screenLayout === 'lr') {
+
         } else {
         for (var i = 0; i < 2; i++) {
             screenCanvas[i].style = 'left:' + left + 'px;top:' + top + 'px;width:' + w + 'px;height:' + h + 'px;';
