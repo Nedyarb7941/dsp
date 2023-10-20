@@ -162,25 +162,35 @@
 				var bottomCanvas = document.getElementById('bottom');
 
 				if (screenLayout === 'lbr') {
-					topCanvas.style.top = '0'
-					topCanvas.style.left = '0'
-					topCanvas.style.width = '75vw';
-					topCanvas.style.height = '75vh';
+					const canvasWidthBig = window.innerWidth * 0.75; // 75vw
+					const canvasHeightBig = canvasWidthBig * 0.75;
+					const canvasWidthSmall = window.innerWidth * 0.25; // 25vw
+					const canvasHeightSmall = canvasWidthSmall * 0.75;
+
+					topCanvas.style.position = 'absolute';
+					topCanvas.style.top = '0';
+					topCanvas.style.left = '0';
+					topCanvas.style.width = `${canvasWidthBig}px`;
+					topCanvas.style.height = `${canvasHeightBig}px`;
 					bottomCanvas.style.position = 'absolute';
 					bottomCanvas.style.top = '0';
 					bottomCanvas.style.left = '75%';
-					bottomCanvas.style.width = '25vw';
-					bottomCanvas.style.height = '25vh';
+					bottomCanvas.style.width = `${canvasWidthSmall}px`;
+					bottomCanvas.style.height = `${canvasHeightSmall}px`;
 				} else if (screenLayout === 'lr') {
-                                        topCanvas.style.top = '0'
-					topCanvas.style.left = '0'
-					topCanvas.style.width = '50vw';
-					topCanvas.style.height = '50vh';
+					const canvasWidth = window.innerWidth * 0.5; // 50vw
+					const canvasHeight = canvasWidth * 0.75;
+
+					topCanvas.style.position = 'absolute';
+					topCanvas.style.top = '0';
+					topCanvas.style.left = '0';
+					topCanvas.style.width = `${canvasWidth}px`;
+					topCanvas.style.height = `${canvasHeight}px`;
 					bottomCanvas.style.position = 'absolute';
 					bottomCanvas.style.top = '0';
 					bottomCanvas.style.left = '50%';
-					bottomCanvas.style.width = '50vw';
-					bottomCanvas.style.height = '50vh';
+					bottomCanvas.style.width = `${canvasWidth}px`;
+					bottomCanvas.style.height = `${canvasHeight}px`;
 				} else {
 					topCanvas.style.left = '25%';
 					topCanvas.style.width = '50vh';
