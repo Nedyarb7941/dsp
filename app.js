@@ -405,7 +405,7 @@ function uiUpdateLayout() {
 
         fbSize = [[w, h], [w, h]];
         if (screenLayout === 'lbr') {
-
+          fbSize = [[w, h], [w, h]];
         } else if (screenLayout === 'lr') {
 
         } else {
