@@ -84,7 +84,7 @@
 		<label for="screen-layout">Screen Layout:</label>
 		<select id="screen-layout">
 			<option value="tb">T:B (Top:Bottom)</option>
-			<option value="lbr">LB:R (LeftBig:Right)</option>
+			<option value="lbr">LB:R (LeftBig:Right) [STILL IN DEVELOPMENT]</option>
 		</select>
 		<hr />
 		<div id="menu-savegame" hidden>
@@ -163,13 +163,13 @@
 				if (screenLayout === 'lbr') {
 					topCanvas.style.top = '0'
 					topCanvas.style.left = '0'
-					topCanvas.style.width = '75vw';
-					topCanvas.style.height = '56.25vh';
+					topCanvas.style.width = '1620px';
+					topCanvas.style.height = '1215px';
 					bottomCanvas.style.position = 'absolute';
 					bottomCanvas.style.top = '0';
 					bottomCanvas.style.left = '75%';
-					bottomCanvas.style.width = '25vw';
-					bottomCanvas.style.height = '18.75vh';
+					bottomCanvas.style.width = '540px';
+					bottomCanvas.style.height = '405px';
 				} else {
 					topCanvas.style.width = '256px';
 					topCanvas.style.height = '192px';
