@@ -134,23 +134,6 @@ var audioBuffer
 var tmpAudioBuffer = new Int16Array(16384 * 2)
 var audioWorkletNode
 
-// Apply XBRZ filter to the canvas
-screenCanvas.forEach((canvas) => {
-  canvas.style.filter = 'url(#xbrz-filter)';
-});
-
-// Add the XBRZ filter to the document
-var filter = document.createElement('filter');
-filter.id = 'xbrz-filter';
-filter.innerHTML = `
-  <feComponentTransfer>
-    <feFuncR type="discrete" tableValues="0 0 0 255"></feFuncR>
-    <feFuncG type="discrete" tableValues="0 0 0 255"></feFuncG>
-    <feFuncB type="discrete" tableValues="0 0 0 255"></feFuncB>
-  </feComponentTransfer>
-`;
-document.body.appendChild(filter);
-
 var frameCount = 0
 var prevCalcFPSTime = 0
 var touched = 0
