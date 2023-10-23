@@ -134,6 +134,20 @@ var audioBuffer
 var tmpAudioBuffer = new Int16Array(16384 * 2)
 var audioWorkletNode
 
+function xbrz(canvas) {
+  var ctx = canvas.getContext('2d');
+  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  var pixels = imageData.data;
+  
+  // Apply the XBRZ algorithm to the pixel data
+  // Modify the pixel values as desired
+  
+  ctx.putImageData(imageData, 0, 0);
+}
+
+// Call the xbrz function to apply the XBRZ algorithm to the canvas
+xbrz(screenCanvas[0]); // Assuming you want to apply XBRZ to the first canvas in the screenCanvas array
+
 var frameCount = 0
 var prevCalcFPSTime = 0
 var touched = 0
