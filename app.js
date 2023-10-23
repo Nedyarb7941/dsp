@@ -188,7 +188,6 @@ function emuRunFrame() {
         gpuDraw(screenCanvas[0], FB[0]);
         gpuDraw(screenCanvas[1], FB[1]);
     }
-    
     if (audioWorkletNode) {
         try {
             var samplesRead = Module._fillAudioBuffer(4096);
