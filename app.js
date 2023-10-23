@@ -181,9 +181,6 @@ function emuRunFrame() {
     Module._runFrame(1, keyMask, touched, touchX, touchY)
 
     Module._runFrame = function(keyMask, touched, touchX, touchY) {
-    ctx2d[0].putImageData(FB[0], 0, 0);
-    ctx2d[1].putImageData(FB[1], 0, 0);
-    
     if (ctx2d[0] && ctx2d[1]) {
         ctx2d[0].putImageData(FB[0], 0, 0);
         ctx2d[1].putImageData(FB[1], 0, 0);
@@ -201,7 +198,6 @@ function emuRunFrame() {
             console.log(error);
         }
     }
-};
 
     frameCount += 1
     if (frameCount % 120 == 0) {
