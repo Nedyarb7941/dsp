@@ -180,18 +180,28 @@ function emuRunFrame() {
     }
     Module._runFrame(1, keyMask, touched, touchX, touchY)
 
-    ctx2d[0].putImageData(FB[0], 0, 0)
-    ctx2d[1].putImageData(FB[1], 0, 0)
+    Module._runFrame = function(keyMask, touched, touchX, touchY) {
+    ctx2d[0].putImageData(FB[0], 0, 0);
+    ctx2d[1].putImageData(FB[1], 0, 0);
+    
+    if (ctx2d[0] && ctx2d[1]) {
+        ctx2d[0].putImageData(FB[0], 0, 0);
+        ctx2d[1].putImageData(FB[1], 0, 0);
+    } else {
+        gpuDraw(screenCanvas[0], FB[0]);
+        gpuDraw(screenCanvas[1], FB[1]);
+    }
+    
     if (audioWorkletNode) {
         try {
-            var samplesRead = Module._fillAudioBuffer(4096)
-            tmpAudioBuffer.set(audioBuffer.subarray(0, samplesRead * 2))
-            audioWorkletNode.port.postMessage(tmpAudioBuffer.subarray(0, samplesRead * 2))
+            var samplesRead = Module._fillAudioBuffer(4096);
+            tmpAudioBuffer.set(audioBuffer.subarray(0, samplesRead * 2));
+            audioWorkletNode.port.postMessage(tmpAudioBuffer.subarray(0, samplesRead * 2));
         } catch (error) {
-            // tmpAudioBuffer may be detached if previous message is still processing 
-            console.log(error)
+            console.log(error);
         }
     }
+};
 
     frameCount += 1
     if (frameCount % 120 == 0) {
