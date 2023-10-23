@@ -179,9 +179,11 @@ function emuRunFrame() {
         Module._runFrame(0, keyMask, touched, touchX, touchY)
     }
     Module._runFrame(1, keyMask, touched, touchX, touchY)
-
+    
     ctx2d[0].putImageData(FB[0], 0, 0)
     ctx2d[1].putImageData(FB[1], 0, 0)
+    gpuDraw(screenCanvas[0],FB[0])
+    gpuDraw(screenCanvas[1],FB[1])
     if (audioWorkletNode) {
         try {
             var samplesRead = Module._fillAudioBuffer(4096);
