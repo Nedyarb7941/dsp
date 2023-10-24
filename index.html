@@ -31,19 +31,19 @@
 		</p>
 		<hr />
 		<div class="container">
-                  <div class="button-list" onclick="downloadFile('https://archive.org/download/dsp-storage/Mario%20Kart%20DS.nds')">
-                    <img src="mkds.jpg" alt="Mario Kart DS">
-                    <span>Mario Kart DS</span>
-                  </div>
-                  <div class="button-list" onclick="downloadFile('https://archive.org/download/dsp-storage/Super%20Mario%2064%20DS.nds')">
-                    <img src="sm64ds.jpg" alt="Super Mario 64 DS">
-                    <span>Super Mario 64 DS</span>
-                  </div>
-                  <div class="button-list" onclick="downloadFile('https://archive.org/download/dsp-storage/NSMB%20DS.nds')">
-                    <img src="nsmbds.jpg" alt="New Super Mario Bros. DS">
-                    <span>New Super Mario Bros. DS</span>
-                  </div>
-                </div>
+			<div class="button-list" onclick="openLink('https://archive.org/download/dsp-storage/Mario%20Kart%20DS.nds')">
+				<img src="mkds.jpeg" alt="Mario Kart DS">
+				<span>Mario Kart DS</span>
+			</div>
+			<div class="button-list" onclick="openLink('https://archive.org/download/dsp-storage/Super%20Mario%2064%20DS.nds')">
+				<img src="sm64ds.jpeg" alt="Super Mario 64 DS">
+				<span>Super Mario 64 DS</span>
+			</div>
+			<div class="button-list" onclick="openLink('https://archive.org/download/dsp-storage/NSMB%20DS.nds')">
+				<img src="nsmbds.jpeg" alt="New Super Mario Bros. DS">
+				<span>New Super Mario Bros. DS</span>
+			</div>
+		</div>
 		<div id="pro" style="background-color: #333"></div>
 		<div id="ios-hint" hidden style="margin-left: 50vh;">
 			⬇ Due to iOS Safari limitations, you have to add this page to your <b>Home Screen</b> in order to save your game progress. ⬇
@@ -117,6 +117,11 @@
 	<script src="sw-loader.js"></script>
 	<script src="GamepadsSpoof.js"></script>
 	<script src="Nostlan_ds_player.js"></script>
+	<script>
+		function openLink(url) {
+			window.open(url, '_blank');
+		}
+	</script>
 	<script>
 		var gamepadIndex = 0; // Change this value if you have multiple gamepads connected
 		var isTriggerPressed = false;
