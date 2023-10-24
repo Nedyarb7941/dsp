@@ -12,7 +12,7 @@
 	<link href="dark.css" rel="stylesheet" />
 	<link rel="stylesheet" href="style.css" />
 	<title>DS Player</title>
-	<button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 47.5px;" onclick="uiSwitchTo('menu')">⚙ Settings...</button>
+	<button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 50px;" onclick="uiSwitchTo('menu')">⚙ Settings...</button>
 </head>
 
 <body>
@@ -30,14 +30,8 @@
 			<br />
 		</p>
 		<hr />
-		<p>
-			Ver. 20231024 <a onclick="whatsNew()" href="#">What's New?</a>
-		</p>
 		<p id="p-sns">
 			<a href="/vba">GBA Player</a>
-		</p>
-		<p>
-			<a href="#" id="a-gamepad">Gamepad Disconnected</a>
 		</p>
 		<div id="pro" style="background-color: #333"></div>
 		<div id="ios-hint" hidden>
@@ -72,7 +66,7 @@
 		<p id="msg-text"></p>
 	</div>
 	<div id="menu" hidden>
-		<button onclick="uiMenuBack()">❮ Back</button>
+		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button>
 		<hr />
                 <input type="checkbox" id="power-save" />
                 <label for="power-save">Power-save mode</label><br />
@@ -85,9 +79,10 @@
                   <option value="lbr">LB:R (LeftBig:Right) [STILL IN DEVELOPMENT]</option>
                 </select>
                 <hr />
+		<a href="#" id="a-gamepad">Gamepad Disconnected</a>
 
                 <div style="position: fixed; bottom: 0; right: 0; padding: 10px;">
-                  <span style="font-size: 12px;">Version 20231024 | </span> <a href="#" style="font-size: 12px;">What's New</a>
+                  <span style="font-size: 12px;">Version 20231024 | </span> <a onclick="whatsNew()" href="#" style="font-size: 12px;">What's New</a>
                 </div>
 
 		<div id="menu-savegame" hidden>
