@@ -12,7 +12,7 @@
 	<link href="dark.css" rel="stylesheet" />
 	<link rel="stylesheet" href="style.css" />
 	<title>DS Player</title>
-	<button class="button" style="float: right; margin-top: 15px; margin-right: 20px; height: 40px;" onclick="uiSwitchTo('menu')">⚙ Settings...</button>
+	<button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 47.5px;" onclick="uiSwitchTo('menu')">⚙ Settings...</button>
 </head>
 
 <body>
@@ -74,17 +74,22 @@
 	<div id="menu" hidden>
 		<button onclick="uiMenuBack()">❮ Back</button>
 		<hr />
-		<input type="checkbox" id="power-save" />
-		<label for="power-save">Power-save mode</label><br />
-		<input type="checkbox" id="vk-enabled" />
-		<label for="vk-enabled">Virtual keyboard</label><br />
-		<label for="screen-layout">Screen Layout:</label>
-		<select id="screen-layout">
-			<option value="tb">T:B (Top:Bottom)</option>
-			<option value="lr">L:R (Left:Right)</option>
-			<option value="lbr">LB:R (LeftBig:Right) [STILL IN DEVELOPMENT]</option>
-		</select>
-		<hr />
+                <input type="checkbox" id="power-save" />
+                <label for="power-save">Power-save mode</label><br />
+                <input type="checkbox" id="vk-enabled" />
+                <label for="vk-enabled">Virtual keyboard</label><br />
+                <label for="screen-layout">Screen Layout:</label>
+                <select id="screen-layout">
+                  <option value="tb">T:B (Top:Bottom)</option>
+                  <option value="lr">L:R (Left:Right)</option>
+                  <option value="lbr">LB:R (LeftBig:Right) [STILL IN DEVELOPMENT]</option>
+                </select>
+                <hr />
+
+                <div style="position: fixed; bottom: 0; right: 0; padding: 10px;">
+                  <span style="font-size: 12px;">Version 20231024 | </span> <a href="#" style="font-size: 12px;">What's New</a>
+                </div>
+
 		<div id="menu-savegame" hidden>
 			<input type="file" id="restore-file" onchange="uiSaveRestore()" hidden />
 			Save Data: <button onclick="uiSaveBackup()">↓ Export</button>|<button onclick="$id('restore-file').click()">
