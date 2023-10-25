@@ -17,6 +17,18 @@ body {
 	font-family: 'Myriad Set Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+select {
+  margin-right: 6px;
+  margin-bottom: 6px;
+  border: 2px solid #526980;
+  border-radius: 6px;
+  padding: 10px;
+  color: #dbdbdb;
+  background-color: #161f27;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: inherit;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
