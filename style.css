@@ -23,6 +23,8 @@ select {
         border: 2px solid #ffffff;
         border-radius: 6px;
         padding: 10px;
+	color: #dbdbdb;
+	background-color: transparent;
         font-family: system-ui, -apple-system, sans-serif;
         font-size: inherit;
 }
