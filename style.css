@@ -18,14 +18,14 @@ body {
 }
 
 select {
-  margin-right: 6px;
-  margin-bottom: 6px;
-  border: 2px solid #526980;
-  border-radius: 6px;
-  padding: 10px;
-  color: #fff;
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: inherit;
+        margin-right: 6px;
+        margin-bottom: 6px;
+        border: 2px solid #526980;
+        border-radius: 6px;
+        padding: 10px;
+        color: #fff;
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: inherit;
 }
 
 .container {
