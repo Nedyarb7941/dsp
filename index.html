@@ -85,7 +85,8 @@
                 <select id="screen-layout" class="select">
                   <option value="tb">T:B (Top:Bottom)</option>
                   <option value="lr">L:R (Left:Right)</option>
-                  <option value="lbr">LB:R (LeftBig:Right)</option>
+                  <option value="lrs">L:R-S (Left:Right-Small)</option>
+		  <option value="lbr">LB:R (LeftBig:Right)</option>
                 </select>
                 <hr />
 
@@ -204,6 +205,20 @@
 					bottomCanvas.style.position = 'absolute';
 					bottomCanvas.style.top = '0';
 					bottomCanvas.style.left = '50%';
+					bottomCanvas.style.width = `${canvasWidth}px`;
+					bottomCanvas.style.height = `${canvasHeight}px`;
+				} else if (screenLayout === 'lrs') {
+					const canvasWidth = window.innerWidth * 0.1; // 10vw
+					const canvasHeight = canvasWidth * 0.15;
+
+					topCanvas.style.position = 'absolute';
+					topCanvas.style.top = '0';
+					topCanvas.style.left = '0';
+					topCanvas.style.width = `${canvasWidth}px`;
+					topCanvas.style.height = `${canvasHeight}px`;
+					bottomCanvas.style.position = 'absolute';
+					bottomCanvas.style.top = '0';
+					bottomCanvas.style.left = '10%';
 					bottomCanvas.style.width = `${canvasWidth}px`;
 					bottomCanvas.style.height = `${canvasHeight}px`;
 				} else {
