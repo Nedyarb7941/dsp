@@ -356,7 +356,7 @@ function uiAdjustVKLayout() {
     fontSize = baseSize * 0.5
     vkMap['l'].style = makeVKStyle(offTop, 0, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
     vkMap['r'].style = makeVKStyle(offTop, window.innerWidth - vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0.85,)
-    $id('vk-menu').style = makeVKStyle(window.innerHeight - (vkh * 0.65) - 16.75, window.innerWidth / 2 - vkw / 2, vkw, vkh, fontSize);
+    $id('vk-menu').style = makeVKStyle(window.innerHeight - (vkh * 0.65) - 16.25, window.innerWidth / 2 - vkw / 2, vkw, vkh, fontSize);
     $id('vk-menu').style.position = 'fixed';
     $id('vk-menu').style.transform = 'scale(0.65)';
     $id('vk-menu').style.left = '50%';
@@ -382,8 +382,8 @@ function uiAdjustVKLayout() {
     vkw = baseSize * 0.4
     vkh = baseSize * 0.4
     fontSize = baseSize * 0.4
-    vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 2.5, vkw, vkh, fontSize);
-    vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 1.5, vkw, vkh, fontSize);
+    vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 2.35, vkw, vkh, fontSize);
+    vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 1.35, vkw, vkh, fontSize);
 }
 
 function uiUpdateLayout() {
