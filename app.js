@@ -815,8 +815,10 @@ function processGamepadInput() {
 
 function whatsNew() {
     alert(`
-1. Improved vk (virtual keyboard) placement and size.
-2. Added gamepad menu button (left trigger, right trigger, left shoulder + right shoulder + left face button [x or y, depending on controller])
+1. Improved virtual keyboard placement and size.
+2. Added gamepad menu button mapping (left trigger, right trigger, left shoulder + right shoulder + left face button [x or y, depending on controller]).
+3. Improved UI and added ROM downloads.
+4. Added new screen layouts.
 `)
 }
 
