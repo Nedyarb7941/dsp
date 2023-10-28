@@ -408,8 +408,10 @@ function uiUpdateLayout() {
           fbSize = [[w, h], [w, h]];
         } else if (screenLayout === 'lr') {
           fbSize = [[w, h], [w, h]];
-        } else if (screenLayout === 'lrs') {
-
+        } else if (screenLayout === 'lrs50') {
+          fbSize = [[w, h], [w, h]];
+        } else if (screenLayout === 'lrs75') {
+            
         } else {
         for (var i = 0; i < 2; i++) {
             screenCanvas[i].style = 'left:' + left + 'px;top:' + top + 'px;width:' + w + 'px;height:' + h + 'px;';
