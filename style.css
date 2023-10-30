@@ -18,11 +18,14 @@ body {
 }
 
 #bottom-text {
+	    color: #fff;
+	    background-color: #212F3B;
+            font-family: inherit;
+            font-size: inherit;
             position: fixed;
             bottom: 0;
             width: 100%;
             text-align: center;
-            background-color: #f1f1f1;
             padding: 10px;
 }
 select {
