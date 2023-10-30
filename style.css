@@ -18,8 +18,9 @@ body {
 }
 
 #bottom-text {
+	    border: 2px solid #ffffff;
 	    color: #fff;
-	    background-color: #212F3B;
+	    background-color: #202b38;
             font-family: inherit;
             font-size: inherit;
             position: fixed;
