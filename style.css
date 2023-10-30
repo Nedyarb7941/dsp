@@ -25,7 +25,6 @@ body {
     font-size: inherit;
     position: fixed;
     bottom: -10px; /* Adjust this value to move it down further if needed */
-    left: 50%;
     transform: translateX(-10%) translateY(-5px);
     width: calc(100% + 20px); /* Adjust this value to make it wider than the screen */
     text-align: center;
