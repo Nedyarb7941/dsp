@@ -85,8 +85,6 @@
                 <select id="screen-layout" class="select">
                   <option value="tb">T:B (Top:Bottom)</option>
                   <option value="lr">L:R (Left:Right)</option>
-                  <option value="lrs25">L:R-S (Left:Right-Small [50%])</option>
-		  <option value="lrs50">L:R-S (Left:Right-Small [75%])</option>
 		  <option value="lbr">LB:R (LeftBig:Right)</option>
                 </select>
                 <hr />
@@ -206,34 +204,6 @@
 					bottomCanvas.style.position = 'absolute';
 					bottomCanvas.style.top = '0';
 					bottomCanvas.style.left = '50%';
-					bottomCanvas.style.width = `${canvasWidth}px`;
-					bottomCanvas.style.height = `${canvasHeight}px`;
-				} else if (screenLayout === 'lrs50') {
-					const canvasWidth = window.innerWidth * 0.25; // 25vw
-					const canvasHeight = canvasWidth * 0.75;
-
-					topCanvas.style.position = 'absolute';
-					topCanvas.style.top = '0';
-					topCanvas.style.left = '0';
-					topCanvas.style.width = `${canvasWidth}px`;
-					topCanvas.style.height = `${canvasHeight}px`;
-					bottomCanvas.style.position = 'absolute';
-					bottomCanvas.style.top = '0';
-					bottomCanvas.style.left = '25%';
-					bottomCanvas.style.width = `${canvasWidth}px`;
-					bottomCanvas.style.height = `${canvasHeight}px`;
-				} else if (screenLayout === 'lrs75') {
-					const canvasWidth = window.innerWidth * 0.37.5; // 37.5vw
-					const canvasHeight = canvasWidth * 0.75;
-
-					topCanvas.style.position = 'absolute';
-					topCanvas.style.top = '0';
-					topCanvas.style.left = '0';
-					topCanvas.style.width = `${canvasWidth}px`;
-					topCanvas.style.height = `${canvasHeight}px`;
-					bottomCanvas.style.position = 'absolute';
-					bottomCanvas.style.top = '0';
-					bottomCanvas.style.left = '37.5%';
 					bottomCanvas.style.width = `${canvasWidth}px`;
 					bottomCanvas.style.height = `${canvasHeight}px`;
 				} else {
