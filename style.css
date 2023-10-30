@@ -70,11 +70,12 @@ select {
 
 .button-list img {
     border-radius: 6px;
-    width: 100%;
+    width: calc(100% - 20px); /* Subtract the desired margin from the width */
     height: auto;
     object-fit: contain;
     margin: 10px; /* Add the desired margin */
 }
+
 
 .button-list span {
   margin-top: 10px;
