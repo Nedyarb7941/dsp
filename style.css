@@ -71,8 +71,9 @@ select {
 .button-list img {
     border-radius: 6px;
     width: 100%;
-    height: 100%; /* Set the height to 100% */
+    height: auto;
     object-fit: contain;
+    margin: 10px; /* Add the desired margin */
 }
 
 .button-list span {
