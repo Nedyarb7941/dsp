@@ -17,6 +17,14 @@ body {
 	font-family: 'Myriad Set Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+#bottom-text {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #f1f1f1;
+            padding: 10px;
+}
 select {
         margin-right: 6px;
         margin-bottom: 6px;
