@@ -25,7 +25,8 @@ body {
     font-size: inherit;
     position: fixed;
     bottom: 0px;
-    width: 85%;
+    transform: translate(-50%, 50%);
+    width: 80%;
     text-align: center;
     padding: 5px; /* Reduce the padding to create a 5px gap */
     box-sizing: border-box; /* Include the border in the width calculation */
