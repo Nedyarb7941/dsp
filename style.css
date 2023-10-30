@@ -25,10 +25,10 @@ body {
     font-family: inherit;
     font-size: inherit;
     position: fixed;
-    bottom: 10px;
+    bottom: 40px;
     left: 50%;
     transform: translate(-50%, 50%);
-    width: 95%;
+    width: 100%
     text-align: center;
     padding: 5px; /* Reduce the padding to create a 5px gap */
     box-sizing: border-box; /* Include the border in the width calculation */
