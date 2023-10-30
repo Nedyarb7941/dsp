@@ -18,17 +18,20 @@ body {
 }
 
 #bottom-text {
-	    border: 2px solid #ffffff;
-	    color: #fff;
-	    background-color: #202b38;
-            font-family: inherit;
-            font-size: inherit;
-            position: fixed;
-            bottom: -5;
-            width: 105%;
-            text-align: center;
-            padding: 10px;
+    border: 2px solid #ffffff;
+    color: #fff;
+    background-color: #202b38;
+    font-family: inherit;
+    font-size: inherit;
+    position: fixed;
+    bottom: -10px; /* Adjust this value to move it down further if needed */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 20px); /* Adjust this value to make it wider than the screen */
+    text-align: center;
+    padding: 10px;
 }
+
 select {
         margin-right: 6px;
         margin-bottom: 6px;
