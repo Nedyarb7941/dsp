@@ -65,6 +65,7 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Add this line to center the content vertically */
     text-align: center;
 }
 
@@ -75,7 +76,6 @@ select {
     object-fit: contain;
     margin: 10px; /* Add the desired margin */
 }
-
 
 .button-list span {
   margin-top: 10px;
