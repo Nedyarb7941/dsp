@@ -51,6 +51,10 @@ select {
   padding: 20px;
 }
 
+.container .button-list:not(:last-child) {
+  margin-right: 5%; /* Reduce the right margin by 15% */
+}
+
 .button-list {
     color: #fff;
     background-color: #161f27;
