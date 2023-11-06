@@ -111,6 +111,7 @@ var vkMap = {}
 var vkState = {}
 var keyNameToKeyId = {}
 var vkStickPos
+var vkStickBoundsPos
 for (var i = 0; i < emuKeyNames.length; i++) {
     keyNameToKeyId[emuKeyNames[i]] = i
 }
