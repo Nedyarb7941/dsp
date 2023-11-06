@@ -384,6 +384,7 @@ function uiAdjustVKLayout() {
     fontSize = baseSize * 0.4
     vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 2.35, vkw, vkh, fontSize);
     vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 1.35, vkw, vkh, fontSize);
+    vkMap['left'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 1.5 + vkw * 1.35, vkw, vkh, fontSize);
 }
 
 function uiUpdateLayout() {
