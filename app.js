@@ -1,72 +1,140 @@
 
-var uiCurrentMode = 'welcome'
-var plugins = {}
-var body = document.getElementsByTagName("body")[0]
-var html = document.getElementsByTagName("html")[0]
+var uiCurrentMode = 'welcome';
+var plugins = {};
+var body = document.getElementsByTagName("body")[0];
+var html = document.getElementsByTagName("html")[0];
 var config = {
-    swapTopBottom: false,
-    swapTopBottomL: false,
-    powerSave: true,
-    micWhenR: true,
-    vkEnabled: true,
+  swapTopBottom: false,
+  swapTopBottomL: false,
+  powerSave: true,
+  micWhenR: true,
+  vkEnabled: true,
+};
+
+// Add the canvas editing code here
+
+// Assuming you have a variable to track the state of "canvas-edit"
+let canvasEditEnabled = false;
+
+// Assuming you have an array of canvas elements named "screenCanvas"
+const canvases = screenCanvas;
+
+// Add event listeners to each canvas element
+canvases.forEach(canvas => {
+  canvas.addEventListener('touchstart', handleTouchStart);
+  canvas.addEventListener('touchmove', handleTouchMove);
+});
+
+// Event handler for touchstart event
+function handleTouchStart(event) {
+  if (canvasEditEnabled) {
+    // Store initial touch position and canvas position
+    this.initialTouchX = event.touches[0].clientX;
+    this.initialTouchY = event.touches[0].clientY;
+    this.initialCanvasX = parseInt(this.style.left) || 0;
+    this.initialCanvasY = parseInt(this.style.top) || 0;
+  }
 }
+
+// Event handler for touchmove event
+function handleTouchMove(event) {
+  if (canvasEditEnabled) {
+    // Calculate the distance moved by touch
+    const touchX = event.touches[0].clientX;
+    const touchY = event.touches[0].clientY;
+    const deltaX = touchX - this.initialTouchX;
+    const deltaY = touchY - this.initialTouchY;
+
+    // Calculate the new canvas position
+    let newCanvasX = this.initialCanvasX + deltaX;
+    let newCanvasY = this.initialCanvasY + deltaY;
+
+    // Check if the canvas is hitting the edges of the screen
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const canvasWidth = this.offsetWidth;
+    const canvasHeight = this.offsetHeight;
+
+    if (newCanvasX < 0) {
+      newCanvasX = 0;
+    } else if (newCanvasX + canvasWidth > screenWidth) {
+      newCanvasX = screenWidth - canvasWidth;
+    }
+
+    if (newCanvasY < 0) {
+      newCanvasY = 0;
+    } else if (newCanvasY + canvasHeight > screenHeight) {
+      newCanvasY = screenHeight - canvasHeight;
+    }
+
+    // Update the canvas position
+    this.style.left = newCanvasX + 'px';
+    this.style.top = newCanvasY + 'px';
+  }
+}
+
+// Function to enable/disable canvas editing
+function setCanvasEdit(enabled) {
+  canvasEditEnabled = enabled;
+}
+
+// End of canvas editing code
 
 function loadConfig() {
-    var cfg = JSON.parse(window.localStorage['config'] || '{}')
-    for (var k in cfg) {
-        config[k] = cfg[k]
-    }
-    $id('power-save').checked = config.powerSave
-    $id('vk-enabled').checked = config.vkEnabled
+  var cfg = JSON.parse(window.localStorage['config'] || '{}');
+  for (var k in cfg) {
+    config[k] = cfg[k];
+  }
+  $id('power-save').checked = config.powerSave;
+  $id('vk-enabled').checked = config.vkEnabled;
 }
-loadConfig()
+loadConfig();
 
 function uiSaveConfig() {
-    config.powerSave = !!($id('power-save').checked)
-    config.vkEnabled = !!($id('vk-enabled').checked)
-    window.localStorage['config'] = JSON.stringify(config)
+  config.powerSave = !!($id('power-save').checked);
+  config.vkEnabled = !!($id('vk-enabled').checked);
+  window.localStorage['config'] = JSON.stringify(config);
 }
 
-
 function uiMenuBack() {
-    uiSaveConfig()
-    if (emuIsGameLoaded) {
-        uiSwitchTo('player')
-    } else {
-        uiSwitchTo('welcome')
-    }
+  uiSaveConfig();
+  if (emuIsGameLoaded) {
+    uiSwitchTo('player');
+  } else {
+    uiSwitchTo('welcome');
+  }
 }
 
 function uiSaveBackup() {
-    var u8Arr = emuCopySavBuffer()
-    var blob = new Blob([u8Arr], { type: "application/binary" });
-    var link = document.createElement("a");
-    link.href = window.URL.createObjectURL(blob);
-    link.download = 'sav-' + gameID + '.dsv';
-    link.click();
+  var u8Arr = emuCopySavBuffer();
+  var blob = new Blob([u8Arr], { type: "application/binary" });
+  var link = document.createElement("a");
+  link.href = window.URL.createObjectURL(blob);
+  link.download = 'sav-' + gameID + '.dsv';
+  link.click();
 }
 
 async function uiSaveRestore() {
-    var file = $id('restore-file').files[0]
-    if (!file) {
-        return
-    }
-    if (file.size > 2.2 * 1024 * 1024) {
-        alert('Too large!');
-        return
-    }
-    // Only .dsv files are supported
-    if (!file.name.endsWith('.dsv')) {
-        alert('Only .dsv files are supported.\nUse an online converter if your save is in different format.');
-        return
-    }
-    var u8 = new Uint8Array(await file.arrayBuffer())
-    localforage.setItem('sav-' + gameID, u8).then(() => {
-        alert('Save data updated. \nThis page will be reloaded to apply the changes.')
-        setTimeout(() => {
-            location.href = 'https://majesticwafer.github.io/dsp/'
-        }, 1000)
-    })
+  var file = $id('restore-file').files[0];
+  if (!file) {
+    return;
+  }
+  if (file.size > 2.2 * 1024 * 1024) {
+    alert('Too large!');
+    return;
+  }
+  // Only .dsv files are supported
+  if (!file.name.endsWith('.dsv')) {
+    alert('Only .dsv files are supported.\nUse an online converter if your save is in different format.');
+    return;
+  }
+  var u8 = new Uint8Array(await file.arrayBuffer());
+  localforage.setItem('sav-' + gameID, u8).then(() => {
+    alert('Save data updated. \nThis page will be reloaded to apply the changes.');
+    setTimeout(() => {
+      location.href = 'https://majesticwafer.github.io/dsp/';
+    }, 1000);
+  });
 }
 
 
