@@ -341,48 +341,56 @@ function makeVKStyle(top, left, w, h, fontSize) {
 
 
 function uiAdjustVKLayout() {
-    var baseSize = window.innerWidth * 0.14
-    var fontSize = baseSize * 0.7
-    var offTop = Math.min(fbSize[0][1] + fbSize[1][1], window.innerHeight - Math.ceil(baseSize * 3.62))
-    var offLeft = 0
-    var abxyWidth = baseSize * 3
-    var abxyHeight = baseSize * 3
-    var vkw = baseSize
-    var vkh = baseSize
+    var baseSize = window.innerWidth * 0.14;
+    var fontSize = baseSize * 0.7;
+    var offTop = Math.min(fbSize[0][1] + fbSize[1][1], window.innerHeight - Math.ceil(baseSize * 3.62));
+    var offLeft = 0;
+    var abxyWidth = baseSize * 3;
+    var abxyHeight = baseSize * 3;
+    var vkw = baseSize;
+    var vkh = baseSize;
 
-    vkw = baseSize * 1.5
-    vkh = baseSize * 0.6
-    fontSize = baseSize * 0.5
-    vkMap['l'].style = makeVKStyle(offTop, 0, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
-    vkMap['r'].style = makeVKStyle(offTop, window.innerWidth - vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0.85,)
-    $id('vk-menu').style = makeVKStyle(window.innerHeight - (vkh * 0.675) - 16.25, window.innerwidth * 0.5, vkw, vkh, fontSize);
+    vkw = baseSize * 1.5;
+    vkh = baseSize * 0.6;
+    fontSize = baseSize * 0.5;
+    vkMap['l'].style = makeVKStyle(offTop, 0, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
+    vkMap['r'].style = makeVKStyle(offTop, window.innerWidth - vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
+    $id('vk-menu').style = makeVKStyle(window.innerHeight - (vkh * 0.675) - 16.25, window.innerWidth * 0.5, vkw, vkh, fontSize);
     $id('vk-menu').style.position = 'fixed';
     $id('vk-menu').style.transform = 'scale(0.675)';
     $id('vk-menu').style.left = '50%';
     $id('vk-menu').style.transform += 'translateX(-50%)';
 
     
-    offTop += baseSize * 0.62
-    vkw = baseSize
-    vkh = baseSize
-    offLeft = window.innerWidth - abxyWidth
-    vkMap['a'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth - vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
-    vkMap['b'].style = makeVKStyle(offTop + abxyHeight - vkh * 0.85, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
-    vkMap['x'].style = makeVKStyle(offTop, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
-    vkMap['y'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
+    offTop += baseSize * 0.62;
+    vkw = baseSize;
+    vkh = baseSize;
+    offLeft = window.innerWidth - abxyWidth;
+    vkMap['a'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth - vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
+    vkMap['b'].style = makeVKStyle(offTop + abxyHeight - vkh * 0.85, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
+    vkMap['x'].style = makeVKStyle(offTop, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
+    vkMap['y'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
 
 
-    vkw = baseSize * 1.0
-    vkh = baseSize * 1.0
-    offLeft = 0
-    $id('vk-stick').style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.9 / 2, offLeft + abxyHeight / 2 - vkw * 0.9 / 2, vkw * 0.9, vkh * 0.9, fontSize * 0.85)
-    vkStickPos = [offTop + abxyHeight / 2, offLeft + abxyHeight / 2, vkw * 0.9, vkh * 0.9, fontSize * 0.9]
+    vkw = baseSize * 1.0;
+    vkh = baseSize * 1.0;
+    offLeft = 0;
+    $id('vk-stick').style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.9 / 2, offLeft + abxyHeight / 2 - vkw * 0.9 / 2, vkw * 0.9, vkh * 0.9, fontSize * 0.85);
+    vkStickPos = [offTop + abxyHeight / 2, offLeft + abxyHeight / 2, vkw * 0.9, vkh * 0.9, fontSize * 0.9];
 
-    vkw = baseSize * 0.4
-    vkh = baseSize * 0.4
-    fontSize = baseSize * 0.4
+    vkw = baseSize * 0.4;
+    vkh = baseSize * 0.4;
+    fontSize = baseSize * 0.4;
     vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 2.35, vkw, vkh, fontSize);
     vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 1.35, vkw, vkh, fontSize);
+
+    // Set button styles
+    var buttons = Object.values(vkMap);
+    buttons.forEach(function(button) {
+        button.style.opacity = '1';
+        button.style.backgroundColor = 'pink';
+        button.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.25)';
+    });
 }
 
 function uiUpdateLayout() {
