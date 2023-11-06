@@ -64,7 +64,7 @@ async function uiSaveRestore() {
     localforage.setItem('sav-' + gameID, u8).then(() => {
         alert('Save data updated. \nThis page will be reloaded to apply the changes.')
         setTimeout(() => {
-            location.href = 'https://ds.44670.org'
+            location.href = 'https://majesticwafer.github.io/dsp/'
         }, 1000)
     })
 }
@@ -360,7 +360,7 @@ function uiAdjustVKLayout() {
     $id('vk-menu').style.position = 'fixed';
     $id('vk-menu').style.transform = 'scale(0.65)';
     $id('vk-menu').style.left = '50%';
-    $id('vk-menu').style.transform += ' translateX(-76.25%)';
+    $id('vk-menu').style.transform += 'translateX(-76.25%)';
 
 
     offTop += baseSize * 0.62
