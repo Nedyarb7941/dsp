@@ -108,6 +108,35 @@
 			<hr />
 		</div>
 		<a style="margin-left: 7px;" href="#" id="a-gamepad">Gamepad Disconnected</a>
+		<div id="log"></div>
+  <script>
+    window.addEventListener("gamepadconnected", function(e) {
+      console.log("Gamepad connected");
+    });
+
+    window.addEventListener("gamepaddisconnected", function(e) {
+      console.log("Gamepad disconnected");
+    });
+
+    function updateLog(message) {
+      var log = document.getElementById("log");
+      var p = document.createElement("p");
+      p.textContent = message;
+      log.appendChild(p);
+
+      if (log.childNodes.length > 5) {
+        log.removeChild(log.firstChild);
+      }
+
+      log.scrollTop = log.scrollHeight;
+    }
+
+    window.addEventListener("gamepadbuttondown", function(e) {
+      var buttonPressed = e.detail.button;
+      var message = "Gamepad button " + buttonPressed + " was pressed.";
+      updateLog(message);
+    });
+  </script>
 	</div>
 	<div id="player" hidden>
 		<canvas id="top" width="256" height="192"></canvas>
