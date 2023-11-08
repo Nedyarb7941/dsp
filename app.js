@@ -449,7 +449,7 @@ function uiSwitchTo(mode) {
 
     if (mode == 'player') {
         body.style = 'touch-action: none;'
-        html.style = 'position: fixed;overflow:hidden;touch-action: none;'
+        html.style = 'position: fixed;overflow:hidden;touch-action: none;background-color: lightpink;'
         for (var i = 0; i < 14; i++) {
             emuKeyState[i] = false
         }
