@@ -20,7 +20,7 @@ body {
 #bottom-text {
     border: 2px solid #ffffff;
     border-radius: 6px;
-    color: #fff;
+    color: darkpink;
     background-color: #202b38;
     font-family: inherit;
     font-size: inherit;
@@ -59,7 +59,7 @@ select {
 
 .button-list {
     color: #fff;
-    background-color: lightpink;
+    background-color: darkpink;
     font-family: inherit;
     font-size: inherit;
     padding: 0; /* Remove the padding */
@@ -120,9 +120,7 @@ canvas {
 	height: 100%;
 	z-index: 4;
 	overflow: hidden scroll;
-	background: linear-gradient(rgba(231, 84, 128, 0.5), rgba(231, 84, 128, 0.5));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+	background: rgba(231, 84, 128, 0.5);
 }
 
 #menu button {
