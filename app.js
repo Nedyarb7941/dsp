@@ -633,7 +633,22 @@ function handleTouch(event) {
             needUpdateStick = true
             nextStickTouchID = tid
             continue
-        }
+           
+            var buttons = Object.values(vkMap);
+                    buttons.forEach(function(button) {
+                    button.style.opacity = '1';
+                    button.style.backgroundColor = 'pink';
+                    button.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.25)';
+                    button.addEventListener('mousedown', function() {
+                        button.style.backgroundColor = 'darkpink';
+                        button.style.color = 'darkpink';
+                    });
+                    button.addEventListener('mouseup', function() {
+                        button.style.backgroundColor = 'pink';
+                        button.style.color = 'darkpink';
+                    });
+            });
+        } 
         if ((tid === tpadTouchID) || (isPointInRect(t.clientX, t.clientY, tsRect) && (!k))) {
             isDown = true
             x = clamp01((t.clientX - tsRect.x) / tsRect.width) * 256
