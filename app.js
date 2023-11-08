@@ -384,6 +384,21 @@ function uiAdjustVKLayout() {
     fontSize = baseSize * 0.4
     vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 2.35, vkw, vkh, fontSize);
     vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 1.35, vkw, vkh, fontSize);
+
+    var buttons = Object.values(vkMap);
+    buttons.forEach(function(button) {
+        button.style.opacity = '1';
+        button.style.backgroundColor = 'pink';
+        button.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.25)';
+        button.addEventListener('mousedown', function() {
+            button.style.backgroundColor = 'darkpink';
+            button.style.color = 'darkpink';
+        });
+        button.addEventListener('mouseup', function() {
+            button.style.backgroundColor = 'pink';
+            button.style.color = 'darkpink';
+        });
+    });
 }
 
 function uiUpdateLayout() {
@@ -667,6 +682,21 @@ function handleTouch(event) {
 
     if (needUpdateStick) {
         vkMap['stick'].style = makeVKStyle(stickY - stickW / 2, stickX - stickW / 2, stickW, stickH, vkStickPos[4])
+       
+        var buttons = Object.values(vkMap);
+        buttons.forEach(function(button) {
+            button.style.opacity = '1';
+            button.style.backgroundColor = 'pink';
+            button.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.25)';
+            button.addEventListener('mousedown', function() {
+                button.style.backgroundColor = 'darkpink';
+                button.style.color = 'darkpink';
+            });
+            button.addEventListener('mouseup', function() {
+                 button.style.backgroundColor = 'pink';
+                 button.style.color = 'darkpink';
+            });
+        });
     }
 
     stickTouchID = nextStickTouchID
