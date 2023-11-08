@@ -1,8 +1,8 @@
 /*inspired by water.css*/
 :root {
-    --background-body: #202b38;
-    --background: #161f27;
-    --background-alt: #1a242f;
+    --background-body: lightpink;
+    --background: pink;
+    --background-alt: darkpink;
     --selection: #1c76c5;
     --text-main: #dbdbdb;
     --text-bright: #fff;
@@ -11,8 +11,8 @@
     --focus: #0096bfab;
     --border: #526980;
     --code: #ffbe85;
-    --animation-duration: 0.1s;
-    --button-hover: #324759;
+    --animation-duration: 0.3s;
+    --button-hover: pink;
     --scrollbar-thumb: var(--button-hover);
     --scrollbar-thumb-hover: rgb(65, 92, 115);
     --form-placeholder: #a9a9a9;
