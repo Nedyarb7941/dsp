@@ -360,7 +360,7 @@ function uiAdjustVKLayout() {
     $id('vk-menu').style.position = 'fixed';
     $id('vk-menu').style.transform = 'scale(0.66)';
     $id('vk-menu').style.left = '50%';
-    $id('vk-menu').style.transform += 'translateX(-75%)';
+    $id('vk-menu').style.transform += 'translateX(-76.5%)';
 
     
     offTop += baseSize * 0.62
@@ -391,7 +391,7 @@ function uiAdjustVKLayout() {
         button.style.backgroundColor = 'pink';
         button.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.25)';
         button.addEventListener('mousedown', function() {
-            button.style.backgroundColor = 'darkpink';
+            button.style.backgroundColor = 'pink';
             button.style.color = 'darkpink';
         });
         button.addEventListener('mouseup', function() {
