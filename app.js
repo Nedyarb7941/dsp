@@ -343,7 +343,7 @@ function makeVKStyle(top, left, w, h, fontSize) {
 
 function uiAdjustVKLayout() {
     var baseSize = window.innerWidth * 0.14
-    var fontSize = baseSize * 0.7
+    var fontSize = baseSize * 0.6
     var offTop = Math.min(fbSize[0][1] + fbSize[1][1], window.innerHeight - Math.ceil(baseSize * 3.62))
     var offLeft = 0
     var abxyWidth = baseSize * 3
