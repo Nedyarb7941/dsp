@@ -15,6 +15,7 @@ body {
 	width: 100vw;
 	height: 100vh;
 	font-family: 'Myriad Set Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background-color: lightpink;
 }
 
 #bottom-text {
