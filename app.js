@@ -367,7 +367,7 @@ function uiAdjustVKLayout() {
     vkw = baseSize
     vkh = baseSize
     offLeft = window.innerWidth - abxyWidth
-    vkMap['a'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth * 0.875, vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
+    vkMap['a'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth * 0.575, vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
     vkMap['b'].style = makeVKStyle(offTop + abxyHeight - vkh * 0.975, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
     vkMap['x'].style = makeVKStyle(offTop + abxyHeight * 0.025, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
     vkMap['y'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth * 0.025, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
