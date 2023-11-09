@@ -80,20 +80,16 @@
 	<div id="menu" hidden>
 		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button>
 		<hr />
-                <label for="top-canvas-left" style="margin-left: 7px;">Top Canvas Left:</label>
-                <input type="number" id="top-canvas-left" style="margin-left: 7px;" /><br />
-                <label for="top-canvas-top" style="margin-left: 7px;">Top Canvas Top:</label>
-                <input type="number" id="top-canvas-top" style="margin-left: 7px;" /><br />
-                <label for="top-canvas-scale" style="margin-left: 7px;">Top Canvas Scale:</label>
-                <input type="number" id="top-canvas-scale" style="margin-left: 7px;" /><br />
+                <label for="top-canvas-left" style="margin-left: 7px;">Top Canvas Values (ex. 50, 50%, 50px):</label>
+                <input type="number" id="top-canvas-left" style="margin-left: 7px;" value="Space from left" />
+                <input type="number" id="top-canvas-top" style="margin-left: 7px;" value="Space from top" />
+                <input type="number" id="top-canvas-scale" style="margin-left: 7px;" value="Scale amount/><br />
 
-                <label for="bottom-canvas-left" style="margin-left: 7px;">Bottom Canvas Left:</label>
-                <input type="number" id="bottom-canvas-left" style="margin-left: 7px;" /><br />
-                <label for="bottom-canvas-top" style="margin-left: 7px;">Bottom Canvas Top:</label>
-                <input type="number" id="bottom-canvas-top" style="margin-left: 7px;" /><br />
-                <label for="bottom-canvas-scale" style="margin-left: 7px;">Bottom Canvas Scale:</label>
-                <input type="number" id="bottom-canvas-scale" style="margin-left: 7px;" /><br />
-		
+                <label for="bottom-canvas-left" style="margin-left: 7px;">Bottom Canvas Left (e.g., 50, 50%, 50px):</label>
+                <input type="number" id="bottom-canvas-left" style="margin-left: 7px; value="Space from left" />
+                <input type="number" id="bottom-canvas-top" style="margin-left: 7px; value="Space from top" />
+                <input type="number" id="bottom-canvas-scale" style="margin-left: 7px; value="Scale amount" /><br />
+		<hr />
                 <input type="checkbox" id="power-save" style="margin-left: 7px;" />
                 <label for="power-save">Power-save</label><br />
                 <input type="checkbox" id="vk-enabled" style="margin-left: 7px;" />
@@ -241,7 +237,7 @@
                                           } else if (value.endsWith('%')) {                
 					    return parseFloat(value) / 100;
                                           } else {
-                                            return parseFloat(value);
+                                            return parseFloat(value) / 100;
                                           }
                                         };
 
