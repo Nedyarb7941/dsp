@@ -80,6 +80,20 @@
 	<div id="menu" hidden>
 		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button>
 		<hr />
+                <label for="top-canvas-left" style="margin-left: 7px;">Top Canvas Left:</label>
+                <input type="number" id="top-canvas-left" style="margin-left: 7px;" /><br />
+                <label for="top-canvas-top" style="margin-left: 7px;">Top Canvas Top:</label>
+                <input type="number" id="top-canvas-top" style="margin-left: 7px;" /><br />
+                <label for="top-canvas-scale" style="margin-left: 7px;">Top Canvas Scale:</label>
+                <input type="number" id="top-canvas-scale" style="margin-left: 7px;" /><br />
+
+                <label for="bottom-canvas-left" style="margin-left: 7px;">Bottom Canvas Left:</label>
+                <input type="number" id="bottom-canvas-left" style="margin-left: 7px;" /><br />
+                <label for="bottom-canvas-top" style="margin-left: 7px;">Bottom Canvas Top:</label>
+                <input type="number" id="bottom-canvas-top" style="margin-left: 7px;" /><br />
+                <label for="bottom-canvas-scale" style="margin-left: 7px;">Bottom Canvas Scale:</label>
+                <input type="number" id="bottom-canvas-scale" style="margin-left: 7px;" /><br />
+		
                 <input type="checkbox" id="power-save" style="margin-left: 7px;" />
                 <label for="power-save">Power-save</label><br />
                 <input type="checkbox" id="vk-enabled" style="margin-left: 7px;" />
@@ -88,6 +102,7 @@
                 <select id="screen-layout" class="select">
                   <option value="tb">T:B (Top:Bottom)</option>
                   <option value="lr">L:R (Left:Right)</option>
+		  <option value="custom">Custom</option>
 		  <option value="lbr">LB:R (LeftBig:Right)</option>
 		</select>
                 <hr />
@@ -209,7 +224,29 @@
 					bottomCanvas.style.left = '50%';
 					bottomCanvas.style.width = `${canvasWidth}px`;
 					bottomCanvas.style.height = `${canvasHeight}px`;
-				} else {
+				} else if (screenLayout === 'custom') {
+                                        const canvasWidth = window.innerWidth * 0.5; // 50vw
+                                        const canvasHeight = canvasWidth * 0.75;
+
+                                        const topCanvasLeft = document.getElementById('top-canvas-left').value;
+                                        const topCanvasTop = document.getElementById('top-canvas-top').value;
+                                        const topCanvasScale = document.getElementById('top-canvas-scale').value;
+                                        const bottomCanvasLeft = document.getElementById('bottom-canvas-left').value;
+                                        const bottomCanvasTop = document.getElementById('bottom-canvas-top').value;
+                                        const bottomCanvasScale = document.getElementById('bottom-canvas-scale').value;
+
+                                        topCanvas.style.position = 'absolute';
+                                        topCanvas.style.top = `${topCanvasTop}px`;
+                                        topCanvas.style.left = `${topCanvasLeft}px`;
+                                        topCanvas.style.width = `${canvasWidth * topCanvasScale}px`;
+                                        topCanvas.style.height = `${canvasHeight * topCanvasScale}px`;
+
+                                        bottomCanvas.style.position = 'absolute';
+                                        bottomCanvas.style.top = `${bottomCanvasTop}px`;
+                                        bottomCanvas.style.left = `${bottomCanvasLeft}px`;
+                                        bottomCanvas.style.width = `${canvasWidth * bottomCanvasScale}px`;
+                                        bottomCanvas.style.height = `${canvasHeight * bottomCanvasScale}px`;
+                                        } else {
 					topCanvas.style.left = '25%';
 					topCanvas.style.width = '75vh';
 					topCanvas.style.height = '50vh';
