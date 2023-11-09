@@ -407,6 +407,8 @@ function uiUpdateLayout() {
         if (screenLayout === 'lbr') {
           fbSize = [[w, h], [w, h]];
         } else if (screenLayout === 'lr') {
+          fbSize = [[w, h], [w, h]];
+        } else if (screenLayout === 'custom') {
             
         } else {
         for (var i = 0; i < 2; i++) {
