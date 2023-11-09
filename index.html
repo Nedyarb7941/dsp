@@ -175,6 +175,16 @@
 		requestAnimationFrame(gamepadLoop);
 	</script>
 	<script>
+	var screenLayoutTimeout;
+
+        function updateScreenLayoutDelayed() {
+            clearTimeout(screenLayoutTimeout);
+            screenLayoutTimeout = setTimeout(function() {
+                updateScreenLayout();
+            }, 100);
+        }
+        // Call the updateScreenLayoutDelayed function whenever you want to update the screen layout
+	<script>
 		// Add a global variable to store the selected screen layout
 		var screenLayout = 'tb';
 		document.addEventListener('DOMContentLoaded', function () {
