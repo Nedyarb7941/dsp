@@ -278,16 +278,24 @@
 		});
 	</script>
 	<script>
-        setInterval(function() {
-            var screenLayout = document.getElementById("screen-layout").value;
-            var customScreenLayout = document.getElementById("custom-screen-layout");
+        var screenLayout = document.getElementById("screen-layout").value;
+        var customScreenLayout = document.getElementById("custom-screen-layout");
 
+        function updateScreenLayout() {
             if (screenLayout === "custom") {
                 customScreenLayout.style.display = "block";
             } else {
                 customScreenLayout.style.display = "none";
             }
-	    updateScreenLayout();
+        }
+
+        document.getElementById('screen-layout').addEventListener('change', function () {
+            screenLayout = this.value;
+            updateScreenLayout();
+        });
+
+        setInterval(function() {
+            updateScreenLayout();
         }, 100);
     </script>
 </body>
