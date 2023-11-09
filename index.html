@@ -275,6 +275,17 @@
 			updateScreenLayout();
 		});
 	</script>
-</body>
+	<script>
+        setInterval(function() {
+            var screenLayout = document.getElementById("screen-layout").value;
+            var customScreenLayout = document.getElementById("custom-screen-layout");
 
+            if (screenLayout === "custom") {
+                customScreenLayout.style.display = "block";
+            } else {
+                customScreenLayout.style.display = "none";
+            }
+        }, 100);
+    </script>
+</body>
 </html>
