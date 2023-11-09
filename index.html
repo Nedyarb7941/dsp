@@ -140,6 +140,11 @@
 	</script>
 	<script>
         var isWaiting = false;
+	var attributeValue = document.getAttribute("screen-layout");
+
+        setInterval(function() {
+          attributeValue = document.getAttribute("screen-layout");
+        }, 100);
 
         function canvasLoop() {
             if (!isWaiting) {
