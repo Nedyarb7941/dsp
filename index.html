@@ -234,18 +234,35 @@
                                         const bottomCanvasLeft = document.getElementById('bottom-canvas-left').value;
                                         const bottomCanvasTop = document.getElementById('bottom-canvas-top').value;
                                         const bottomCanvasScale = document.getElementById('bottom-canvas-scale').value;
+                                      
+					const parseValue = (value) => {
+                                          if (value.endsWith('px')) {
+                                            return parseFloat(value);
+                                          } else if (value.endsWith('%')) {                
+					    return parseFloat(value) / 100;
+                                          } else {
+                                            return parseFloat(value);
+                                          }
+                                        };
 
+                                        const topCanvasLeftValue = parseValue(topCanvasLeft);
+                                        const topCanvasTopValue = parseValue(topCanvasTop);
+                                        const topCanvasScaleValue = parseValue(topCanvasScale);
+                                        const bottomCanvasLeftValue = parseValue(bottomCanvasLeft);
+                                        const bottomCanvasTopValue = parseValue(bottomCanvasTop);
+                                        const bottomCanvasScaleValue = parseValue(bottomCanvasScale);
+					
                                         topCanvas.style.position = 'absolute';
-                                        topCanvas.style.top = `${topCanvasTop}px`;
-                                        topCanvas.style.left = `${topCanvasLeft}px`;
-                                        topCanvas.style.width = `${canvasWidth * topCanvasScale}px`;
-                                        topCanvas.style.height = `${canvasHeight * topCanvasScale}px`;
+                                        topCanvas.style.top = `${topCanvasTopValue * 100}%`;
+                                        topCanvas.style.left = `${topCanvasLeftValue * 100}%`;
+                                        topCanvas.style.width = `${canvasWidth * topCanvasScaleValue}px`;
+                                        topCanvas.style.height = `${canvasHeight * topCanvasScaleValue}px`;
 
                                         bottomCanvas.style.position = 'absolute';
-                                        bottomCanvas.style.top = `${bottomCanvasTop}px`;
-                                        bottomCanvas.style.left = `${bottomCanvasLeft}px`;
-                                        bottomCanvas.style.width = `${canvasWidth * bottomCanvasScale}px`;
-                                        bottomCanvas.style.height = `${canvasHeight * bottomCanvasScale}px`;
+                                        bottomCanvas.style.top = `${bottomCanvasTopValue * 100}%`;
+                                        bottomCanvas.style.left = `${bottomCanvasLeftValue * 100}%`;
+                                        bottomCanvas.style.width = `${canvasWidth * bottomCanvasScaleValue}px`;
+                                        bottomCanvas.style.height = `${canvasHeight * bottomCanvasScaleValue}px`;
                                         } else {
 					topCanvas.style.left = '25%';
 					topCanvas.style.width = '75vh';
