@@ -20,8 +20,8 @@ body {
 #bottom-text {
     border: 2px solid #ffffff;
     border-radius: 6px;
-    color: lightpurple;
-    background-color: lightpurple;
+    color: lightpink;
+    background-color: lightpink;
     font-family: inherit;
     font-size: inherit;
     position: fixed;
@@ -41,7 +41,7 @@ select {
         border-radius: 6px;
         padding: 10px;
 	color: #dbdbdb;
-	background-color: #161f27;
+	background-color: lightpink;
         font-family: system-ui, -apple-system, sans-serif;
         font-size: inherit;
 }
@@ -59,7 +59,7 @@ select {
 
 .button-list {
     color: #fff;
-    background-color: pink;
+    background-color: lightpink;
     font-family: inherit;
     font-size: inherit;
     padding: 0; /* Remove the padding */
