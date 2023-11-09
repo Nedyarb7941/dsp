@@ -139,6 +139,21 @@
 		}
 	</script>
 	<script>
+        var isWaiting = false;
+
+        function canvasLoop() {
+            if (!isWaiting) {
+                isWaiting = true;
+                updateScreenLayout();
+                setTimeout(function () {
+                    isWaiting = false;
+                }, 100);
+            }
+        }
+
+        setInterval(gamepadLoop, 100);
+	</script>
+	<script>
 		var gamepadIndex = 0; // Change this value if you have multiple gamepads connected
 		var isTriggerPressed = false;
 		var isWaiting = false;
@@ -174,16 +189,6 @@
 
 		requestAnimationFrame(gamepadLoop);
 	</script>
-	<script>
-	var screenLayoutTimeout;
-
-        function updateScreenLayoutDelayed() {
-            clearTimeout(screenLayoutTimeout);
-            screenLayoutTimeout = setTimeout(function() {
-                updateScreenLayout();
-            }, 100);
-        }
-        // Call the updateScreenLayoutDelayed function whenever you want to update the screen layout
 	<script>
 		// Add a global variable to store the selected screen layout
 		var screenLayout = 'tb';
