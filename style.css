@@ -26,7 +26,7 @@ body {
     font-size: inherit;
     position: fixed;
     bottom: 40px;
-    left: 50%;
+    left: 48%;
     transform: translate(-50%, 50%);
     width: 50%;
     text-align: center;
@@ -169,12 +169,6 @@ a:visited {
 
 .vk-touched {
 	background-color: rgba(255, 182, 193, 0.85) !important;
-}
-
-#vis {
-	z-index: 9999;
-	left: 50vh;
-	margin-top: 25px;
 }
 
 .link {
