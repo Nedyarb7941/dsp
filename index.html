@@ -73,9 +73,6 @@
 		<div class="vk-rect vk" data-k="start">+</div>
 		<div class="vk-round vk" data-k="stick" id="vk-stick"></div>
 	</div>
-	<div id="visi-toggle>
-	    <button class="visible" onclick="toggleVisibility()">🫰</button>
-	</div>
 	<div style="z-index: 2; position: absolute; bottom: 20px;" id="fps"></div>
 	<div id="msg-layer" hidden>
 		<p id="msg-text"></p>
@@ -141,16 +138,6 @@
 			window.open(url, '_blank');
 		}
 	</script>
-	<script>
-        function toggleVKLayer() {
-            var vkLayer = document.getElementById("vk-layer");
-            if (vkLayer.style.display === "none") {
-                $id('vk-layer').hidden = false
-            } else {
-                $id('vk-layer').hidden = true
-            }
-        }
-        </script>
 	<script>
         var isWaiting = false;
 
