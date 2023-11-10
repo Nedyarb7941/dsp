@@ -75,9 +75,10 @@
 		<div class="vk-rect vk" data-k="start">+</div>
 		<div class="vk-round vk" data-k="stick" id="vk-stick"></div>
 	</div>
-	<div style="z-index: 2; position: absolute; bottom: 20px;" id="fps">
-	<button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 50px;" onclick="toggleVkEnabled()">🫰</button>
+	<div id="vis" class="button">
+        <button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 50px;" onclick="toggleVkEnabled()">🫰</button>
 	</div>
+	<div style="z-index: 2; position: absolute; bottom: 20px;" id="fps"></div>
 	<div id="msg-layer" hidden>
 		<p id="msg-text"></p>
 	</div>
@@ -144,8 +145,7 @@
 	</script>
 	<script>
         function toggleVkEnabled() {
-            var element = document.getElementById("vk-enabled");
-            element.classList.toggle("vk-enabled");
+            $id('vk-enabled').checked
         }
 	</script>
 	<script>
