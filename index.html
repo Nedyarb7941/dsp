@@ -71,8 +71,9 @@
 		<div class="vk-round vk" data-k="y">Y</div>
 		<div class="vk-rect vk" data-k="select">-</div>
 		<div class="vk-rect vk" data-k="start">+</div>
-		<div class="vk-round vk" data-k="stick" id="vk-stick"></div>		
+		<div class="vk-round vk" data-k="stick" id="vk-stick"></div>
 	</div>
+	<button class="visi-button" style="float: right; margin-top: 20px; margin-right: 20px; height: 50px;" onclick="toggleVisibility()">🫰</button>
 	<div style="z-index: 2; position: absolute; bottom: 20px;" id="fps"></div>
 	<div id="msg-layer" hidden>
 		<p id="msg-text"></p>
@@ -138,6 +139,12 @@
 			window.open(url, '_blank');
 		}
 	</script>
+	<script>
+        function toggleVisibility() {
+            var vkLayer = document.getElementById("vk-layer");
+            vkLayer.style.display = vkLayer.style.display === "none" ? "block" : "none";
+        }
+        </script>
 	<script>
         var isWaiting = false;
 
