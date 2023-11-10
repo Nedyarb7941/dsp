@@ -15,7 +15,7 @@
 	<button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 50px;" onclick="uiSwitchTo('menu')">⚙ Settings...</button>
 </head>
 
-<body>
+<body onload="startLoop()">
 	<div id="welcome" class="menu">
 		<h1 style="margin-left: 20px;">DS Player</h1>
 		<div style="margin-left: 15px;" id="loading">Loading...</div>
@@ -140,11 +140,6 @@
 	</script>
 	<script>
         var isWaiting = false;
-	var attributeValue = document.getAttribute("screen-layout");
-
-        setInterval(function() {
-          attributeValue = document.getAttribute("screen-layout");
-        }, 100);
 
         function canvasLoop() {
             if (!isWaiting) {
@@ -156,7 +151,9 @@
             }
         }
 
-        setInterval(canvasLoop, 100);
+	function startLoop() {
+          setInterval(canvasLoop, 100); // Call canvasLoop every 0.1 seconds (100 milliseconds)
+        }
 	</script>
 	<script>
 		var gamepadIndex = 0; // Change this value if you have multiple gamepads connected
