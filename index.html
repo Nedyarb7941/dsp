@@ -12,8 +12,8 @@
 	<link href="dark.css" rel="stylesheet" />
 	<link rel="stylesheet" href="style.css" />
 	<title>DS Player</title>
-	<div id="welcome>
 	<button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 50px;" onclick="uiSwitchTo('menu')">⚙ Settings...</button>
+	<div id="welcome>
 	</div>
 </head>
 
@@ -126,7 +126,7 @@
 		</div>
 		<a style="margin-left: 7px;" href="#" id="a-gamepad">Gamepad Disconnected</a>
 	</div>
-	<div id="player" hidden>
+	<div id="player" style="z-index: 1;" hidden>
 		<canvas id="top" width="256" height="192"></canvas>
 		<canvas id="bottom" width="256" height="192"></canvas>
 	</div>
@@ -139,23 +139,6 @@
 		function openLink(url) {
 			window.open(url, '_blank');
 		}
-	</script>
-	<script>
-        var isWaiting = false;
-
-        function canvasLoop() {
-            if (!isWaiting) {
-                isWaiting = true;
-                updateScreenLayout();
-                setTimeout(function () {
-                    isWaiting = false;
-                }, 100);
-            }
-        }
-
-	function startLoop() {
-          setInterval(canvasLoop, 100); // Call canvasLoop every 0.1 seconds (100 milliseconds)
-        }
 	</script>
 	<script>
 		var gamepadIndex = 0; // Change this value if you have multiple gamepads connected
@@ -242,9 +225,6 @@
 					bottomCanvas.style.width = `${canvasWidth}px`;
 					bottomCanvas.style.height = `${canvasHeight}px`;
 				} else if (screenLayout === 'custom') {
-                                        const canvasWidth = window.innerWidth * 0.5; // 50vw
-                                        const canvasHeight = canvasWidth * 0.75;
-
                                         const topCanvasLeft = document.getElementById('top-canvas-left').value;
                                         const topCanvasTop = document.getElementById('top-canvas-top').value;
                                         const topCanvasScale = document.getElementById('top-canvas-scale').value;
@@ -280,11 +260,10 @@
                                         bottomCanvas.style.left = `${bottomCanvasLeftValue * 100}%`;
                                         bottomCanvas.style.width = `${canvasWidth * bottomCanvasScaleValue}px`;
                                         bottomCanvas.style.height = `${canvasHeight * bottomCanvasScaleValue}px`;
-                                        } else {
+                                } else {
 					topCanvas.style.left = '25%';
 					topCanvas.style.width = '75vh';
 					topCanvas.style.height = '50vh';
-					bottomCanvas.style.position = 'static';
 					bottomsCanvas.style.top = '50vh';
 					bottomCanvas.style.left = '25%';
 					bottomCanvas.style.width = '75vh';
