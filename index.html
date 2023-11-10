@@ -75,7 +75,9 @@
 		<div class="vk-rect vk" data-k="start">+</div>
 		<div class="vk-round vk" data-k="stick" id="vk-stick"></div>
 	</div>
-	<div style="z-index: 2; position: absolute; bottom: 20px;" id="fps"></div>
+	<div style="z-index: 2; position: absolute; bottom: 20px;" id="fps">
+	<button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 50px;" onclick="toggleVkEnabled()">🫰</button>
+	</div>
 	<div id="msg-layer" hidden>
 		<p id="msg-text"></p>
 	</div>
@@ -127,7 +129,6 @@
 	<div id="player" hidden>
 		<canvas id="top" width="256" height="192"></canvas>
 		<canvas id="bottom" width="256" height="192"></canvas>
-		<button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 50px;" onclick="toggleVkEnabled()">🫰</button>
 	</div>
 	<script src="localforage.js"></script>
 	<script src="pako.min.js"></script>
