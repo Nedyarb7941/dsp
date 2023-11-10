@@ -24,7 +24,7 @@
 
 button {
     color: #fff;
-    background-color: var(--background);
+    background-color: rbg(255, 255, 255, 0.5;
     font-family: inherit;
     font-size: inherit;
     padding: 10px;
@@ -35,6 +35,17 @@ button {
 
 button:active {
     background-color: var(--button-hover);
+}
+
+visi-button {
+    color: #fff;
+    background-color: var(--background);
+    font-family: inherit;
+    font-size: inherit;
+    padding: 10px;
+    border: 2px white solid;
+    border-radius: 6px;
+    outline: none;
 }
 
 input {
