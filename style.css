@@ -21,7 +21,7 @@ body {
     border: 2px solid #ffffff;
     border-radius: 6px;
     color: white;
-    background-color: lightpink;
+    background-color: darkpink;
     font-family: inherit;
     font-size: inherit;
     position: fixed;
@@ -110,13 +110,6 @@ canvas {
 	height: 100%;
 	z-index: 2;
 	touch-action: none;
-}
-
-#visi-toggle {
-	position: absolute;
-	left: 50vh;
-	top: 25px
-	z-index: 3;
 }
 
 menu {
