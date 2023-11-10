@@ -28,7 +28,7 @@ button {
     font-family: inherit;
     font-size: inherit;
     padding: 10px;
-    border: 2px white solid;
+    border: 2px #fff solid;
     border-radius: 6px;
     outline: none;
 }
@@ -39,7 +39,7 @@ button:active {
 
 button-display {
     color: #fff;
-    background-color: rbg(255,255,255,0.25)
+    background-color: rbg(255,255,255,0.25);
     font-family: inherit;
     font-size: inherit;
     padding: 5px;
