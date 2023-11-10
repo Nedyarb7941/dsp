@@ -73,7 +73,7 @@
 		<div class="vk-rect vk" data-k="start">+</div>
 		<div class="vk-round vk" data-k="stick" id="vk-stick"></div>
 	</div>
-	<button class="visi-button" onclick="toggleVisibility()">🫰</button>
+	<button class="visible" onclick="toggleVisibility()">🫰</button>
 	<div style="z-index: 2; position: absolute; bottom: 20px;" id="fps"></div>
 	<div id="msg-layer" hidden>
 		<p id="msg-text"></p>
@@ -140,9 +140,13 @@
 		}
 	</script>
 	<script>
-        function toggleVisibility() {
+        function toggleVKLayer() {
             var vkLayer = document.getElementById("vk-layer");
-            vkLayer.style.display = vkLayer.style.display === "none" ? "block" : "none";
+            if (vkLayer.style.display === "none") {
+                vkLayer.style.display = "block";
+            } else {
+                vkLayer.style.display = "none";
+            }
         }
         </script>
 	<script>
