@@ -1,8 +1,8 @@
 /*inspired by water.css*/
 :root {
-    --background-body: lightpink;
-    --background: pink;
-    --background-alt: darkpink;
+    --background-body: darkpink;
+    --background: lightpink;
+    --background-alt: pink;
     --selection: #1c76c5;
     --text-main: #dbdbdb;
     --text-bright: #fff;
