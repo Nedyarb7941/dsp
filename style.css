@@ -171,6 +171,10 @@ a:visited {
 	background-color: rgba(255, 182, 193, 0.85) !important;
 }
 
+#vis {
+	z-index: 9999;
+}
+
 .link {
 	text-decoration: underline;
 }
