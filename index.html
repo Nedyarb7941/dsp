@@ -75,9 +75,6 @@
 		<div class="vk-rect vk" data-k="start">+</div>
 		<div class="vk-round vk" data-k="stick" id="vk-stick"></div>
 	</div>
-	<div id="vis" class="button">
-        <button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 50px;" onclick="toggleVkEnabled()">🫰</button>
-	</div>
 	<div style="z-index: 2; position: absolute; bottom: 20px;" id="fps"></div>
 	<div id="msg-layer" hidden>
 		<p id="msg-text"></p>
@@ -107,7 +104,7 @@
                 <select id="screen-layout" class="select">
                   <option value="tb">T:B (Top:Bottom)</option>
                   <option value="lr">L:R (Left:Right)</option>
-		  <option value="custom">Custom</option>
+		  <option value="custom">Custom <b>[EXPERIMENTAL]</b></option>
 		  <option value="lbr">LB:R (LeftBig:Right)</option>
 		</select>
                 <hr />
@@ -117,7 +114,7 @@
                 </div>
 		
                 <div style="position: fixed; bottom: 0; right: 0; padding: 10px;">
-                  <span style="font-size: 12px;">Version 2023116 | </span> <a onclick="whatsNew()" href="#" style="font-size: 12px;">What's New</a>
+                  <span style="font-size: 12px;">Version 20231110 | </span> <a onclick="whatsNew()" href="#" style="font-size: 12px;">What's New</a>
                 </div>
 
 		<div style="margin-left: 7px;" id="menu-savegame" hidden>
@@ -138,17 +135,10 @@
 	<script src="app.js"></script>
 	<script src="build/nds.js"></script>
 	<script src="sw-loader.js"></script>
-	<script src="GamepadsSpoof.js"></script>
-	<script src="Nostlan_ds_player.js"></script>
 	<script>
 		function openLink(url) {
 			window.open(url, '_blank');
 		}
-	</script>
-	<script>
-        function toggleVkEnabled() {
-            uiSwitchTo('menu')
-        }
 	</script>
 	<script>
         var isWaiting = false;
