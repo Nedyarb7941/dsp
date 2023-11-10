@@ -28,7 +28,7 @@ body {
     bottom: 40px;
     left: 50%;
     transform: translate(-50%, 50%);
-    width: 60%;
+    width: 45%;
     text-align: center;
     padding: 5px; /* Reduce the padding to create a 5px gap */
     box-sizing: border-box; /* Include the border in the width calculation */
@@ -41,7 +41,7 @@ select {
         border-radius: 6px;
         padding: 10px;
 	color: #dbdbdb;
-	background-color: lightpink;
+	background-color: darkpink;
         font-family: system-ui, -apple-system, sans-serif;
         font-size: inherit;
 }
@@ -59,7 +59,7 @@ select {
 
 .button-list {
     color: #fff;
-    background-color: lightpink;
+    background-color: darkpink;
     font-family: inherit;
     font-size: inherit;
     padding: 0; /* Remove the padding */
@@ -141,18 +141,18 @@ a:visited {
 }
 
 .vk-rectangle {
-	text-align: center;
-	vertical-align: middle;
-	border-radius: 2.5% !important;
-	display: inline-block;
-}
-
-.vk-rectangle {
     text-align: center;
     vertical-align: middle;
-    border-radius: 15%;
+    border-radius: 10% !important;
     display: inline-block;
     overflow: hidden;
+}
+
+.vk-round {
+	text-align: center;
+	vertical-align: right;
+	border-radius: 50% !important;
+	display: inline-block;
 }
 
 .vk {
