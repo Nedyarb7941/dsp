@@ -8,8 +8,8 @@ body {
 }
 
 body {
-	background-color: white;
-	color: darkpink;
+	background-color: darkpink;
+	color: white;
 	padding: 0;
 	margin: 0;
 	width: 100vw;
@@ -20,8 +20,8 @@ body {
 #bottom-text {
     border: 2px solid #ffffff;
     border-radius: 6px;
-    color: darkpink;
-    background-color: white;
+    color: white;
+    background-color: lightpink;
     font-family: inherit;
     font-size: inherit;
     position: fixed;
@@ -40,8 +40,8 @@ select {
         border: 2px solid #ffffff;
         border-radius: 6px;
         padding: 10px;
-	color: darkpink;
-	background-color: white;
+	color: white;
+	background-color: lightpink;
         font-family: system-ui, -apple-system, sans-serif;
         font-size: inherit;
 }
@@ -58,8 +58,8 @@ select {
 }
 
 .button-list {
-    color: lightpink;
-    background-color: white;
+    color: white;
+    background-color: lightpink;
     font-family: inherit;
     font-size: inherit;
     padding: 0; /* Remove the padding */
