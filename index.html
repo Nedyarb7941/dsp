@@ -127,9 +127,7 @@
 	<div id="player" hidden>
 		<canvas id="top" width="256" height="192"></canvas>
 		<canvas id="bottom" width="256" height="192"></canvas>
-		<script>
-		    canvasLoop()
-		</script>
+		<button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 50px;" onclick="toggleVkEnabled()">🫰</button>
 	</div>
 	<script src="localforage.js"></script>
 	<script src="pako.min.js"></script>
@@ -142,6 +140,12 @@
 		function openLink(url) {
 			window.open(url, '_blank');
 		}
+	</script>
+	<script>
+        function toggleVkEnabled() {
+            var element = document.getElementById("vk-enabled");
+            element.classList.toggle("vk-enabled");
+        }
 	</script>
 	<script>
         var isWaiting = false;
