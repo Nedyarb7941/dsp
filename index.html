@@ -12,10 +12,12 @@
 	<link href="dark.css" rel="stylesheet" />
 	<link rel="stylesheet" href="style.css" />
 	<title>DS Player</title>
+	<div id="welcome>
 	<button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 50px;" onclick="uiSwitchTo('menu')">⚙ Settings...</button>
+	</div>
 </head>
 
-<body onload="startLoop()">
+<body>
 	<div id="welcome" class="menu">
 		<h1 style="margin-left: 20px;">DS Player</h1>
 		<div style="margin-left: 15px;" id="loading">Loading...</div>
@@ -24,7 +26,7 @@
 			<button style="width: calc(100% - 2em); margin: 1em" id="btn-choose-file">Choose File (or
 				drag/drop)...</button><br />
 		</div>
-		<p style="color: #888; margin-left: 15px;">
+		<p style="color: #e7e7e7; margin-left: 15px;">
 			This software should not be used to play games you have not legally obtained.<br />
 			This site is in no way associated with any of the vendors of the original game software and hardware.
 			<br />
@@ -45,7 +47,7 @@
 			</div>
 		</div>
 		<div id="bottom-text">
-                    Download links not working? Try this link: <a href="https://drive.google.com/drive/folders/1-R8gzuvhBSmUmH1p9w2lC172Pj7HDWIg">https://drive.google.com/drive/folders/1-R8gzuvhBSmUmH1p9w2lC172Pj7HDWIg</a>
+                    Download links not working? Try this link: <a href="https://drive.google.com/drive/folders/1-R8gzuvhBSmUmH1p9w2lC172Pj7HDWIg">https://drive.google.com/...</a>
                 </div>
 		<div id="pro" style="background-color: #333"></div>
 		<div id="ios-hint" hidden style="margin-left: 50vh;">
@@ -125,6 +127,9 @@
 	<div id="player" hidden>
 		<canvas id="top" width="256" height="192"></canvas>
 		<canvas id="bottom" width="256" height="192"></canvas>
+		<script>
+		    canvasLoop()
+		</script>
 	</div>
 	<script src="localforage.js"></script>
 	<script src="pako.min.js"></script>
