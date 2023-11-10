@@ -1,8 +1,8 @@
 /*inspired by water.css*/
 :root {
-    --background-body: darkpink;
-    --background: lightpink;
-    --background-alt: pink;
+    --background-body: pink;
+    --background: darkpink;
+    --background-alt: lightpink;
     --selection: #1c76c5;
     --text-main: #dbdbdb;
     --text-bright: #fff;
@@ -37,20 +37,6 @@ button:active {
     background-color: var(--button-hover);
 }
 
-button-display {
-    color: #fff;
-    background-color: rbg(255,255,255,0.25);
-    font-family: inherit;
-    font-size: inherit;
-    padding: 5px;
-    border-radius: 15px;
-    outline: none;
-}
-
-button-display:active {
-    background-color: var(--button-hover);
-}
-
 input {
     font-family: inherit;
     font-size: inherit;
@@ -60,7 +46,7 @@ input {
     border-radius: 6px;
     padding: 10px;
     color: var(--form-text);
-    background-color: var(--background);
+    background-color: var(--background-alt);
 }
 
 ::placeholder {
