@@ -173,6 +173,8 @@ a:visited {
 
 #vis {
 	z-index: 9999;
+	left: 50vh;
+	margin-top: 25px;
 }
 
 .link {
