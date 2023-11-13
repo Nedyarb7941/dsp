@@ -1,5 +1,6 @@
 html,
 body {
+	background-color: darkpink;
 	overflow-x: hidden;
 	-webkit-user-select: none;
 	user-select: none;
