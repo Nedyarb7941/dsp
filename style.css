@@ -94,7 +94,8 @@ canvas {
 	position: absolute;
 	z-index: 1;
 	image-rendering: pixelated;
-	border: 4px solid pink;
+	border: 8px solid pink;
+	border-radius: 2.5%;
 }
 
 #msg-layer {
