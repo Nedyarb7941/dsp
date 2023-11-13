@@ -1,8 +1,8 @@
 /*inspired by water.css*/
 :root {
-    --background-body: pink;
-    --background: darkpink;
-    --background-alt: lightpink;
+    --background-body: lightpink;
+    --background: lightpink;
+    --background-alt: pink;
     --selection: #1c76c5;
     --text-main: #dbdbdb;
     --text-bright: #fff;
@@ -24,11 +24,11 @@
 
 button {
     color: white;
-    background-color: var(--background);
+    background-color: var(--background-alt);
     font-family: inherit;
     font-size: inherit;
     padding: 10px;
-    border: 2px #fff solid;
+    border: 2px white solid;
     border-radius: 6px;
     outline: none;
 }
