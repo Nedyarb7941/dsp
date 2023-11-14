@@ -624,14 +624,14 @@ function handleTouch(event) {
             var buttons = Object.values(vkMap);
                     buttons.forEach(function(button) {
                     button.style.opacity = '1';
-                    button.style.backgroundColor = 'rgba(231, 84, 128, 0.85)';
+                    button.style.backgroundColor = 'lightpink';
                     button.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.25)';
                     button.addEventListener('mousedown', function() {
-                        button.style.backgroundColor = 'rgba(231, 84, 128, 0.75)';
+                        button.style.backgroundColor = 'pink';
                         button.style.color = 'white';
                     });
                     button.addEventListener('mouseup', function() {
-                        button.style.backgroundColor = 'rgba(231, 84, 128, 0.85)';
+                        button.style.backgroundColor = 'lightpink';
                         button.style.color = 'white';
                     });
             });
@@ -688,14 +688,14 @@ function handleTouch(event) {
         var buttons = Object.values(vkMap);
         buttons.forEach(function(button) {
             button.style.opacity = '1';
-            button.style.backgroundColor = 'rgba(231, 84, 128, 0.85)';
+            button.style.backgroundColor = 'lightpink';
             button.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.25)';
             button.addEventListener('mousedown', function() {
-                button.style.backgroundColor = 'rgba(231, 84, 128, 0.75)';
+                button.style.backgroundColor = 'pink)';
                 button.style.color = 'white';
             });
             button.addEventListener('mouseup', function() {
-                 button.style.backgroundColor = 'rgba(231, 84, 128, 0.85)';
+                 button.style.backgroundColor = 'lightpink';
                  button.style.color = 'white';
             });
         });
