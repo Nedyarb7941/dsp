@@ -480,7 +480,7 @@ fileInput.onchange = async () => {
         alert('This is a GBA file, redirecting to the GBA player...')
         window.location.href = '/gba';
     } else if (fileNameLower.endsWith('.zip')) {
-        alert('ZIP file not supported yet!')
+        alert('ZIP file not supported yet! You must uncompress it first!')
     } else if (fileNameLower.endsWith('.nds')) {
         tryLoadROM(file)
         return
