@@ -624,15 +624,16 @@ function handleTouch(event) {
             var buttons = Object.values(vkMap);
                     buttons.forEach(function(button) {
                     button.style.opacity = '1';
-                    button.style.backgroundColor = 'lightpink';
+                        button.style.color = 'pink';
+                    button.style.backgroundColor = 'rgba(255, 192, 203, 0.85)';
                     button.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.25)';
                     button.addEventListener('mousedown', function() {
-                        button.style.backgroundColor = 'pink';
-                        button.style.color = 'white';
+                        button.style.backgroundColor = 'rgba(244, 174, 185, 0.85)';
+                        button.style.color = 'pink';
                     });
                     button.addEventListener('mouseup', function() {
-                        button.style.backgroundColor = 'lightpink';
-                        button.style.color = 'white';
+                        button.style.backgroundColor = 'rgba(255, 192, 203, 0.85)';
+                        button.style.color = 'pink';
                     });
             });
         } 
@@ -688,15 +689,16 @@ function handleTouch(event) {
         var buttons = Object.values(vkMap);
         buttons.forEach(function(button) {
             button.style.opacity = '1';
-            button.style.backgroundColor = 'lightpink';
+            button.style.color = 'pink';
+            button.style.backgroundColor = 'rgba(255, 192, 203, 0.85)';
             button.style.boxShadow = '0px 2px 4px rgba(0, 0, 0, 0.25)';
             button.addEventListener('mousedown', function() {
-                button.style.backgroundColor = 'pink)';
-                button.style.color = 'white';
+                button.style.backgroundColor = 'rgba(244, 174, 185, 0.85))';
+                button.style.color = 'pink';
             });
             button.addEventListener('mouseup', function() {
-                 button.style.backgroundColor = 'lightpink';
-                 button.style.color = 'white';
+                 button.style.backgroundColor = 'rgba(255, 192, 203, 0.85)';
+                 button.style.color = 'pink';
             });
         });
     }
