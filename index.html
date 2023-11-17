@@ -188,7 +188,24 @@
 	.link {
 		text-decoration: underline;
 	}
-	            background-color: transparent;
+	/* CSS for the search feature */
+        .search-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #161f27;
+            color: #fff;
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            width: 300px;
+            z-index: 2;
+        }
+        .search-input {
+            background-color: transparent;
             color: #fff;
             border: none;
             outline: none;
