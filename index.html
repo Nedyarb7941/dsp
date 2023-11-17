@@ -195,9 +195,11 @@
             transform: translateX(-50%);
             background-color: #161f27;
             color: #fff;
-            border: 0.5px solid #ffffff;
+            border: 1px solid #ffffff;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
             padding: 10px;
+            border-radius: 10px;
+            width: 300px;
             display: flex;
             align-items: center;
         }
@@ -207,6 +209,8 @@
             border: none;
             outline: none;
             flex: 1;
+            border-radius: 10px;
+            padding: 8px;
         }
         .search-icon {
             margin-right: 10px;
@@ -219,9 +223,16 @@
             transform: translateX(-50%);
             background-color: #161f27;
             color: #fff;
-            border: 0.5px solid #ffffff;
+            border: 1px solid #ffffff;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
             padding: 10px;
+            border-radius: 10px;
+            width: 300px;
+        }
+        .game-section {
+            margin-top: 10px;
+            padding-left: 7px;
+            border-left: 3px solid #fff;
         }
 	</style>
 	<script>
@@ -283,7 +294,9 @@
                     <input type="text" class="search-input" placeholder="Search...">
                 </div>
 		<div class="search-results">
-                    <!-- Results will be displayed here -->
+                    <div class="game-section">Game 1</div>
+                    <div class="game-section">Game 2</div>
+                    <div class="game-section">Game 3</div>
                 </div>
 		<script>
                     // JavaScript for searching the game database
@@ -294,7 +307,7 @@
                         const matchingGames = games.filter(game => game.toLowerCase().includes(searchTerm));
                         const searchResultsContainer = document.querySelector('.search-results');
                         if (matchingGames.length > 0) {
-                            searchResultsContainer.innerHTML = matchingGames.join('<br>');
+                            searchResultsContainer.innerHTML = matchingGames.map(game => `<div class="game-section">${game}</div>`).join('');
                             searchResultsContainer.style.display = 'block';
                         } else {
                             searchResultsContainer.style.display = 'none';
