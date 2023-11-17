@@ -307,41 +307,42 @@
 				<span class="button-text">New Super Mario Bros. DS</span>
 			</div>
 		</div>
-		    </div>
-    <div class="search-results">
-        <span class="search-results-title">Search Results</span>
-        <div class="game-section" onclick="window.location.href='https://drive.google.com/file/d/19zpi1CwrQNSGnveUUnK2lOz-IxU5Vgjk/view?usp=drivesdk'">Mario Kart DS</div>
-        <div class="game-section" onclick="window.location.href='https://drive.google.com/file/d/1q2uWFqJr4EE3sLucIuZA9eONLq8eFk2R/view?usp=drivesdk'">Super Mario 64 DS</div>
-        <div class="game-section" onclick="window.location.href='https://drive.google.com/file/d/1CpHonY6ZCGFKdGX-1ZThpNKr3WPHNxd7/view?usp=drivesdk'">NSMB DS</div>
-        <span class="close-button">X</span>
-    </div>
-    <script>
-        const searchInput = document.querySelector('.search-input');
-        const searchResultsContainer = document.querySelector('.search-results');
+		    
+	</div>
+        <div class="search-results">
+            <span class="search-results-title">Search Results</span>
+            <div class="game-section" onclick="window.location.href='https://drive.google.com/file/d/19zpi1CwrQNSGnveUUnK2lOz-IxU5Vgjk/view?usp=drivesdk'">Mario Kart DS</div>
+            <div class="game-section" onclick="window.location.href='https://drive.google.com/file/d/1q2uWFqJr4EE3sLucIuZA9eONLq8eFk2R/view?usp=drivesdk'">Super Mario 64 DS</div>
+            <div class="game-section" onclick="window.location.href='https://drive.google.com/file/d/1CpHonY6ZCGFKdGX-1ZThpNKr3WPHNxd7/view?usp=drivesdk'">NSMB DS</div>
+            <span class="close-button">X</span>
+        </div>
+        <script>
+            const searchInput = document.querySelector('.search-input');
+             const searchResultsContainer = document.querySelector('.search-results');
 
-        searchInput.addEventListener('input', function() {
-            const query = searchInput.value.toLowerCase();
-            if (query === '') {
+            searchInput.addEventListener('input', function() {
+                const query = searchInput.value.toLowerCase();
+                if (query === '') {
+                    searchResultsContainer.style.opacity = 0;
+                    searchResultsContainer.style.display = 'none';
+                } else {
+                    const matchingGames = ['Mario Kart DS', 'Super Mario 64 DS', 'NSMB DS'].filter(game => game.toLowerCase().includes(query));
+                    if (matchingGames.length > 0) {
+                        searchResultsContainer.innerHTML = `<span class="search-results-title">Search Results</span>` + matchingGames.map(game => `<div class="game-section" onclick="window.location.href='https://drive.google.com/file/${game.link}/view?usp=drivesdk'">${game}</div>`).join('');
+                    } else {
+                        searchResultsContainer.innerHTML = `<span class="search-results-title">Search Results</span><div style="margin-left: 5px; margin-top: 8px;">No results found</div>`;
+                    }
+                    searchResultsContainer.style.display = 'block';
+                    searchResultsContainer.style.opacity = 1;
+                }
+            });
+
+            document.querySelector('.close-button').addEventListener('click', function() {
+                searchInput.value = '';
                 searchResultsContainer.style.opacity = 0;
                 searchResultsContainer.style.display = 'none';
-            } else {
-                const matchingGames = ['Mario Kart DS', 'Super Mario 64 DS', 'NSMB DS'].filter(game => game.toLowerCase().includes(query));
-                if (matchingGames.length > 0) {
-                    searchResultsContainer.innerHTML = `<span class="search-results-title">Search Results</span>` + matchingGames.map(game => `<div class="game-section" onclick="window.location.href='https://drive.google.com/file/${game.link}/view?usp=drivesdk'">${game}</div>`).join('');
-                } else {
-                    searchResultsContainer.innerHTML = `<span class="search-results-title">Search Results</span><div style="margin-left: 5px; margin-top: 8px;">No results found</div>`;
-                }
-                searchResultsContainer.style.display = 'block';
-                searchResultsContainer.style.opacity = 1;
-            }
-        });
-
-        document.querySelector('.close-button').addEventListener('click', function() {
-            searchInput.value = '';
-            searchResultsContainer.style.opacity = 0;
-            searchResultsContainer.style.display = 'none';
-        });
-    </script>
+            });
+        </script>
 		<div id="pro" style="background-color: #333"></div>
 		<div id="ios-hint" hidden style="margin-left: 50vh;">
 			⬇ Due to iOS Safari limitations, you have to add this page to your <b>Home Screen</b> in order to save your game progress. ⬇
