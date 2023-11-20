@@ -9,6 +9,7 @@
 	<link rel="apple-touch-icon" href="icon.png" />
 	<link rel="preload" href="audio-worklet.js" as="script" />
 	<link href="dark.css" rel="stylesheet" />
+	<link rel="stylesheet" href="search.css" />
 	<title>DS Player</title>
 	<div id="welcome">
 	<button class="button" style="float: right; margin-top: 20px; margin-right: 20px; height: 50px;" onclick="uiSwitchTo('menu')">⚙ Settings...</button>
@@ -307,7 +308,49 @@
 				<span class="button-text">New Super Mario Bros. DS</span>
 			</div>
 		</div>
-		    
+		<div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search for games...">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="search-results">
+                    <span class="search-results-title">Search Results</span>
+                    <div class="game-section" onclick="window.location.href='https://drive.google.com/file/d/19zpi1CwrQNSGnveUUnK2lOz-IxU5Vgjk/view?usp=drivesdk'">Mario Kart DS</div>
+                    <div class="game-section" onclick="window.location.href='https://drive.google.com/file/d/1q2uWFqJr4EE3sLucIuZA9eONLq8eFk2R/view?usp=drivesdk'">Super Mario 64 DS</div>
+                    <div class="game-section" onclick="window.location.href='https://drive.google.com/file/d/1CpHonY6ZCGFKdGX-1ZThpNKr3WPHNxd7/view?usp=drivesdk'">NSMB DS</div>
+                    <span class="close-button">X</span>
+                </div>
+                <script>
+                    const searchInput = document.querySelector('.search-input');
+                    const searchResultsContainer = document.querySelector('.search-results');
+
+                    searchInput.addEventListener('input', function() {
+                        const query = searchInput.value.toLowerCase();
+                        if (query === '') {
+                          searchResultsContainer.style.transition = 'opacity 0.5s, transform 0.5s';
+                          searchResultsContainer.style.opacity = 0;
+                          searchResultsContainer.style.transform = 'scale(0.8) translateX(-200px)';
+                          setTimeout(() => {
+                            searchResultsContainer.style.display = 'block';
+                            searchResultsContainer.style.transform = 'scale(1) translateX(-161px)';
+                          }, 500); // Set display to 'none' after the animation completes
+                        } else {
+                            const matchingGames = ['Mario Kart DS', 'Super Mario 64 DS', 'NSMB DS'].filter(game => game.toLowerCase().includes(query));
+                            if (matchingGames.length > 0) {
+                                searchResultsContainer.innerHTML = `<span class="search-results-title">Search Results</span>` + matchingGames.map(game => `<div class="game-section" onclick="window.location.href='https://drive.google.com/file/${game.link}/view?usp=drivesdk'">${game}</div>`).join('');
+                            } else {
+                                searchResultsContainer.innerHTML = `<span class="search-results-title">Search Results</span><div>No results found</div>`;
+                            }
+                            searchResultsContainer.style.display = 'block';
+                            searchResultsContainer.style.opacity = 1;
+                        }
+                    });
+
+                    document.querySelector('.close-button').addEventListener('click', function() {
+                        searchInput.value = '';
+                        searchResultsContainer.style.opacity = 0;
+                        searchResultsContainer.style.display = 'none';
+                    });
+                </script>		    
 	</div>
         <div class="search-results">
             <span class="search-results-title">Search Results</span>
