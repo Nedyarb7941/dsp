@@ -356,18 +356,6 @@
 	<div id="menu" hidden>
 		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button>
 		<hr />
-		<div id="custom-screen-layout" class="custom-screen-layout">
-                <label for="top-canvas-left" style="margin-left: 7px;">Top Canvas Values (ex. 50, 50%, 50px):</label>
-                <input type="number" id="top-canvas-left" style="margin-left: 7px; color: white;" placeholder="Space from left" />
-                <input type="number" id="top-canvas-top" style="margin-left: 7px; color: white;" placeholder="Space from top" />
-                <input type="number" id="top-canvas-scale" style="margin-left: 7px; color: white;" placeholder="Scale amount" /><br />
-
-                <label for="bottom-canvas-left" style="margin-left: 7px;">Bottom Canvas Values (e.g., 50, 50%, 50px):</label>
-                <input type="number" id="bottom-canvas-left" style="margin-left: 7px; color: white;" placeholder="Space from left" />
-                <input type="number" id="bottom-canvas-top" style="margin-left: 7px; color: white;" placeholder="Space from top" />
-                <input type="number" id="bottom-canvas-scale" style="margin-left: 7px; color: white;" placeholder="Scale amount" /><br />
-		<hr />
-		</div>
                 <input type="checkbox" id="power-save" style="margin-left: 7px;" />
                 <label for="power-save">Power-save</label><br />
                 <input type="checkbox" id="vk-enabled" style="margin-left: 7px;" />
@@ -401,6 +389,7 @@
 	<div id="player" hidden>
 		<canvas id="top" width="256" height="192"></canvas>
 		<canvas id="bottom" width="256" height="192"></canvas>
+		<div style="z-index: 1;" />
 	</div>
 	<script src="localforage.js"></script>
 	<script src="pako.min.js"></script>
@@ -496,43 +485,7 @@
 					bottomCanvas.style.left = '50%';
 					bottomCanvas.style.width = `${canvasWidth}px`;
 					bottomCanvas.style.height = `${canvasHeight}px`;
-				} else if (screenLayout === 'custom') {
-                                        const topCanvasLeft = document.getElementById('top-canvas-left').value;
-                                        const topCanvasTop = document.getElementById('top-canvas-top').value;
-                                        const topCanvasScale = document.getElementById('top-canvas-scale').value;
-                                        const bottomCanvasLeft = document.getElementById('bottom-canvas-left').value;
-                                        const bottomCanvasTop = document.getElementById('bottom-canvas-top').value;
-                                        const bottomCanvasScale = document.getElementById('bottom-canvas-scale').value;
-                                      
-					const parseValue = (value) => {
-                                          if (value.endsWith('px')) {
-                                            return parseFloat(value);
-                                          } else if (value.endsWith('%')) {                
-					    return parseFloat(value) / 100;
-                                          } else {
-                                            return parseFloat(value) / 100;
-                                          }
-                                        };
-
-                                        const topCanvasLeftValue = parseValue(topCanvasLeft);
-                                        const topCanvasTopValue = parseValue(topCanvasTop);
-                                        const topCanvasScaleValue = parseValue(topCanvasScale);
-                                        const bottomCanvasLeftValue = parseValue(bottomCanvasLeft);
-                                        const bottomCanvasTopValue = parseValue(bottomCanvasTop);
-                                        const bottomCanvasScaleValue = parseValue(bottomCanvasScale);
-					
-                                        topCanvas.style.position = 'absolute';
-                                        topCanvas.style.top = `${topCanvasTopValue * 100}%`;
-                                        topCanvas.style.left = `${topCanvasLeftValue * 100}%`;
-                                        topCanvas.style.width = `${canvasWidth * topCanvasScaleValue}px`;
-                                        topCanvas.style.height = `${canvasHeight * topCanvasScaleValue}px`;
-
-                                        bottomCanvas.style.position = 'absolute';
-                                        bottomCanvas.style.top = `${bottomCanvasTopValue * 100}%`;
-                                        bottomCanvas.style.left = `${bottomCanvasLeftValue * 100}%`;
-                                        bottomCanvas.style.width = `${canvasWidth * bottomCanvasScaleValue}px`;
-                                        bottomCanvas.style.height = `${canvasHeight * bottomCanvasScaleValue}px`;
-                                } else {
+				} else {
 					topCanvas.style.left = '25%';
 					topCanvas.style.width = '75vh';
 					topCanvas.style.height = '50vh';
