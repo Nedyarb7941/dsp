@@ -442,12 +442,13 @@ function uiSwitchTo(mode) {
     if (config.vkEnabled) {
         $id('vk-layer').hidden = false;
         var button = document.createElement('button');
-        button.textContent = 'Show VK Layer';
+        button.textContent = 'Toggle VK Layer';
         button.style.position = 'absolute';
         button.style.top = '10px';
         button.style.left = '10px';
         button.onclick = function() {
-            $id('vk-layer').hidden = false;
+            var vkLayer = $id('vk-layer');
+            vkLayer.hidden = !vkLayer.hidden; // Toggle the visibility of the vk layer
         };
         document.body.appendChild(button);
     }
