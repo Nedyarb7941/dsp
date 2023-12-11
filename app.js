@@ -448,7 +448,9 @@ function uiSwitchTo(mode) {
         button.style.left = '10px';
         button.onclick = function() {
             var vkLayer = $id('vk-layer');
-            vkLayer.hidden = !vkLayer.hidden; // Toggle the visibility of the vk layer
+            uiSwitchTo('menu)
+            $id('vkLayer').checked = !$id('vkLayer').hidden; // Toggle the visibility of the vk layer
+            uiSwitchTo('player')
         };
         document.body.appendChild(button);
     }
