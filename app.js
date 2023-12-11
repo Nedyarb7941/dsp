@@ -434,19 +434,28 @@ function uiSwitchTo(mode) {
     emuIsRunning = false
 
     if (mode == 'player') {
-        body.style = 'touch-action: none;'
-        html.style = 'position: fixed;overflow:hidden;touch-action: none;'
-        for (var i = 0; i < 14; i++) {
-            emuKeyState[i] = false
-        }
-        if (config.vkEnabled) {
-            $id('vk-layer').hidden = false
-        }
-        uiUpdateLayout()
-        if (emuIsGameLoaded) {
-            emuIsRunning = true
-        }
-        $id('player').hidden = false
+    body.style = 'touch-action: none;';
+    html.style = 'position: fixed; overflow: hidden; touch-action: none;';
+    for (var i = 0; i < 14; i++) {
+        emuKeyState[i] = false;
+    }
+    if (config.vkEnabled) {
+        $id('vk-layer').hidden = false;
+        var button = document.createElement('button');
+        button.textContent = 'Show VK Layer';
+        button.style.position = 'absolute';
+        button.style.top = '10px';
+        button.style.left = '10px';
+        button.onclick = function() {
+            $id('vk-layer').hidden = false;
+        };
+        document.body.appendChild(button);
+    }
+    uiUpdateLayout();
+    if (emuIsGameLoaded) {
+        emuIsRunning = true;
+    }
+    $id('player').hidden = false;
     }
     if (mode == 'menu') {
         $id('player').hidden = false
