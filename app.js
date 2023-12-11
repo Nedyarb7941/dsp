@@ -9,6 +9,7 @@ var config = {
     powerSave: true,
     micWhenR: true,
     vkEnabled: true,
+    turbo: false,
 }
 
 function loadConfig() {
@@ -18,12 +19,14 @@ function loadConfig() {
     }
     $id('power-save').checked = config.powerSave
     $id('vk-enabled').checked = config.vkEnabled
+    $id('cfg-turbo').checked = config.turbo
 }
 loadConfig()
 
 function uiSaveConfig() {
     config.powerSave = !!($id('power-save').checked)
     config.vkEnabled = !!($id('vk-enabled').checked)
+    config.turbo = !!($id('cfg-turbo').checked)
     window.localStorage['config'] = JSON.stringify(config)
 }
 
@@ -173,9 +176,15 @@ function emuRunFrame() {
         console.log('mic')
         keyMask |= 1 << 14
     }
-
-
-    if (config.powerSave) {
+    if (lidClosed) {
+        keyMask |= 1 << 13
+    }
+    if (config.turbo) {
+        for (var i = 0; i < 2; i++) {
+            Module._runFrame(0, keyMask, touched, touchX, touchY)
+            emuRunAudio()
+        }
+    } else if (config.powerSave) {
         Module._runFrame(0, keyMask, touched, touchX, touchY)
     }
     Module._runFrame(1, keyMask, touched, touchX, touchY)
