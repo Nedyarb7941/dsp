@@ -1,3 +1,4 @@
+
 var uiCurrentMode = 'welcome'
 var plugins = {}
 var body = document.getElementsByTagName("body")[0]
@@ -441,18 +442,6 @@ function uiSwitchTo(mode) {
     }
     if (config.vkEnabled) {
         $id('vk-layer').hidden = false;
-        var button = document.createElement('button');
-        button.textContent = 'Toggle VK Layer';
-        button.style.position = 'absolute';
-        button.style.top = '10px';
-        button.style.left = '10px';
-        button.onclick = function() {
-            var vkLayer = $id('vk-layer');
-            uiSwitchTo('menu);
-            $id('vkLayer').checked = !$id('vkLayer').hidden; // Toggle the visibility of the vk layer
-            uiSwitchTo('player');
-        };
-        document.body.appendChild(button);
     }
     uiUpdateLayout();
     if (emuIsGameLoaded) {
