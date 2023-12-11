@@ -434,9 +434,8 @@ function uiSwitchTo(mode) {
     emuIsRunning = false
 
     if (mode == 'player') {
-        body.style = 'background-color: black;touch-action: none;'
+        body.style = 'touch-action: none;'
         html.style = 'position: fixed;overflow:hidden;touch-action: none;'
-        $id('menu').hidden = true
         for (var i = 0; i < 14; i++) {
             emuKeyState[i] = false
         }
