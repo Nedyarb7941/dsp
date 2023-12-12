@@ -171,6 +171,7 @@ function emuRunFrame() {
     var mic = emuKeyState[11]
     if (mic) {
         console.log('mic')
+        alert('mic')
         keyMask |= 1 << 14
     }
 
@@ -652,13 +653,10 @@ function handleTouch(event) {
                 dom.classList.add('vk-touched')
                 if (k == 'menu') {
                     uiSwitchTo('menu')
-                }
-            } else if (vkState[k][1]) {
-                dom.classList.add('vk-touched')
-                if (k == 'mic') {
+                } else if (k == 'mic') {
                     console.log('mic')
-                    keyMask |= 1 < 14
-                }
+                    alert('mic')
+                    keyMask |= 1 << 14
             } else {
                 dom.classList.remove('vk-touched')
                 if (k == "stick") {
