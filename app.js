@@ -1,4 +1,4 @@
-    
+
 var uiCurrentMode = 'welcome'
 var plugins = {}
 var body = document.getElementsByTagName("body")[0]
@@ -174,7 +174,7 @@ function emuRunFrame() {
         keyMask |= 1 << 14
     }
 
-    
+
     if (config.powerSave) {
         Module._runFrame(0, keyMask, touched, touchX, touchY)
     }
@@ -435,19 +435,19 @@ function uiSwitchTo(mode) {
     emuIsRunning = false
 
     if (mode == 'player') {
-        body.style = 'touch-action: none;background-color: #000000;'
-        html.style = 'position: fixed;overflow:hidden;touch-action: none;background-color: #000000;'
-        for (var i = 0; i < 14; i++) {
-            emuKeyState[i] = false
-        }
-        if (config.vkEnabled) {
-            $id('vk-layer').hidden = false
-        }
-        uiUpdateLayout()
-        if (emuIsGameLoaded) {
-            emuIsRunning = true
-        }
-        $id('player').hidden = false
+    body.style = 'touch-action: none;';
+    html.style = 'position: fixed; overflow: hidden; touch-action: none;';
+    for (var i = 0; i < 14; i++) {
+        emuKeyState[i] = false;
+    }
+    if (config.vkEnabled) {
+        $id('vk-layer').hidden = false;
+    }
+    uiUpdateLayout();
+    if (emuIsGameLoaded) {
+        emuIsRunning = true;
+    }
+    $id('player').hidden = false;
     }
     if (mode == 'menu') {
         $id('player').hidden = false
@@ -525,6 +525,7 @@ function emuLoop() {
             if (performance.now() - prevRunFrameTime < 32) {
                 return
             }
+        }
         prevRunFrameTime = performance.now()
         emuRunFrame()
     }
