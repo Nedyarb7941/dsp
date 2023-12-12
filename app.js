@@ -106,7 +106,7 @@ if (isMacOS) {
 }
 
 var emuKeyState = new Array(14)
-const emuKeyNames = ["right", "left", "down", "up", "select", "start", "b", "a", "y", "x", "l", "r", "debug", "lid"]
+const emuKeyNames = ["right", "left", "down", "up", "select", "start", "b", "a", "y", "x", "l", "r", "debug", "lid", "mic"
 var vkMap = {}
 var vkState = {}
 var keyNameToKeyId = {}
@@ -168,7 +168,7 @@ function emuRunFrame() {
             keyMask |= 1 << i
         }
     }
-    var mic = emuKeyState[11]
+    var mic = emuKeyState[16]
     if (mic) {
         console.log('Mic enabled')
         keyMask |= 1 << 14
@@ -655,7 +655,6 @@ function handleTouch(event) {
                 }
             } else if (k == 'mic') {
                     console.log('mic')
-                    alert('mic')
                     keyMask |= 1 << 14
             } else {
                 dom.classList.remove('vk-touched')
