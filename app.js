@@ -178,9 +178,8 @@ function emuRunFrame() {
     }
 
     if (config.turbo) {
-        for (var i = 0; i < 2; i++) {
-            Module._runFrame(0, keyMask, touched, touchX, touchY)
-            emuRunAudio()
+        Module._runFrame(0, keyMask, touched, touchX, touchY)
+        emuRunAudio()
         }
     } else if (config.powerSave) {
         Module._runFrame(0, keyMask, touched, touchX, touchY)
