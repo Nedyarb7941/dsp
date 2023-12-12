@@ -105,8 +105,8 @@ if (isMacOS) {
     }
 }
 
-var emuKeyState = new Array(14)
-const emuKeyNames = ["right", "left", "down", "up", "select", "start", "b", "a", "y", "x", "l", "r", "debug", "lid", "mic"
+var emuKeyState = new Array(15)
+const emuKeyNames = ["right", "left", "down", "up", "select", "start", "b", "a", "y", "x", "l", "r", "debug", "lid", "mic"]
 var vkMap = {}
 var vkState = {}
 var keyNameToKeyId = {}
@@ -168,7 +168,7 @@ function emuRunFrame() {
             keyMask |= 1 << i
         }
     }
-    var mic = emuKeyState[16]
+    var mic = emuKeyState[15]
     if (mic) {
         console.log('Mic enabled')
         keyMask |= 1 << 14
@@ -318,7 +318,7 @@ function emuStart() {
     if (!emuIsGameLoaded) {
         return
     }
-    console.log('Start!!!')
+    console.log('Start!')
     emuIsRunning = true
     uiSwitchTo('player')
 }
