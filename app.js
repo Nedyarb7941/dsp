@@ -531,7 +531,10 @@ function emuLoop() {
             if (performance.now() - prevRunFrameTime < 32) {
                 return
             }
-        }
+        } else if (config.turbo) {
+            if (performance.now() - prevRunFrameTime > 60) {
+                return
+            }
         prevRunFrameTime = performance.now()
         emuRunFrame()
     }
