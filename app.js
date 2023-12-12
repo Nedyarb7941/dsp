@@ -179,28 +179,23 @@ function emuRunFrame() {
         Module._runFrame(0, keyMask, touched, touchX, touchY)
     }
     Module._runFrame(1, keyMask, touched, touchX, touchY)
-    
-    var canvas = document.getElement('canvas')
-    var canvasTop  = document.getElement('screenCanvas[i]')
-    var canvasBottom = document.getElement('screenCanvas[i]')
 
-    document.body.appendChild(canvasTop)
-    document.body.appendChild(canvasBottom)
-    var ctx2d[0] = canvasTop.getContext('2d')
-    var ctx2d[1] = canvasBottom.getContext('2d')
+    <script type="text/javascript" src="xbr.js"></script>
 
-    canvasTop.width  = canvasTop.width * 4
-    canvasTop.height = canvasTop.height * 4
-    canvasBottom.width  = canvasBottom.width * 4
-    canvasBottom.height = canvasBottom.height * 4
+    var canvas = document.getElement('screenCanvas')
+
+    document.body.appendChild('screenCanvas')
+    var ctx2d = screenCanvas.map((v) => { return v.getContext('2d', { alpha: false }) })
+
+    screenCanvas.width  = screenCanvas.width * 4
+    screenCanvas.height = screenCanvas.height * 4
 
     // Scaled 4x
     console.time('bench 2x to 4x')
-    var result = xBR(ctx2, 0, 0, canvasTop.width, canvasTop.height)
-    var result2 = xBR(ctx2, 0, 0, canvasBottom.width, canvasBottom.height)
+    var result = xBR(ctx2, 0, 0, screenCanvas.width, screenCanvas.height)
     console.timeEnd('bench 2x to 4x')
-    ctx2d[0].putImageData(FB[0], result, 0, 0)
-    ctx2d[1].putImageData(FB[1], result2, 0, 0)
+    ctx2d[0].putImageData(FB[0], 0, 0)
+    ctx2d[1].putImageData(FB[1], 0, 0)
 
     document.getElementById('working').style.display = 'none'
 
