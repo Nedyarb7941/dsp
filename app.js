@@ -168,7 +168,7 @@ function emuRunFrame() {
             keyMask |= 1 << i
         }
     }
-    var mic = emuKeyState[15]
+    var mic = emuKeyState[1]
     if (mic) {
         console.log('Mic enabled')
         keyMask |= 1 << 14
