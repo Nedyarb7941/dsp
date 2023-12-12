@@ -7,7 +7,7 @@ var config = {
     swapTopBottom: false,
     swapTopBottomL: false,
     powerSave: true,
-    micWhenR: true,
+    micEnabled: true,
     vkEnabled: true,
 }
 
@@ -18,12 +18,14 @@ function loadConfig() {
     }
     $id('power-save').checked = config.powerSave
     $id('vk-enabled').checked = config.vkEnabled
+    $id('mic-enabled').checked = config.micEnabled
 }
 loadConfig()
 
 function uiSaveConfig() {
     config.powerSave = !!($id('power-save').checked)
     config.vkEnabled = !!($id('vk-enabled').checked)
+    config.micEnabled = !!$id('mic-enabled').checked)
     window.localStorage['config'] = JSON.stringify(config)
 }
 
@@ -170,8 +172,10 @@ function emuRunFrame() {
     }
     var mic = emuKeyState[14]
     if (mic) {
-        console.log('Mic enabled')
-        keyMask |= 1 << 14
+        if (!!$id('mic-enabled').checked) {
+            console.log('Mic enabled')
+            keyMask |= 1 << 14
+        }
     }
 
 
@@ -364,15 +368,16 @@ function uiAdjustVKLayout() {
     
     $id('vk-mic').style = makeVKStyle(window.innerHeight - vkh, window.innerwidth * 0.5, vkw, vkh, fontSize);
     $id('vk-mic').style.position = 'fixed';
-    $id('vk-mic').style.transform = 'scale(0.66)';
-    $id('vk-mic').style.left = '50%';
+    $id('vk-mic').style.transform = 'scale(0.775)';
+    $id('vk-mic').style.top = '100vh';
+    $id('vk-mic').style.margin = '20px';
 
     
     offTop += baseSize * 0.62
     vkw = baseSize
     vkh = baseSize
     offLeft = window.innerWidth - abxyWidth
-    vkMap['a'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth * 0.675, vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0)
+    vkMap['a'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth * 0.675, vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
     vkMap['b'].style = makeVKStyle(offTop + abxyHeight - vkh * 0.975, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
     vkMap['x'].style = makeVKStyle(offTop + abxyHeight * 0.025, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
     vkMap['y'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth * 0.025, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
