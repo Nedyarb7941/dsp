@@ -7,7 +7,7 @@ var config = {
     swapTopBottom: false,
     swapTopBottomL: false,
     powerSave: true,
-    micEnabled: true,
+    mic: true,
     vkEnabled: true,
 }
 
@@ -18,14 +18,12 @@ function loadConfig() {
     }
     $id('power-save').checked = config.powerSave
     $id('vk-enabled').checked = config.vkEnabled
-    $id('mic-enabled').checked = config.micEnabled
 }
 loadConfig()
 
 function uiSaveConfig() {
     config.powerSave = !!($id('power-save').checked)
     config.vkEnabled = !!($id('vk-enabled').checked)
-    config.micEnabled = !!$id('mic-enabled').checked)
     window.localStorage['config'] = JSON.stringify(config)
 }
 
