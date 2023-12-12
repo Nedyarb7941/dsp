@@ -180,20 +180,6 @@ function emuRunFrame() {
     }
     Module._runFrame(1, keyMask, touched, touchX, touchY)
 
-    <script type="text/javascript" src="xbr.js"></script>
-
-    var canvas = document.getElement('screenCanvas')
-
-    document.body.appendChild('screenCanvas')
-    var ctx2d = screenCanvas.map((v) => { return v.getContext('2d', { alpha: false }) })
-
-    screenCanvas.width  = screenCanvas.width * 4
-    screenCanvas.height = screenCanvas.height * 4
-
-    // Scaled 4x
-    console.time('bench 2x to 4x')
-    var result = xBR(ctx2, 0, 0, screenCanvas.width, screenCanvas.height)
-    console.timeEnd('bench 2x to 4x')
     ctx2d[0].putImageData(FB[0], 0, 0)
     ctx2d[1].putImageData(FB[1], 0, 0)
 
