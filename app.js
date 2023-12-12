@@ -180,10 +180,30 @@ function emuRunFrame() {
     }
     Module._runFrame(1, keyMask, touched, touchX, touchY)
     
-    ctx2d[0].putImageData(FB[0], 0, 0)
-    ctx2d[1].putImageData(FB[1], 0, 0)
-    gpuDraw(screenCanvas[0],FB[0])
-    gpuDraw(screenCanvas[1],FB[1])
+    var canvas = document.getElement('canvas')
+    var canvasTop  = document.getElement('screenCanvas[i]')
+    var canvasBottom = document.getElement('screenCanvas[i]')
+
+    document.body.appendChild(canvasTop)
+    document.body.appendChild(canvasBottom)
+    var ctx2d[0] = canvasTop.getContext('2d')
+    var ctx2d[1] = canvasBottom.getContext('2d')
+
+    canvasTop.width  = canvasTop.width * 4
+    canvasTop.height = canvasTop.height * 4
+    canvasBottom.width  = canvasBottom.width * 4
+    canvasBottom.height = canvasBottom.height * 4
+
+    // Scaled 4x
+    console.time('bench 2x to 4x')
+    var result = xBR(ctx2, 0, 0, canvasTop.width, canvasTop.height)
+    var result2 = xBR(ctx2, 0, 0, canvasBottom.width, canvasBottom.height)
+    console.timeEnd('bench 2x to 4x')
+    ctx2d[0].putImageData(FB[0], result, 0, 0)
+    ctx2d[1].putImageData(FB[1], result2, 0, 0)
+
+    document.getElementById('working').style.display = 'none'
+
     if (audioWorkletNode) {
         try {
             var samplesRead = Module._fillAudioBuffer(4096);
