@@ -171,7 +171,7 @@ function emuRunFrame() {
         }
     }
     var mic = emuKeyState[14]
-    if (mic && $id('mic-enabled').checked) {
+    if (mic) {
         console.log('Mic enabled')
         keyMask |= 1 << 14
     }
