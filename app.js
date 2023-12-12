@@ -361,6 +361,11 @@ function uiAdjustVKLayout() {
     $id('vk-menu').style.transform = 'scale(0.66)';
     $id('vk-menu').style.left = '50%';
     $id('vk-menu').style.transform += 'translateX(-76.5%)';
+    
+    $id('vk-mic').style = makeVKStyle(window.innerHeight - vkh, window.innerwidth * 0.5, vkw, vkh, fontSize);
+    $id('vk-mic').style.position = 'fixed';
+    $id('vk-mic').style.transform = 'scale(0.66)';
+    $id('vk-mic').style.left = '50%';
 
     
     offTop += baseSize * 0.62
@@ -647,6 +652,12 @@ function handleTouch(event) {
                 dom.classList.add('vk-touched')
                 if (k == 'menu') {
                     uiSwitchTo('menu')
+                }
+            } else if (vkState[k][1]) {
+                dom.classList.add('vk-touched')
+                if (k == 'mic') {
+                    console.log('mic')
+                    keyMask |= 1 < 14
                 }
             } else {
                 dom.classList.remove('vk-touched')
