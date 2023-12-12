@@ -177,8 +177,12 @@ function emuRunFrame() {
         keyMask |= 1 << 14
     }
 
-
-    if (config.powerSave) {
+    if (config.turbo) {
+        for (var i = 0; i < 2; i++) {
+            Module._runFrame(0, keyMask, touched, touchX, touchY)
+            emuRunAudio()
+        }
+    } else if (config.powerSave) {
         Module._runFrame(0, keyMask, touched, touchX, touchY)
     }
     Module._runFrame(1, keyMask, touched, touchX, touchY)
@@ -438,8 +442,8 @@ function uiSwitchTo(mode) {
     emuIsRunning = false
 
     if (mode == 'player') {
-        body.style = 'touch-action: none;background-color: #D4f3fd;'
-        html.style = 'position: fixed;overflow:hidden;touch-action: none;background-color: #D4f3fd;'
+        body.style = 'touch-action: none;background-color: #000000;'
+        html.style = 'position: fixed;overflow:hidden;touch-action: none;background-color: #000000;'
         for (var i = 0; i < 14; i++) {
             emuKeyState[i] = false
         }
