@@ -315,10 +315,10 @@
 	</script>
 	<script>
           var uiCheckInterval = setInterval(function() {
-              var uiMode = document.getElementById("uiCurrentMode").value;
-              if (uiMode === "player") {
+              var playerVis = document.getElementById("player").style.display;
+              if (playerVis === "block") {
                   document.getElementById("exit-emu").style.display = "block";
-                  clearInterval(uiCheckInterval); // Stop checking once the UI mode is "player"
+                  clearInterval(uiCheckInterval); // Stop checking once the player is shown
               }
           }, 1000 / 60); // Check every 1/60th of a second
         </script>
