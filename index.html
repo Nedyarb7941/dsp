@@ -315,8 +315,8 @@
 	</script>
 	<script>
           var uiCheckInterval = setInterval(function() {
-              var playerVis = document.getElementById("player").style.display;
-              if (playerVis === "block") {
+              var uiMode = document.getElementById("mode").value;
+              if (uiMode === "block") {
                   document.getElementById("exit-emu").style.display = "block";
                   clearInterval(uiCheckInterval); // Stop checking once the player is shown
               }
