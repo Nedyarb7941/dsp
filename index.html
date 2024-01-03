@@ -268,10 +268,7 @@
 		<p id="msg-text"></p>
 	</div>
 	<div id="menu" hidden>
-		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button>
-		<div id="exit-emu" hidden>
-		   <button style="margin-top: 5px; margin-left: 5px;" onclick="location.href='https://majesticwafer.github.io/dsp'">❮ Exit Emulation</button>
-		</div>
+		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button><div id="exit-emu" hidden><button style="margin-top: 5px; margin-left: 5px;" onclick="location.href='https://majesticwafer.github.io/dsp'">❮ Exit Emulation</button></div>
 		<hr />
                 <input type="checkbox" id="power-save" style="margin-left: 7px;" />
                 <label for="power-save">Power-save</label><br />
@@ -318,8 +315,8 @@
 	</script>
 	<script>
           var uiCheckInterval = setInterval(function() {
-              var uiCurrentMode = "player"; // Replace this with your actual UI mode
-              if (uiCurrentMode === "player") {
+              var uiMode = document.getElementById("uiCurrentMode").value;
+              if (uiMode === "player") {
                   document.getElementById("exit-emu").style.display = "block";
                   clearInterval(uiCheckInterval); // Stop checking once the UI mode is "player"
               }
