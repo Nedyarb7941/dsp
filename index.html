@@ -218,7 +218,7 @@
 		<div style="margin-left: 15px;" id="loading">Loading...</div>
 		<div id="loadrom" hidden>
 			<input id="rom" type="file" hidden />
-			<button style="width: calc(100% - 2em); margin: 1em" id="btn-choose-file">Choose File (or
+			<button style="width: calc(100% - 2em); margin: 0.35em" id="btn-choose-file">Choose File (or
 				drag/drop)...</button><br />
 		</div>
 		<p style="color: #e7e7e7; margin-left: 15px;">
@@ -316,7 +316,10 @@
 	<script>
           var uiCheckInterval = setInterval(function() {
               var uiMode = document.getElementById("mode").value;
-              if (uiMode === "block") {
+		  console.log('Set UI Mode')
+		  console.log('Checking if the UI Mode is "player"')
+              if (uiMode === "player") {
+		  console.log('Setting display style')
                   document.getElementById("exit-emu").style.display = "block";
                   clearInterval(uiCheckInterval); // Stop checking once the player is shown
               }
