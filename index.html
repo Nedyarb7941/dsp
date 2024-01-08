@@ -90,7 +90,7 @@
 		<p id="msg-text"></p>
 	</div>
 	<div id="menu" hidden>
-		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button><div id="exit-emu" hidden><button style="margin-top: 5px; margin-left: 5px;" onclick="location.href='https://majesticwafer.github.io/dsp'">❮ Exit Emulation</button></div>
+		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button>
 		<hr />
                 <input type="checkbox" id="power-save" style="margin-left: 7px;" />
                 <label for="power-save">Power-save</label><br />
@@ -135,18 +135,6 @@
 			window.open(url, '_blank');
 		}
 	</script>
-	<script>
-          var uiCheckInterval = setInterval(function() {
-              var uiMode = document.getElementById("mode").value;
-		  console.log('Set UI Mode')
-		  console.log('Checking if the UI Mode is "player"')
-              if (uiMode === "player") {
-		  console.log('Setting display style')
-                  document.getElementById("exit-emu").style.display = "block";
-                  clearInterval(uiCheckInterval); // Stop checking once the player is shown
-              }
-          }, 1000 / 60); // Check every 1/60th of a second
-        </script>
 	<script>
 		var gamepadIndex = 0; // Change this value if you have multiple gamepads connected
 		var isTriggerPressed = false;
