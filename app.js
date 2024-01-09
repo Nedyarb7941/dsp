@@ -7,7 +7,7 @@ var config = {
     swapTopBottom: false,
     swapTopBottomL: false,
     powerSave: true,
-    mic: true,
+    micWhenR: true,
     vkEnabled: true,
 }
 
@@ -105,8 +105,8 @@ if (isMacOS) {
     }
 }
 
-var emuKeyState = new Array(15)
-const emuKeyNames = ["right", "left", "down", "up", "select", "start", "b", "a", "y", "x", "l", "r", "debug", "lid", "mic"]
+var emuKeyState = new Array(14)
+const emuKeyNames = ["right", "left", "down", "up", "select", "start", "b", "a", "y", "x", "l", "r", "debug", "lid"]
 var vkMap = {}
 var vkState = {}
 var keyNameToKeyId = {}
@@ -168,9 +168,9 @@ function emuRunFrame() {
             keyMask |= 1 << i
         }
     }
-    var mic = emuKeyState[14]
+    var mic = emuKeyState[11]
     if (mic) {
-        console.log('Mic enabled')
+        console.log('mic')
         keyMask |= 1 << 14
     }
 
@@ -179,14 +179,11 @@ function emuRunFrame() {
         Module._runFrame(0, keyMask, touched, touchX, touchY)
     }
     Module._runFrame(1, keyMask, touched, touchX, touchY)
-
+    
     ctx2d[0].putImageData(FB[0], 0, 0)
     ctx2d[1].putImageData(FB[1], 0, 0)
     gpuDraw(screenCanvas[0],FB[0])
     gpuDraw(screenCanvas[1],FB[1])
-
-    document.getElementById('working').style.display = 'none'
-
     if (audioWorkletNode) {
         try {
             var samplesRead = Module._fillAudioBuffer(4096);
@@ -321,7 +318,7 @@ function emuStart() {
     if (!emuIsGameLoaded) {
         return
     }
-    console.log('Start!')
+    console.log('Start!!!')
     emuIsRunning = true
     uiSwitchTo('player')
 }
@@ -364,19 +361,13 @@ function uiAdjustVKLayout() {
     $id('vk-menu').style.transform = 'scale(0.66)';
     $id('vk-menu').style.left = '50%';
     $id('vk-menu').style.transform += 'translateX(-76.5%)';
-    
-    $id('vk-mic').style = makeVKStyle(window.innerHeight - vkh, window.innerwidth * 0.5, vkw, vkh, fontSize);
-    $id('vk-mic').style.position = 'fixed';
-    $id('vk-mic').style.transform = 'scale(0.775)';
-    $id('vk-mic').style.top = '100vh';
-    $id('vk-mic').style.margin = '20px';
 
     
     offTop += baseSize * 0.62
     vkw = baseSize
     vkh = baseSize
     offLeft = window.innerWidth - abxyWidth
-    vkMap['a'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth * 0.675, vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0.85)
+    vkMap['a'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth * 0.675, vkw * 0.85, vkw * 0.85, vkh * 0.85, fontSize * 0)
     vkMap['b'].style = makeVKStyle(offTop + abxyHeight - vkh * 0.975, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
     vkMap['x'].style = makeVKStyle(offTop + abxyHeight * 0.025, offLeft + abxyWidth / 2 - vkw * 0.425, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
     vkMap['y'].style = makeVKStyle(offTop + abxyHeight / 2 - vkh * 0.425, offLeft + abxyWidth * 0.025, vkw * 0.85, vkh * 0.85, fontSize * 0.85);
@@ -416,9 +407,7 @@ function uiUpdateLayout() {
         if (screenLayout === 'lbr') {
           fbSize = [[w, h], [w, h]];
         } else if (screenLayout === 'lr') {
-          fbSize = [[w, h], [w, h]];
-        } else if (screenLayout === 'custom') {
-            
+          
         } else {
         for (var i = 0; i < 2; i++) {
             screenCanvas[i].style = 'left:' + left + 'px;top:' + top + 'px;width:' + w + 'px;height:' + h + 'px;';
@@ -444,19 +433,19 @@ function uiSwitchTo(mode) {
     emuIsRunning = false
 
     if (mode == 'player') {
-    body.style = 'touch-action: none;';
-    html.style = 'position: fixed; overflow: hidden; touch-action: none;';
-    for (var i = 0; i < 14; i++) {
-        emuKeyState[i] = false;
-    }
-    if (config.vkEnabled) {
-        $id('vk-layer').hidden = false;
-    }
-    uiUpdateLayout();
-    if (emuIsGameLoaded) {
-        emuIsRunning = true;
-    }
-    $id('player').hidden = false;
+        body.style = 'touch-action: none;'
+        html.style = 'position: fixed;overflow:hidden;touch-action: none;'
+        for (var i = 0; i < 14; i++) {
+            emuKeyState[i] = false
+        }
+        if (config.vkEnabled) {
+            $id('vk-layer').hidden = false
+        }
+        uiUpdateLayout()
+        if (emuIsGameLoaded) {
+            emuIsRunning = true
+        }
+        $id('player').hidden = false
     }
     if (mode == 'menu') {
         $id('player').hidden = false
@@ -657,9 +646,6 @@ function handleTouch(event) {
                 if (k == 'menu') {
                     uiSwitchTo('menu')
                 }
-            } else if (k == 'mic') {
-                    console.log('mic')
-                    keyMask |= 1 << 14
             } else {
                 dom.classList.remove('vk-touched')
                 if (k == "stick") {
