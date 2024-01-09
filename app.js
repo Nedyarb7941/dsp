@@ -182,6 +182,8 @@ function emuRunFrame() {
 
     ctx2d[0].putImageData(FB[0], 0, 0)
     ctx2d[1].putImageData(FB[1], 0, 0)
+    gpuDraw(screenCanvas[0],FB[0])
+    gpuDraw(screenCanvas[1],FB[1])
 
     document.getElementById('working').style.display = 'none'
 
