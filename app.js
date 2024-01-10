@@ -64,7 +64,7 @@ async function uiSaveRestore() {
     localforage.setItem('sav-' + gameID, u8).then(() => {
         alert('Save data updated. \nThis page will be reloaded to apply the changes.')
         setTimeout(() => {
-            location.href = 'https://ds.44670.org'
+            location.href = 'https://majesticwafer.github.io/dsp/'
         }, 1000)
     })
 }
@@ -96,7 +96,7 @@ if (isIOS) {
         var divIosHint = $id('ios-hint')
         divIosHint.hidden = false
         divIosHint.style = 'position: absolute; bottom: ' + divIosHint.clientHeight + 'px;'
-        alert('You must save this page as a web clip in order to have everything work properly. Press the share icon, then add this site to your home screen.')
+        alert('Important! <br> You must <b>save this page as a web clip in order to save your game progress</b>. Press the share icon, then add this site to your home screen.')
     }
 }
 if (isMacOS) {
