@@ -89,6 +89,21 @@ var isSaveSupported = true
 var isSaveNagAppeared = false
 if (isIOS) {
     //document.getElementById('romFile').files = null;
+    function isLowPowerModeOn() {
+      if (navigator.getBattery) {
+        navigator.getBattery().then(function(battery) {
+          return battery.charging && battery.chargingTime === 0;
+        });
+      } else {
+        console.log("Battery Status API not supported");
+        return false;
+      }
+    }
+    if (isLowPowerModeOn()) {
+      console.log("This is an iOS device and Low Power Mode is on");
+    } else {
+      console.log("This is not an iOS device or Low Power Mode is off");
+    }
     if (!isWebApp) {
         // On iOS Safari, the indexedDB will be cleared after 7 days. 
         // To prevent users from frustration, we don't allow savegame on iOS unless the we are in the PWA mode.
