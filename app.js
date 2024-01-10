@@ -445,6 +445,7 @@ function uiSwitchTo(mode) {
             emuIsRunning = true
         }
         $id('player').hidden = false
+        $id('welcome').hidden = true
     }
     if (mode == 'menu') {
         $id('player').hidden = false
