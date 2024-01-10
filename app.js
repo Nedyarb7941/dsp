@@ -107,7 +107,7 @@ if (isMacOS) {
 }
 
 var emuKeyState = new Array(14)
-const emuKeyNames = ["right", "left", "down", "up", "select", "start", "b", "a", "y", "x", "l", "r", "debug", "lid"]
+const emuKeyNames = ["right", "left", "down", "up", "select", "start", "b", "a", "y", "x", "l", "r", "debug", "lid", "mic"]
 var vkMap = {}
 var vkState = {}
 var keyNameToKeyId = {}
@@ -172,7 +172,7 @@ function emuRunFrame() {
     var mic = emuKeyState[11]
     if (mic) {
         console.log('mic')
-        keyMask |= 1 << 14
+        keyMask |= 1 << 17
     }
 
 
@@ -356,6 +356,7 @@ function uiAdjustVKLayout() {
     fontSize = baseSize * 0.5
     vkMap['l'].style = makeVKStyle(offTop, 0, vkw * 0.775, vkh * 0.775, fontSize * 0.775)
     vkMap['r'].style = makeVKStyle(offTop, window.innerWidth - vkw * 0.775, vkw * 0.775, vkh * 0.775, fontSize * 0.775,)
+    vkMap['mic'].style = makeVKStyle(offTop, window.innerWidth - vkw * 0.3, vkw * 0.3, vkh * 0.3, fontSize * 0.3,)
     $id('vk-menu').style = makeVKStyle(window.innerHeight - (vkh * 0.675) - 16.25, window.innerwidth * 0.5, vkw, vkh, fontSize);
     $id('vk-menu').style.position = 'fixed';
     $id('vk-menu').style.transform = 'scale(0.66)';
