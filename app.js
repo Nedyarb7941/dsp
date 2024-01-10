@@ -432,7 +432,7 @@ function uiSwitchTo(mode) {
     emuIsRunning = false
 
     if (mode == 'player') {
-        body.style = 'touch-action: none;'
+        body.style = 'background-color: black;touch-action: none;'
         html.style = 'position: fixed;overflow:hidden;touch-action: none;'
         for (var i = 0; i < 14; i++) {
             emuKeyState[i] = false
@@ -445,7 +445,6 @@ function uiSwitchTo(mode) {
             emuIsRunning = true
         }
         $id('player').hidden = false
-        $id('welcome').hidden = true
     }
     if (mode == 'menu') {
         $id('player').hidden = false
