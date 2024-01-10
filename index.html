@@ -191,24 +191,24 @@
 	}
 	</style>
 	<script>
-	if (localStorage.getItem('visitCount')) {
-            var lastVisitDate = localStorage.getItem('lastVisitDate');
-            var currentDate = new Date().getTime();
-            if (!lastVisitDate || (currentDate - lastVisitDate) > 7 * 24 * 60 * 60 * 1000) {
-                localStorage.setItem('visitCount', 1);
-                localStorage.setItem('lastVisitDate', currentDate);
-            } else {
-                var visitCount = parseInt(localStorage.getItem('visitCount'));
-                visitCount++;
-                localStorage.setItem('visitCount', visitCount);
-                if (visitCount === 5) {
-                    alert("It seems you've been using this software for quite some time. It is highly recommended that you back up your saves in the case of an error or mishap!");
-                }
-            }
-        } else {
-            localStorage.setItem('visitCount', 1);
-            localStorage.setItem('lastVisitDate', new Date().getTime());
-        }
+	   if (localStorage.getItem('visitCount')) {
+               var lastVisitDate = localStorage.getItem('lastVisitDate');
+               var currentDate = new Date().getTime();
+               if (!lastVisitDate || (currentDate - lastVisitDate) > 7 * 24 * 60 * 60 * 1000) {
+                   localStorage.setItem('visitCount', 1);
+                   localStorage.setItem('lastVisitDate', currentDate);
+               } else {
+                   var visitCount = parseInt(localStorage.getItem('visitCount'));
+                   visitCount++;
+                   localStorage.setItem('visitCount', visitCount);
+                   if (visitCount === 5) {
+                       alert("It seems you've been using this software for quite some time. It is highly recommended that you back up your saves in the case of an error or mishap!");
+                   }
+               }
+           } else {
+               localStorage.setItem('visitCount', 1);
+               localStorage.setItem('lastVisitDate', new Date().getTime());
+           }
 	</script>
 </head>
 
@@ -313,6 +313,7 @@
 		}
 	</script>
 	<script>
+		// Menu trigger function
 		var gamepadIndex = 0; // Change this value if you have multiple gamepads connected
 		var isTriggerPressed = false;
 		var isWaiting = false;
@@ -411,26 +412,5 @@
 			updateScreenLayout();
 		});
 	</script>
-	<script>
-        var screenLayout = document.getElementById("screen-layout").value;
-        var customScreenLayout = document.getElementById("custom-screen-layout");
-
-        function updateScreenLayout() {
-            if (screenLayout === "custom") {
-                customScreenLayout.style.display = "block";
-            } else {
-                customScreenLayout.style.display = "none";
-            }
-        }
-
-        document.getElementById('screen-layout').addEventListener('change', function () {
-            screenLayout = this.value;
-            updateScreenLayout();
-        });
-
-        setInterval(function() {
-            updateScreenLayout();
-        }, 100);
-    </script>
 </body>
 </html>
