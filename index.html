@@ -261,14 +261,14 @@
 		<div class="vk-rect vk" data-k="select">-</div>
 		<div class="vk-rect vk" data-k="start">+</div>
                 <div class="vk-round vk" data-k="stick" id="vk-stick"></div>
-		<div class="vk-rect vk" data-k="mic">mwic</div>
+		<div class="vk-rect vk" data-k="mic"></div>
 	</div>
 	<div style="z-index: 2; position: absolute; bottom: 20px;" id="fps"></div>
 	<div id="msg-layer" hidden>
 		<p id="msg-text"></p>
 	</div>
 	<div id="menu" hidden>
-		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button>
+		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button> <button style="margin-top: 5px; margin-right: 5px;" onclick="openFullscreen()">Enter Fullscreen</button>
 		<hr />
                 <input type="checkbox" id="power-save" style="margin-left: 7px;" />
                 <label for="power-save">Power-save</label><br />
@@ -313,6 +313,22 @@
 			window.open(url, '_blank');
 		}
 	</script>
+	<script>
+        /* Get the element you want displayed in fullscreen mode (a video in this example): */
+        var elem = document.getElementById("top");
+
+        /* When the openFullscreen() function is executed, open the video in fullscreen.
+        Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
+        function openFullscreen() {
+          if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+          } else if (elem.webkitRequestFullscreen) { /* Safari */
+            elem.webkitRequestFullscreen();
+          } else if (elem.msRequestFullscreen) { /* IE11 */
+            elem.msRequestFullscreen();
+          }
+        }
+        </script>	
 	<script>
 		// Menu trigger function
 		var gamepadIndex = 0; // Change this value if you have multiple gamepads connected
