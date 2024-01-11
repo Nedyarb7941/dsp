@@ -270,6 +270,11 @@
 	<div id="menu" hidden>
 		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button> <button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack(); openFullscreen()">Enter Fullscreen</button>
 		<hr />
+		<select id="canvas-fullscreen" class="select">
+                  <option value="top">Top Canvas</option>
+                  <option value="bottom">Bottom Canvas</option>
+		</select>
+		<hr />
                 <input type="checkbox" id="power-save" style="margin-left: 7px;" />
                 <label for="power-save">Power-save</label><br />
                 <input type="checkbox" id="vk-enabled" style="margin-left: 7px;" />
@@ -319,19 +324,36 @@
 	   setTimeout(openFullscreen, 100);
 	}
         /* Get the element you want displayed in fullscreen mode (a video in this example): */
-        var elem = document.getElementById("top");
+	var value = document.getElementById("canvas-fullscreen").value
 
-        /* When the openFullscreen() function is executed, open the video in fullscreen.
-        Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
-        function openFullscreen() {
-          if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-          } else if (elem.webkitRequestFullscreen) { /* Safari */
-            elem.webkitRequestFullscreen();
-          } else if (elem.msRequestFullscreen) { /* IE11 */
-            elem.msRequestFullscreen();
-          }
-        }
+	if (value === top) {
+		var elem = document.getElementById("top");
+		
+		/* When the openFullscreen() function is executed, open the video in fullscreen.
+                Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
+                function openFullscreen() {
+                  if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                  } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                  } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                  }
+                } else {
+	           var elem = document.getElementById("bottom");
+
+                   /* When the openFullscreen() function is executed, open the video in fullscreen.
+                   Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
+                   function openFullscreen() {
+                     if (elem.requestFullscreen) {
+                       elem.requestFullscreen();
+                     } else if (elem.webkitRequestFullscreen) { /* Safari */
+                       elem.webkitRequestFullscreen();
+                     } else if (elem.msRequestFullscreen) { /* IE11 */
+                       elem.msRequestFullscreen();
+                     }
+                   }
+	        }
         </script>	
 	<script>
 		// Menu trigger function
