@@ -339,6 +339,7 @@
                   } else if (elem.msRequestFullscreen) { /* IE11 */
                     elem.msRequestFullscreen();
                   }
+		  openFullscreen();
                 } else {
 	           var elem = document.getElementById("bottom");
 
@@ -353,6 +354,7 @@
                        elem.msRequestFullscreen();
                      }
                    }
+		openFullscreen();
 	        }
         </script>	
 	<script>
