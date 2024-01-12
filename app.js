@@ -79,7 +79,7 @@ var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
 var isMacOS = !!navigator.platform && /Mac/.test(navigator.platform);
 if (isMacOS) {
     if (navigator.maxTouchPoints > 2) {
-        // Nah, it is an iPad pretending to be a Mac
+        // iPad in desktop site mode
         isIOS = true
         isMacOS = false
     }
@@ -172,7 +172,7 @@ function emuRunFrame() {
     var mic = emuKeyState[11]
     if (mic) {
         console.log('Microphone utilized')
-        keyMask |= 1 << 18
+        keyMask |= 4 << 14
     }
 
 
