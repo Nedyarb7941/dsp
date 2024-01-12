@@ -191,6 +191,7 @@ function emuRunFrame() {
         } catch (error) {
             // tmpAudioBuffer may be detached if previous message is still processing 
             console.log(error)
+            showMsg(error)
         }
     }
 
