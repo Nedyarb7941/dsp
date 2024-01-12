@@ -79,7 +79,7 @@ var isIOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
 var isMacOS = !!navigator.platform && /Mac/.test(navigator.platform);
 if (isMacOS) {
     if (navigator.maxTouchPoints > 2) {
-        // iPad in desktop site mode
+        // iPad showing desktop site, not actual mac
         isIOS = true
         isMacOS = false
     }
@@ -169,7 +169,7 @@ function emuRunFrame() {
             keyMask |= 1 << i
         }
     }
-    var mic = emuKeyState[14]
+    var mic = emuKeyState[14)
     if (mic) {
         console.log('Microphone utilized')
         keyMask |= 1 << 14
@@ -355,8 +355,8 @@ function uiAdjustVKLayout() {
     vkh = baseSize * 0.6
     fontSize = baseSize * 0.5
     vkMap['l'].style = makeVKStyle(offTop, 0, vkw * 0.775, vkh * 0.775, fontSize * 0.775)
-    vkMap['r'].style = makeVKStyle(offTop, window.innerWidth - vkw * 0.775, vkw * 0.775, vkh * 0.775, fontSize * 0.775,)
-    vkMap['mic'].style = makeVKStyle(offTop, window.innerWidth - vkw * 0.3, vkw * 0.3, vkh * 0.3, fontSize * 0.3,)
+    vkMap['r'].style = makeVKStyle(offTop, window.innerWidth - vkw * 0.775, vkw * 0.775, vkh * 0.775, fontSize * 0.775)
+    vkMap['mic'].style = makeVKStyle(window.innerHeight - (vkh * 0.45), window.innerwidth * 0.5, vkw * 0.4, vkh * 0.45, fontSize * 0.45,)
     $id('vk-menu').style = makeVKStyle(window.innerHeight - (vkh * 0.675) - 16.25, window.innerwidth * 0.5, vkw, vkh, fontSize);
     $id('vk-menu').style.position = 'fixed';
     $id('vk-menu').style.transform = 'scale(0.66)';
@@ -843,5 +843,4 @@ function enableMicrophone() {
            
         });
 }
-
 
