@@ -158,7 +158,6 @@
 	.vk-rectangle {
 		text-align: center;
 		vertical-align: middle;
-		border-radius: 2.5% !important;
 		display: inline-block;
 	}
 	
@@ -177,7 +176,7 @@
 		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 		text-align: center;
 		vertical-align: middle;
-		border-radius: 15%;
+		border-radius: 0%;
 		display: inline-block;
 	}
 		
@@ -261,9 +260,11 @@
 		<div class="vk-rect vk" data-k="select">-</div>
 		<div class="vk-rect vk" data-k="start">+</div>
                 <div class="vk-round vk" data-k="stick" id="vk-stick"></div>
-		<div class="vk-rect vk" data-k="mic"></div>
+		<div class="vk-rect vk" data-k="mic">𝗠𝗶𝗰</div>
 	</div>
-	<div style="z-index: 2; position: absolute; bottom: 20px;" id="fps"></div>
+	<div style="z-index: 99; position: absolute; bottom: 20px;" id="fps">
+		<p id="fps"></p>
+	</div>
 	<div id="msg-layer" hidden>
 		<p id="msg-text"></p>
 	</div>
