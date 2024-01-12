@@ -106,7 +106,7 @@ if (isMacOS) {
     }
 }
 
-var emuKeyState = new Array(14)
+var emuKeyState = new Array(15)
 const emuKeyNames = ["right", "left", "down", "up", "select", "start", "b", "a", "y", "x", "l", "r", "debug", "lid", "mic"]
 var vkMap = {}
 var vkState = {}
