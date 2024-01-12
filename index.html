@@ -268,7 +268,7 @@
 		<p id="msg-text"></p>
 	</div>
 	<div id="menu" hidden>
-		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button> <button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack(); openFullscreen()">Enter Fullscreen</button>
+		<button style="margin-top: 5px; margin-right: 5px;" onclick="uiMenuBack()">❮ Back</button> <button style="margin-top: 5px; margin-right: 5px;" onclick="runFunctions()">Enter Fullscreen</button>
 		<hr />
 		<select id="canvas-fullscreen" class="select">
                   <option value="top">Top Canvas</option>
@@ -319,43 +319,21 @@
 		}
 	</script>
 	<script>
-	function runFunctions() {
-	   uiMenuBack()
-	   setTimeout(openFullscreen, 100);
-	}
-        /* Get the element you want displayed in fullscreen mode (a video in this example): */
-	var value = document.getElementById("canvas-fullscreen").value
+          function runFunctions() {
+            var canvas = document.getElementById("canvas-fullscreen").value;
+            openFullscreen(canvas);
+          }
 
-	if (value === top) {
-		var elem = document.getElementById("top");
-		
-		/* When the openFullscreen() function is executed, open the video in fullscreen.
-                Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
-                function openFullscreen() {
-                  if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                  } else if (elem.webkitRequestFullscreen) { /* Safari */
-                    elem.webkitRequestFullscreen();
-                  } else if (elem.msRequestFullscreen) { /* IE11 */
-                    elem.msRequestFullscreen();
-                  }
-		  openFullscreen();
-                } else {
-	           var elem = document.getElementById("bottom");
-
-                   /* When the openFullscreen() function is executed, open the video in fullscreen.
-                   Note that we must include prefixes for different browsers, as they don't support the requestFullscreen method yet */
-                   function openFullscreen() {
-                     if (elem.requestFullscreen) {
-                       elem.requestFullscreen();
-                     } else if (elem.webkitRequestFullscreen) { /* Safari */
-                       elem.webkitRequestFullscreen();
-                     } else if (elem.msRequestFullscreen) { /* IE11 */
-                       elem.msRequestFullscreen();
-                     }
-                   }
-		openFullscreen();
-	        }
+          function openFullscreen(canvasId) {
+            var elem = document.getElementById(canvasId);
+            if (elem.requestFullscreen) {
+              elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+              elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+              elem.msRequestFullscreen();
+            }
+          }
         </script>	
 	<script>
 		// Menu trigger function
