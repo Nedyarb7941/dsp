@@ -319,7 +319,8 @@ function emuStart() {
     if (!emuIsGameLoaded) {
         return
     }
-    console.log('Start!!!')
+    console.log('Starting emulation!')
+    showMsg('Starting emulation, hang tight!')
     emuIsRunning = true
     uiSwitchTo('player')
 }
@@ -435,7 +436,7 @@ function uiSwitchTo(mode) {
     emuIsRunning = false
 
     if (mode == 'player') {
-        body.style = 'background-color: black;touch-action: none;'
+        body.style = 'touch-action: none;'
         html.style = 'position: fixed;overflow:hidden;touch-action: none;'
         for (var i = 0; i < 14; i++) {
             emuKeyState[i] = false
