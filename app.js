@@ -384,8 +384,8 @@ function uiAdjustVKLayout() {
     vkw = baseSize * 0.4
     vkh = baseSize * 0.4
     fontSize = baseSize * 0.4
-    vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 2.35 - 30 * window.innerHeight / 100, vkw, vkh, fontSize);
-    vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 1.35 + 30 * window.innerHeight / 100, vkw, vkh, fontSize);
+    vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 2.35 - 40 * window.innerHeight / 100, vkw, vkh, fontSize);
+    vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 1.35 + 40 * window.innerHeight / 100, vkw, vkh, fontSize);
 
 }
 
