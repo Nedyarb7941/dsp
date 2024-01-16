@@ -276,9 +276,7 @@
 		<select id="canvas-fullscreen" class="select">
                   <option value="top">Top Canvas</option>
                   <option value="bottom">Bottom Canvas</option>
-		</select><br />
-		<button style="margin-top: 5px; margin-right: 5px;" onclick="setRenderingMode('smooth')">Smooth rendering</button>
-		<button style="margin-top: 5px; margin-right: 5px;" onclick="setRenderingMode('pixelated')">Pixelated rendering</button>		
+		</select>
 		<hr />
                 <input type="checkbox" id="power-save" style="margin-left: 7px;" />
                 <label for="power-save">Power-save</label><br />
@@ -322,22 +320,6 @@
 		function openLink(url) {
 			window.open(url, '_blank');
 		}
-	</script>
-	<script>
-        // Get the canvas element
-        var canvas = document.getElementById('top');
-
-        // Get the context
-        var ctx = canvas.getContext('2d');
-
-        // Function to set the rendering mode
-        function setRenderingMode(mode) {
-          if (mode === 'smooth') {
-            ctx.imageSmoothingEnabled = true;
-          } else if (mode === 'pixelated') {
-            ctx.imageSmoothingEnabled = false;
-          }
-        }
 	</script>
 	<script>
           function runFunctions() {
