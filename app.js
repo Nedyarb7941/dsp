@@ -200,7 +200,7 @@ function emuRunFrame() {
         var time = performance.now()
         fps = 120 / ((time - prevCalcFPSTime) / 1000)
         prevCalcFPSTime = time
-        divFPS.innerText = 'fps:' + ('' + fps).substring(0, 5)
+        divFPS.innerText = 'FPS:' + ('' + fps).substring(0, 5)
     }
     if (frameCount % 30 == 0) {
         checkSaveGame()
@@ -384,8 +384,8 @@ function uiAdjustVKLayout() {
     vkw = baseSize * 0.4
     vkh = baseSize * 0.4
     fontSize = baseSize * 0.4
-    vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 2.35 - 13 * window.innerHeight / 100, vkw, vkh, fontSize);
-    vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 1.35 + 13 * window.innerHeight / 100, vkw, vkh, fontSize);
+    vkMap['select'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 - vkw * 2.35 - 13.25 * window.innerHeight / 100, vkw, vkh, fontSize);
+    vkMap['start'].style = makeVKStyle(offTop + abxyHeight - vkh, window.innerWidth / 2 + vkw * 1.35 + 13.25 * window.innerHeight / 100, vkw, vkh, fontSize);
 
 }
 
