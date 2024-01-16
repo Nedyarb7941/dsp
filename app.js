@@ -789,10 +789,8 @@ function processGamepadInput() {
 
 function whatsNew() {
     alert(`
-1. Improve auto-save, export/import save.
-2. Add gamepad guide.
-3. Add link to gba player.
-4. Cheat support. (Early Access)
+1. Introduced beta fullscreen mode (gamepad needed)
+2. Improved menu and message visuals
 `)
 }
 
