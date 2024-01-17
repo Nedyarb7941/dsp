@@ -30,7 +30,7 @@ function uiSaveConfig() {
     window.localStorage['config'] = JSON.stringify(config)
 }
 
-$id('cfg-opt').onclick = function () {
+$id('cfg-opt').checked = function () {
     if (this.checked) {
         if (safariVer) {
             if (!((safariVer[0] >= 16 && safariVer[1] >= 4) || (safariVer[0] >= 17))) {
