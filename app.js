@@ -510,7 +510,7 @@ function tryInitSound() {
         audioContext.resume()
     } catch (e) {
         console.log(e)
-        //alert('Cannnot init sound ')
+        alert('Error: Unable to initilize sound.')
     }
 }
 
