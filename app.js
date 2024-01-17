@@ -69,6 +69,16 @@ async function uiSaveRestore() {
     })
 }
 
+if (!(window.WebAssembly)) {
+    if (isIOS && isWebApp) {
+        alert(`You have lockdown mode enabled, which disables WebAssembly and prevents the app from running. 
+               Please go back to Safari, click double A button in the address bar, open "Website Settings", and disable "Lockdown Mode" for this website.`)
+    } else {
+        alert(`WebAssembly is not supported or disabled in your browser.
+               Please check the settings of your browser and enable WebAssembly.`)
+    }
+}
+
 
 
 function $id(id) {
