@@ -292,6 +292,8 @@
                   <option value="bottom">Bottom Canvas</option>
 		</select>
 		<hr />
+		<input type="checkbox" id="cfg-opt">
+                <label for="cfg-opt">Experimental optimization</label><br>
                 <input type="checkbox" id="power-save" style="margin-left: 7px;" />
                 <label for="power-save">Power-save</label><br />
                 <input type="checkbox" id="vk-enabled" style="margin-left: 7px;" />
@@ -328,7 +330,17 @@
 	<script src="localforage.js"></script>
 	<script src="pako.min.js"></script>
 	<script src="app.js"></script>
-	<script src="build/nds.js"></script>
+	<script>
+          var jsFile = "build/nds.js";
+          if (localStorage) {
+              if (localStorage['simd'] == "1") {
+                  jsFile = "build-simd/nds.js";
+              }
+          }
+          var script = document.createElement('script');
+          script.src = jsFile;
+          document.body.appendChild(script);
+        </script>
 	<script src="sw-loader.js"></script>
 	<script>
 		function openLink(url) {
