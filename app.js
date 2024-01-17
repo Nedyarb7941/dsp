@@ -358,7 +358,7 @@ function uiAdjustVKLayout() {
     vkMap['l'].style = makeVKStyle(offTop, 0, vkw * 0.775, vkh * 0.775, fontSize * 0.775)
     vkMap['r'].style = makeVKStyle(offTop, window.innerWidth - vkw * 0.775, vkw * 0.775, vkh * 0.775, fontSize * 0.775)
     vkMap['mic'].style = makeVKStyle(window.innerHeight - (vkh * 0.675), window.innerwidth * 0.5, vkw * 0.675, vkh * 0.675, fontSize * 0.675,)
-    $id('vk-menu').style = makeVKStyle(window.innerHeight - vkh, window.innerwidth * 0.5, vkw, vkh, fontSize);
+    $id('vk-menu').style = makeVKStyle(window.innerHeight - vkh, window.innerwidth * 0, vkw, vkh, fontSize);
     $id('vk-menu').style.position = 'fixed';
     $id('vk-menu').style.transform = 'scale(0.675)';
     $id('vk-menu').style.left = '0px';
