@@ -360,7 +360,7 @@ function uiAdjustVKLayout() {
     vkMap['mic'].style = makeVKStyle(window.innerHeight - (vkh * 0.675), window.innerwidth * 0.5, vkw * 0.675, vkh * 0.675, fontSize * 0.675,)
     $id('vk-menu').style = makeVKStyle(window.innerHeight - (vkh * 0.675), window.innerwidth * 0.5, vkw * 0.675, vkh * 0.675, fontSize * 0.675)
     $id('vk-menu').style.left = '0px';
-    $id('vk-menu').style.bottom = 'vkh * 0.675';
+    $id('vk-menu').style.bottom = '10vh';
 
     
     offTop += baseSize * 0.62
