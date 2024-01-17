@@ -18,6 +18,7 @@ function loadConfig() {
     }
     $id('power-save').checked = config.powerSave
     $id('vk-enabled').checked = config.vkEnabled
+    $id('cfg-opt').checked = (localStorage['simd'] == '1')
 }
 loadConfig()
 
@@ -25,6 +26,30 @@ function uiSaveConfig() {
     config.powerSave = !!($id('power-save').checked)
     config.vkEnabled = !!($id('vk-enabled').checked)
     window.localStorage['config'] = JSON.stringify(config)
+}
+
+$id('cfg-opt').onclick = function () {
+    if (this.checked) {
+        if (safariVer) {
+            if (!((safariVer[0] >= 16 && safariVer[1] >= 4) || (safariVer[0] >= 17))) {
+                alert('iOS 16.4+ is required to enable this option.')
+                this.checked = false
+                return
+            }
+        } else if (chromeVer) {
+            if (chromeVer[0] < 92) {
+                alert('Chrome 92+ is required to enable this option.')
+                this.checked = false
+                return
+            }
+        } else {
+            alert("We don't know if your browser is supported. Please try it and disable this option if it doesn't work.")
+        }
+        localStorage['simd'] = '1'
+    } else {
+        localStorage['simd'] = '0'
+    }
+    alert('Please restart the app to apply the change.')
 }
 
 
