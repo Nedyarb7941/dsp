@@ -9,7 +9,7 @@ var config = {
     powerSave: true,
     micWhenR: true,
     vkEnabled: true,
-    cfgOpt: true,
+    cfgOpt: false,
 }
 
 function loadConfig() {
@@ -19,7 +19,7 @@ function loadConfig() {
     }
     $id('power-save').checked = config.powerSave
     $id('vk-enabled').checked = config.vkEnabled
-    $id('cfg-opt').checked = (localStorage['simd'] == '1')
+    $id('cfg-opt').checked = config.cfgOpt
 }
 loadConfig()
 
