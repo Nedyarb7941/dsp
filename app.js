@@ -9,6 +9,7 @@ var config = {
     powerSave: true,
     micWhenR: true,
     vkEnabled: true,
+    cfgOpt: true,
 }
 
 function loadConfig() {
@@ -25,6 +26,7 @@ loadConfig()
 function uiSaveConfig() {
     config.powerSave = !!($id('power-save').checked)
     config.vkEnabled = !!($id('vk-enabled').checked)
+    config.cfgOpt = !!($id('cfg-opt').checked)
     window.localStorage['config'] = JSON.stringify(config)
 }
 
