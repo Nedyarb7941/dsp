@@ -9,7 +9,7 @@ var config = {
     powerSave: true,
     micWhenR: true,
     vkEnabled: true,
-    cfgOpt: false,
+    cfgOpt: true,
 }
 
 function loadConfig() {
@@ -30,7 +30,7 @@ function uiSaveConfig() {
     window.localStorage['config'] = JSON.stringify(config)
 }
 
-uiMenuBack() = function () {
+$id('back-menu').onclick = function () {
     if ($id('cfg-opt').checked) {
         if (safariVer) {
             if (!((safariVer[0] >= 16 && safariVer[1] >= 4) || (safariVer[0] >= 17))) {
